@@ -1,3 +1,5 @@
+import TopBar from "@/components/TopBar";
+
 const OSNOVNA = [
   "Ujutru čim ustaneš popij minimalno čašu vode.",
   "Hranu vagaj sirovu, prije kuhanja i pečenja.",
@@ -20,47 +22,33 @@ const ZAMJENE = [
 
 export default function PravilaPage() {
   return (
-    <main
-      className="mx-auto max-w-md px-4 pb-6"
-      style={{ paddingTop: "calc(env(safe-area-inset-top) + 2.25rem)" }}
-    >
-      <h1
-        className="mb-4 text-2xl font-extrabold"
-        style={{ fontFamily: "var(--font-display)", color: "var(--ink)" }}
-      >
-        Pravila i zamjene
-      </h1>
+    <>
+      <TopBar section="Pravila" />
 
-      <Section title="Osnovna pravila">
-        <ul className="flex flex-col gap-2.5">
+      <main className="mx-auto max-w-md px-4 pb-6 pt-4">
+        <Section title="Osnovna pravila">
           {OSNOVNA.map((t, i) => (
             <Bullet key={i} text={t} />
           ))}
-        </ul>
-      </Section>
+        </Section>
 
-      <Section title="Zamjene">
-        <ul className="flex flex-col gap-2.5">
+        <Section title="Zamjene">
           {ZAMJENE.map((t, i) => (
             <Bullet key={i} text={t} />
           ))}
-        </ul>
-      </Section>
+        </Section>
 
-      <Section title="Od oktobra">
-        <div
-          className="el rounded-xl border p-3 text-sm leading-relaxed"
-          style={{
-            background: "var(--rest-soft)",
-            borderColor: "var(--rest)",
-            color: "var(--ink)",
-          }}
-        >
-          Plivanje 2× sedmično + 1 trening. Raspored se tada mijenja. Trening
-          plan se ubacuje u ovaj raspored čim ga trener pošalje.
-        </div>
-      </Section>
-    </main>
+        <Section title="Od oktobra">
+          <div className="flex gap-3" style={{ background: "var(--panel)", padding: 16 }}>
+            <span className="w-1 shrink-0 self-stretch" style={{ background: "var(--ink)" }} />
+            <p className="text-sm leading-relaxed" style={{ color: "var(--ink)" }}>
+              Plivanje 2× sedmično + 1 trening. Raspored se tada mijenja. Trening
+              plan se ubacuje u ovaj raspored čim ga trener pošalje.
+            </p>
+          </div>
+        </Section>
+      </main>
+    </>
   );
 }
 
@@ -73,26 +61,21 @@ function Section({
 }) {
   return (
     <section className="mb-6">
-      <h2
-        className="mb-2.5 text-sm font-bold uppercase tracking-wide"
-        style={{ fontFamily: "var(--font-display)", color: "var(--ink-2)" }}
-      >
+      <div className="mb-1 text-sm" style={{ color: "var(--ink-2)", letterSpacing: "0.16px" }}>
         {title}
-      </h2>
-      {children}
+      </div>
+      <div style={{ display: "flex", flexDirection: "column", gap: 1, background: "var(--line)" }}>
+        {children}
+      </div>
     </section>
   );
 }
 
 function Bullet({ text }: { text: string }) {
   return (
-    <li
-      className="flex gap-2.5 el rounded-xl border p-3 text-[15px] leading-relaxed"
-      style={{
-        background: "var(--panel)",
-        borderColor: "var(--line)",
-        color: "var(--ink-2)",
-      }}
+    <div
+      className="flex gap-2.5 text-sm leading-relaxed"
+      style={{ background: "var(--panel)", padding: 12, color: "var(--ink-2)" }}
     >
       <span
         className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full"
@@ -100,6 +83,6 @@ function Bullet({ text }: { text: string }) {
         aria-hidden="true"
       />
       <span>{text}</span>
-    </li>
+    </div>
   );
 }

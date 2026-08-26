@@ -231,7 +231,7 @@ function TimerBar({
           return (
             <div
               key={t.id}
-              className="reveal flex items-center gap-3 rounded-xl border px-3 py-2 shadow-lg"
+              className="reveal flex items-center gap-3 rounded-none border px-3 py-2 shadow-lg"
               style={{
                 background: done ? "var(--heat)" : "var(--panel)",
                 borderColor: done ? "var(--heat)" : "var(--line-2)",
@@ -239,7 +239,7 @@ function TimerBar({
               }}
             >
               <span
-                className="flex h-8 min-w-8 items-center justify-center rounded-md px-1.5 text-xs font-bold"
+                className="flex h-8 min-w-8 items-center justify-center rounded-none px-1.5 text-xs font-bold"
                 style={{
                   background: done ? "rgba(255,255,255,0.2)" : "var(--panel-2)",
                   color: done ? "#fff" : "var(--heat)",
@@ -264,7 +264,7 @@ function TimerBar({
               <button
                 onClick={() => dismiss(t.id)}
                 aria-label="Ukloni tajmer"
-                className="tap flex items-center justify-center rounded-md"
+                className="tap flex items-center justify-center rounded-none"
                 style={{ color: done ? "#fff" : "var(--ink-3)" }}
               >
                 <svg

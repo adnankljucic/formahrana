@@ -29,13 +29,13 @@ export default function CycleStrip() {
         return (
           <span
             key={n}
-            className="h-2 flex-1 rounded-[2px]"
+            className="h-2 flex-1 rounded-none"
             style={{
               background: isToday
                 ? "var(--train)"
                 : passed
                   ? "var(--ink)"
-                  : "var(--panel-2)",
+                  : "var(--line)",
             }}
           />
         );

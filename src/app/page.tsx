@@ -10,6 +10,7 @@ import {
   isPlanNotStarted,
   todayDayNumber,
   todayKey,
+  PLAN_DAYS,
 } from "@/lib/dates";
 import {
   readWeights,
@@ -19,8 +20,12 @@ import {
   SLIKE,
   type WeightSummary,
 } from "@/lib/progress";
+import { treningZaDan } from "@/lib/trening";
 import { readJSON, writeJSON, K } from "@/lib/storage";
 import { useSync } from "@/components/SyncProvider";
+import TopBar from "@/components/TopBar";
+import WaterTracker from "@/components/WaterTracker";
+import { todaysNotifications, type Notifikacija } from "@/lib/notifications";
 
 const days = plan as Day[];
 
@@ -35,48 +40,48 @@ export default function Dashboard() {
     start: null,
   });
   const [target, setTarget] = useState(80);
-  const [mealsDone, setMealsDone] = useState(0);
-  const [water, setWater] = useState(0);
-  const [photosDone, setPhotosDone] = useState<Record<string, boolean>>({});
-  const [flags, setFlags] = useState({
-    vaganje: false,
-    slike: false,
-    trening: false,
-  });
+  const [meals, setMeals] = useState<boolean[]>([]);
+  const [exercises, setExercises] = useState<boolean[]>([]);
+  const [weighToday, setWeighToday] = useState<string | null>(null); // datum ako je danas vaganje
+  const [weightInput, setWeightInput] = useState("");
+  const [notifs, setNotifs] = useState<Notifikacija[]>([]);
+  const [alertDismissed, setAlertDismissed] = useState(false);
   const { locked, openUnlock } = useSync();
+
+  function refreshMealsExercises(n: number, d: Day | undefined) {
+    if (!d) return;
+    setMeals(d.obroci.map((_, i) => readJSON<boolean>(K.meal(n, i), false)));
+    const tr = d.trening ? treningZaDan(n) : null;
+    setExercises(
+      tr ? tr.vjezbe.map((_, i) => readJSON<boolean>(K.trening(n, i), false)) : []
+    );
+  }
 
   useEffect(() => {
     const n = dayNumberFor();
     setTodayN(n);
     setFinished(isPlanFinished());
     setNotStarted(isPlanNotStarted());
-    setWeights(readWeights());
     setTarget(readTarget());
+    setNotifs(todaysNotifications());
 
-    // Šta je danas: vaganje / slike / trening (samo ako je danas stvarni dan plana).
     const iso = todayKey();
-    const realN = todayDayNumber();
-    const realDay = realN != null ? days.find((d) => d.n === realN) : undefined;
-    setFlags({
-      vaganje: VAGANJA.some((t) => t.iso === iso),
-      slike: SLIKE.some((t) => t.iso === iso),
-      trening: !!realDay?.trening,
-    });
+    const vaganjeDatum = VAGANJA.find((t) => t.iso === iso)?.datum ?? null;
+    setWeighToday(vaganjeDatum);
+    if (vaganjeDatum) {
+      const w = readJSON<Record<string, string>>(K.weight(), {});
+      setWeightInput(w[vaganjeDatum] ?? "");
+    }
 
     const day = days.find((d) => d.n === n);
-    if (day) {
-      let done = 0;
-      day.obroci.forEach((_, i) => {
-        if (readJSON<boolean>(K.meal(n, i), false)) done++;
-      });
-      setMealsDone(done);
-    }
-    setWater(readJSON<number>(K.water(n), 0));
-    setPhotosDone(readJSON<Record<string, boolean>>(K.photos(), {}));
+    refreshMealsExercises(n, day);
+    setWeights(readWeights());
     setReady(true);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const day = days.find((d) => d.n === todayN) as Day | undefined;
+  const trening = day?.trening ? treningZaDan(todayN) : null;
 
   function saveTarget(val: string) {
     if (locked) {
@@ -89,656 +94,474 @@ export default function Dashboard() {
     writeJSON(K.target(), t);
   }
 
+  function saveWeighIn() {
+    if (locked) {
+      openUnlock();
+      return;
+    }
+    if (!weighToday) return;
+    const v = parseFloat(weightInput.replace(",", "."));
+    if (!Number.isFinite(v)) return;
+    const w = readJSON<Record<string, string>>(K.weight(), {});
+    w[weighToday] = String(v);
+    writeJSON(K.weight(), w);
+    setWeights(readWeights());
+  }
+
+  function toggleMeal(i: number) {
+    if (locked) {
+      openUnlock();
+      return;
+    }
+    const next = !meals[i];
+    const copy = meals.slice();
+    copy[i] = next;
+    setMeals(copy);
+    writeJSON(K.meal(todayN, i), next);
+  }
+
+  function toggleExercise(i: number) {
+    if (locked) {
+      openUnlock();
+      return;
+    }
+    const next = !exercises[i];
+    const copy = exercises.slice();
+    copy[i] = next;
+    setExercises(copy);
+    writeJSON(K.trening(todayN, i), next);
+  }
+
   // Sljedeći termin = prvi nadolazeći koji JOŠ NIJE unesen/odrađen.
+  const [photosDone, setPhotosDoneState] = useState<Record<string, boolean>>({});
+  useEffect(() => {
+    setPhotosDoneState(readJSON<Record<string, boolean>>(K.photos(), {}));
+  }, []);
   const enteredVaga = new Set(weights.history.map((h) => h.termin.iso));
   const nextVaga =
     VAGANJA.find((t) => daysUntil(t.iso) >= 0 && !enteredVaga.has(t.iso)) ?? null;
-  const nextSlikaT =
+  const nextSlika =
     SLIKE.find((t) => daysUntil(t.iso) >= 0 && !photosDone[t.datum]) ?? null;
 
+  const liveAlert = notifs.find((n) => n.kind !== "info");
+  const showAlert = ready && !!liveAlert && !alertDismissed;
+
+  const dayPct = Math.round((todayN / PLAN_DAYS) * 100);
+  const daysLeft = PLAN_DAYS - todayN;
+  const realN = todayDayNumber();
+
   return (
-    <main
-      className="mx-auto max-w-md px-4 pb-6"
-      style={{ paddingTop: "calc(env(safe-area-inset-top) + 2.25rem)" }}
-    >
-      {/* Zaglavlje */}
-      <div className="mb-6 flex items-start justify-between gap-3">
-        <div className="min-w-0">
-          <div
-            className="text-[11px] font-bold uppercase tracking-[0.18em]"
-            style={{ color: "var(--train)" }}
+    <>
+      <TopBar section="Pregled" />
+
+      {showAlert && liveAlert && (
+        <div
+          className="mx-auto flex max-w-md items-start gap-3 px-4 py-3.5"
+          style={{ background: liveAlert.bg }}
+        >
+          <span
+            className="w-[3px] shrink-0 self-stretch"
+            style={{ background: liveAlert.accent }}
+          />
+          <div className="min-w-0 flex-1">
+            <div className="text-sm font-semibold" style={{ color: "var(--ink)" }}>
+              {liveAlert.title}
+            </div>
+            <div
+              className="mt-0.5 text-sm"
+              style={{ color: "var(--ink-2)", textWrap: "pretty" }}
+            >
+              {liveAlert.body}
+            </div>
+            <Link
+              href={liveAlert.href}
+              className="mt-2 inline-block text-sm"
+              style={{ color: "var(--train)" }}
+            >
+              {liveAlert.cta} →
+            </Link>
+          </div>
+          <button
+            type="button"
+            onClick={() => setAlertDismissed(true)}
+            aria-label="Zatvori"
+            className="tap flex items-center justify-center"
+            style={{ color: "var(--ink)" }}
           >
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
+              <path d="M6 6l12 12M18 6L6 18" />
+            </svg>
+          </button>
+        </div>
+      )}
+
+      <main className="mx-auto flex max-w-md flex-col" style={{ gap: 1, background: "var(--line)" }}>
+        {/* Hero dan */}
+        <div style={{ background: "var(--panel)", padding: 16 }}>
+          <div className="text-xs" style={{ color: "var(--ink-2)", letterSpacing: "0.32px" }}>
             Mjesec 1 · 27.08 – 25.09.2026.
           </div>
-          <h1
-            className="mt-1.5 text-[26px] font-bold leading-[1.1] tracking-tight"
-            style={{ fontFamily: "var(--font-display)", color: "var(--ink)" }}
+          <div className="mt-3 flex items-end justify-between gap-4">
+            <div className="flex items-baseline gap-2">
+              <span
+                className="tabnum leading-none"
+                style={{
+                  fontFamily: "var(--font-mono)",
+                  fontWeight: 300,
+                  fontSize: 42,
+                  letterSpacing: "-0.64px",
+                  color: "var(--ink)",
+                }}
+              >
+                {ready ? String(todayN).padStart(2, "0") : "—"}
+              </span>
+              <span
+                className="text-sm"
+                style={{ fontFamily: "var(--font-mono)", color: "var(--ink-3)" }}
+              >
+                / {PLAN_DAYS} dana
+              </span>
+            </div>
+            {day && (
+              <span
+                className="inline-flex h-6 items-center px-3 text-xs"
+                style={{
+                  letterSpacing: "0.32px",
+                  background: day.trening ? "var(--train-badge)" : "var(--rest-soft)",
+                  color: day.trening ? "var(--train-badge-ink)" : "var(--rest)",
+                }}
+              >
+                {day.trening ? "Trening" : "Odmor"}
+              </span>
+            )}
+          </div>
+          <div className="mt-4 h-1" style={{ background: "var(--line)" }}>
+            <div
+              className="h-1"
+              style={{ background: "var(--train)", width: `${ready ? dayPct : 0}%` }}
+            />
+          </div>
+          <div
+            className="mt-2 flex justify-between text-xs"
+            style={{ color: "var(--ink-3)" }}
           >
-            Pregled treninga
-            <br />i ishrane
-          </h1>
+            <span>{day ? `${day.dan}, ${day.datum.slice(0, 6)}` : ""}</span>
+            <span>{finished ? "Plan završen" : `Ostalo ${daysLeft} dana`}</span>
+          </div>
         </div>
-        {ready && <LockChip locked={locked} onClick={openUnlock} />}
-      </div>
 
-      <div className="flex flex-col gap-3.5">
-        {ready && <TodayFlags flags={flags} todayN={todayN} />}
-
-        <WeightCard
-          ready={ready}
-          weights={weights}
-          target={target}
-          onTarget={saveTarget}
-          locked={locked}
-          onLocked={openUnlock}
-        />
-
-        <TodayCard
-          ready={ready}
-          day={day}
-          todayN={todayN}
-          finished={finished}
-          notStarted={notStarted}
-          mealsDone={mealsDone}
-          water={water}
-        />
-
-        <div className="grid grid-cols-2 gap-3">
-          <TerminCard
-            label="Sljedeće vaganje"
-            kratko={nextVaga?.kratko ?? "—"}
-            dana={nextVaga ? daysUntil(nextVaga.iso) : null}
-            href="/napredak"
-          />
-          <TerminCard
-            label="Slike forme"
-            kratko={nextSlikaT?.kratko ?? "—"}
-            dana={nextSlikaT ? daysUntil(nextSlikaT.iso) : null}
-            href="/napredak"
-          />
+        {/* Težina — 3 kolone */}
+        <div className="grid grid-cols-3" style={{ gap: 1 }}>
+          <StatCell label="Trenutno">
+            <span
+              className="tabnum"
+              style={{ fontFamily: "var(--font-mono)", fontWeight: 300, fontSize: 24, color: "var(--ink)" }}
+            >
+              {ready && weights.current != null
+                ? weights.current.toFixed(1).replace(".", ",")
+                : "—"}
+            </span>
+          </StatCell>
+          <StatCell label="Cilj">
+            <input
+              inputMode="decimal"
+              readOnly={locked}
+              value={ready ? String(target).replace(".", ",") : ""}
+              onChange={(e) => saveTarget(e.target.value)}
+              onFocus={() => locked && openUnlock()}
+              aria-label="Ciljana težina"
+              className="tabnum w-full border-0 bg-transparent p-0 outline-none"
+              style={{ fontFamily: "var(--font-mono)", fontWeight: 300, fontSize: 24, color: "var(--ink)" }}
+            />
+          </StatCell>
+          <StatCell label="Razlika">
+            <span
+              className="tabnum"
+              style={{
+                fontFamily: "var(--font-mono)",
+                fontWeight: 300,
+                fontSize: 24,
+                color:
+                  weights.current == null
+                    ? "var(--ink)"
+                    : weights.current - target > 0
+                      ? "var(--flag)"
+                      : "var(--good)",
+              }}
+            >
+              {ready && weights.current != null
+                ? (weights.current - target > 0 ? "+" : "") +
+                  (weights.current - target).toFixed(1).replace(".", ",")
+                : "—"}
+            </span>
+          </StatCell>
         </div>
+
+        {/* Jutarnja težina — samo na dan vaganja */}
+        {ready && weighToday && (
+          <div style={{ background: "var(--panel)", padding: 16 }}>
+            <label
+              htmlFor="kg"
+              className="block text-xs"
+              style={{ color: "var(--ink-2)", letterSpacing: "0.32px" }}
+            >
+              Jutarnja težina (kg)
+            </label>
+            <div className="mt-2 flex">
+              <input
+                id="kg"
+                inputMode="decimal"
+                readOnly={locked}
+                value={weightInput}
+                onChange={(e) => setWeightInput(e.target.value)}
+                onFocus={() => locked && openUnlock()}
+                onKeyDown={(e) => e.key === "Enter" && saveWeighIn()}
+                placeholder="npr. 92,4"
+                className="h-12 min-w-0 flex-1 border-0 border-b px-4 text-sm outline-none"
+                style={{ background: "var(--panel-2)", borderColor: "var(--line-2)", color: "var(--ink)" }}
+              />
+              <button
+                type="button"
+                onClick={saveWeighIn}
+                className="h-12 shrink-0 px-4 text-sm font-medium"
+                style={{ background: "var(--train)", color: "#fff", letterSpacing: "0.16px" }}
+              >
+                Sačuvaj
+              </button>
+            </div>
+            <div className="mt-2 text-xs" style={{ color: "var(--ink-3)" }}>
+              Natašte, poslije WC-a, prije vode i hrane.
+            </div>
+          </div>
+        )}
+
+        {/* Trening */}
+        {day?.trening && trening && (
+          <div style={{ background: "var(--panel)" }}>
+            <div className="flex items-center justify-between px-4 pb-3 pt-4">
+              <div>
+                <div className="text-base" style={{ color: "var(--ink)" }}>Trening</div>
+                <div className="mt-0.5 text-xs" style={{ color: "var(--ink-3)" }}>
+                  {trening.naslov}
+                </div>
+              </div>
+              <span
+                className="tabnum text-xs"
+                style={{ fontFamily: "var(--font-mono)", color: "var(--ink-2)" }}
+              >
+                {ready ? exercises.filter(Boolean).length : 0} / {trening.vjezbe.length}
+              </span>
+            </div>
+            {trening.vjezbe.map((v, i) => {
+              const on = ready && exercises[i];
+              return (
+                <button
+                  key={i}
+                  type="button"
+                  onClick={() => toggleExercise(i)}
+                  className="flex w-full items-center gap-3 border-t px-4 py-3 text-left"
+                  style={{ borderColor: "var(--line)", minHeight: 48 }}
+                >
+                  <RowCheckbox on={!!on} />
+                  <span
+                    className="min-w-0 flex-1 text-sm"
+                    style={{
+                      letterSpacing: "0.16px",
+                      color: on ? "var(--ink-3)" : "var(--ink)",
+                      textDecoration: on ? "line-through" : "none",
+                    }}
+                  >
+                    {v.naziv}
+                  </span>
+                  <span
+                    className="tabnum shrink-0 text-sm"
+                    style={{ fontFamily: "var(--font-mono)", color: "var(--ink-2)" }}
+                  >
+                    {v.serije ? `${v.serije}×${v.ponavljanja ?? ""}` : v.ponavljanja ?? ""}
+                  </span>
+                </button>
+              );
+            })}
+            <div
+              className="flex gap-3 border-t px-4 py-3.5"
+              style={{ borderColor: "var(--line)", background: "var(--train-soft)" }}
+            >
+              <span className="w-1 shrink-0 self-stretch" style={{ background: "var(--train)" }} />
+              <div className="text-sm" style={{ color: "var(--ink)" }}>
+                Odmah poslije treninga: 1 mjerica wheya s vodom + 1 banana.
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* Obroci */}
+        {day && (
+          <div style={{ background: "var(--panel)" }}>
+            <div className="flex items-center justify-between px-4 pb-3 pt-4">
+              <div className="text-base" style={{ color: "var(--ink)" }}>Obroci</div>
+              <span
+                className="tabnum text-xs"
+                style={{ fontFamily: "var(--font-mono)", color: "var(--ink-2)" }}
+              >
+                {ready ? meals.filter(Boolean).length : 0} / {day.obroci.length}
+              </span>
+            </div>
+            {day.obroci.map((m, i) => {
+              const on = ready && meals[i];
+              return (
+                <button
+                  key={i}
+                  type="button"
+                  onClick={() => toggleMeal(i)}
+                  className="flex w-full items-start gap-3 border-t px-4 py-3 text-left"
+                  style={{ borderColor: "var(--line)", minHeight: 48 }}
+                >
+                  <span className="mt-0.5"><RowCheckbox on={!!on} /></span>
+                  <div className="min-w-0 flex-1">
+                    <span
+                      className="text-sm"
+                      style={{
+                        letterSpacing: "0.16px",
+                        color: on ? "var(--ink-3)" : "var(--ink)",
+                        textDecoration: on ? "line-through" : "none",
+                      }}
+                    >
+                      {m.naslov}
+                    </span>
+                    <div
+                      className="mt-0.5 text-sm"
+                      style={{ color: "var(--ink-2)", textWrap: "pretty" }}
+                    >
+                      {m.stavke.join(" · ")}
+                    </div>
+                  </div>
+                </button>
+              );
+            })}
+            <Link
+              href={`/dan/${todayN}`}
+              className="flex items-center justify-between border-t px-4 py-3.5 text-sm"
+              style={{ borderColor: "var(--line)", letterSpacing: "0.16px", color: "var(--ink)" }}
+            >
+              <span>Cijeli dan i gramaže</span>
+              <span>→</span>
+            </Link>
+          </div>
+        )}
+
+        {/* Voda */}
+        {ready && !finished && realN != null && (
+          <div style={{ background: "var(--panel)", padding: 16 }}>
+            <WaterTracker dayN={todayN} />
+          </div>
+        )}
+
+        {/* Sljedeće */}
+        {(nextVaga || nextSlika) && (
+          <div style={{ background: "var(--panel)" }}>
+            <div className="px-4 pb-2 pt-4 text-base" style={{ color: "var(--ink)" }}>
+              Sljedeće
+            </div>
+            {[
+              nextVaga && { t: nextVaga, title: "Vaganje", note: "javi kg treneru" },
+              nextSlika && { t: nextSlika, title: "Slike forme", note: "isto svjetlo, isti ugao" },
+            ]
+              .filter((x): x is { t: (typeof VAGANJA)[number]; title: string; note: string } => !!x)
+              .map((x, i) => {
+                const dana = daysUntil(x.t.iso);
+                const meta = dana === 0 ? "Danas" : dana === 1 ? "Sutra" : `Za ${dana} dana`;
+                return (
+                  <Link
+                    key={i}
+                    href="/napredak"
+                    className="flex items-center gap-4 border-t px-4 py-3.5"
+                    style={{ borderColor: "var(--line)" }}
+                  >
+                    <span
+                      className="tabnum shrink-0 text-sm"
+                      style={{ fontFamily: "var(--font-mono)", color: "var(--train)", minWidth: 56 }}
+                    >
+                      {x.t.kratko}
+                    </span>
+                    <div className="flex-1">
+                      <div className="text-sm" style={{ letterSpacing: "0.16px", color: "var(--ink)" }}>
+                        {x.title}
+                      </div>
+                      <div className="mt-0.5 text-xs" style={{ color: "var(--ink-3)" }}>
+                        {meta} · {x.note}
+                      </div>
+                    </div>
+                    <span style={{ color: "var(--ink-2)" }}>→</span>
+                  </Link>
+                );
+              })}
+          </div>
+        )}
 
         {finished && <MonthTwoNote />}
 
-        {/* Brze akcije */}
-        <div className="grid grid-cols-3 gap-2">
-          <QuickAction href={`/dan/${todayN}`} label="Danas">
-            <PathHome />
-          </QuickAction>
-          <QuickAction href="/napredak" label="Težina">
-            <PathScale />
-          </QuickAction>
-          <QuickAction href="/friteza" label="Friteza">
-            <PathFlame />
-          </QuickAction>
-        </div>
-      </div>
-    </main>
-  );
-}
-
-function LockChip({
-  locked,
-  onClick,
-}: {
-  locked: boolean;
-  onClick: () => void;
-}) {
-  if (!locked) {
-    return (
-      <span
-        className="inline-flex shrink-0 items-center gap-1.5 rounded-full px-3 py-1.5 text-[11px] font-bold"
-        style={{ background: "var(--train-soft)", color: "var(--train)" }}
-      >
-        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round">
-          <path d="M4 12l5 5L20 6" />
-        </svg>
-        Izmjene
-      </span>
-    );
-  }
-  return (
-    <button
-      type="button"
-      onClick={onClick}
-      className="tap inline-flex shrink-0 items-center gap-1.5 rounded-full border px-3 py-1.5 text-[11px] font-bold"
-      style={{ borderColor: "var(--line-2)", color: "var(--ink-2)" }}
-    >
-      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
-        <rect x="4" y="10" width="16" height="11" rx="2.5" />
-        <path d="M8 10V7a4 4 0 018 0v3" />
-      </svg>
-      Otključaj
-    </button>
-  );
-}
-
-/* ---------- Danas naglasak ---------- */
-
-function TodayFlags({
-  flags,
-  todayN,
-}: {
-  flags: { vaganje: boolean; slike: boolean; trening: boolean };
-  todayN: number;
-}) {
-  const items: { label: string; icon: React.ReactNode }[] = [];
-  if (flags.trening)
-    items.push({ label: "Danas TRENING", icon: <FlagDumbbell /> });
-  if (flags.vaganje)
-    items.push({ label: "Danas VAGANJE", icon: <FlagScale /> });
-  if (flags.slike)
-    items.push({ label: "Danas SLIKANJE", icon: <FlagCamera /> });
-
-  if (items.length === 0) return null;
-
-  return (
-    <section
-      className="overflow-hidden rounded-xl"
-      style={{ background: "var(--train)" }}
-    >
-      <div className="flex flex-col gap-2 p-4">
-        <div className="flex flex-wrap gap-x-4 gap-y-2">
-          {items.map((it) => (
-            <div key={it.label} className="flex items-center gap-2" style={{ color: "#fff" }}>
-              {it.icon}
-              <span
-                className="text-base font-bold uppercase tracking-wide"
-                style={{ fontFamily: "var(--font-display)" }}
-              >
-                {it.label}
-              </span>
-            </div>
-          ))}
-        </div>
-
-        {flags.trening && (
-          <div
-            className="mt-1 flex items-center justify-between rounded-xl px-3 py-2"
-            style={{ background: "rgba(255,255,255,0.15)", color: "#fff" }}
-          >
-            <span className="text-xs font-semibold opacity-90">
-              Trening plan za danas — stiže od trenera
-            </span>
-            <span className="text-[10px] font-bold uppercase tracking-wide opacity-70">
-              Uskoro
-            </span>
-          </div>
-        )}
-
-        <Link
-          href={`/dan/${todayN}`}
-          className="mt-1 inline-flex w-fit items-center gap-1 text-sm font-bold"
-          style={{ color: "#fff" }}
-        >
-          Otvori današnji dan →
-        </Link>
-      </div>
-    </section>
-  );
-}
-
-function FlagDumbbell() {
-  return (
-    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M6.5 6.5v11M3.5 9v6M17.5 6.5v11M20.5 9v6M6.5 12h11" />
-    </svg>
-  );
-}
-function FlagScale() {
-  return (
-    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M12 3v18M5 7h14" />
-      <path d="M5 7l-2.5 6a3 3 0 005 0L5 7zM19 7l-2.5 6a3 3 0 005 0L19 7z" />
-      <path d="M8 21h8" />
-    </svg>
-  );
-}
-function FlagCamera() {
-  return (
-    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M3 8h3l1.5-2h9L18 8h3v12H3z" />
-      <circle cx="12" cy="13" r="3.5" />
-    </svg>
-  );
-}
-
-/* ---------- Weight ---------- */
-
-function WeightCard({
-  ready,
-  weights,
-  target,
-  onTarget,
-  locked,
-  onLocked,
-}: {
-  ready: boolean;
-  weights: WeightSummary;
-  target: number;
-  onTarget: (v: string) => void;
-  locked: boolean;
-  onLocked: () => void;
-}) {
-  const { current, start, history } = weights;
-  const toGo = current != null ? current - target : null;
-  const reached = toGo != null && toGo <= 0;
-
-  // Napredak od početka prema cilju (0..1).
-  let frac = 0;
-  if (current != null && start != null && start !== target) {
-    frac = (start - current) / (start - target);
-    frac = Math.max(0, Math.min(1, frac));
-  } else if (reached) {
-    frac = 1;
-  }
-
-  return (
-    <section
-      className="el overflow-hidden rounded-xl border"
-      style={{ background: "var(--panel)", borderColor: "var(--line)" }}
-    >
-      <div
-        className="h-1 w-full"
-        style={{ background: "var(--train)" }}
-        aria-hidden="true"
-      />
-      <div className="p-4">
-        <div className="flex items-start justify-between">
-          <div>
-            <div
-              className="text-[11px] font-bold uppercase tracking-[0.14em]"
-              style={{ color: "var(--ink-3)" }}
-            >
-              Trenutna težina
-            </div>
-            <div className="mt-1 flex items-baseline gap-1">
-              <span
-                className="tabnum text-[40px] font-bold leading-none"
-                style={{ fontFamily: "var(--font-display)", color: "var(--ink)" }}
-              >
-                {ready && current != null
-                  ? current.toFixed(1).replace(".", ",")
-                  : "—"}
-              </span>
-              <span
-                className="text-lg font-semibold"
-                style={{ color: "var(--ink-3)" }}
-              >
-                kg
-              </span>
-            </div>
-          </div>
-
-          {/* Cilj — uredivo */}
-          <div className="text-right">
-            <div
-              className="text-[11px] font-bold uppercase tracking-[0.14em]"
-              style={{ color: "var(--ink-3)" }}
-            >
-              Cilj
-            </div>
-            <div className="mt-1 flex items-center justify-end gap-1">
-              <input
-                inputMode="decimal"
-                readOnly={locked}
-                value={ready ? String(target).replace(".", ",") : ""}
-                onChange={(e) => onTarget(e.target.value)}
-                onFocus={() => locked && onLocked()}
-                aria-label="Ciljana težina"
-                className="tabnum w-16 rounded-lg border px-2 py-1 text-right text-xl font-bold outline-none"
-                style={{
-                  fontFamily: "var(--font-display)",
-                  background: "var(--panel-2)",
-                  borderColor: "var(--line-2)",
-                  color: "var(--train)",
-                }}
-              />
-              <span
-                className="text-sm font-semibold"
-                style={{ color: "var(--ink-3)" }}
-              >
-                kg
-              </span>
-            </div>
-          </div>
-        </div>
-
-        {/* Traka napretka */}
-        <div className="mt-4">
-          <div
-            className="h-2.5 w-full overflow-hidden rounded-full"
-            style={{ background: "var(--panel-2)" }}
-          >
-            <div
-              className="h-full rounded-full transition-all"
-              style={{ width: `${frac * 100}%`, background: "var(--train)" }}
-            />
-          </div>
-          <div className="mt-2 flex items-center justify-between text-sm">
-            <span style={{ color: "var(--ink-3)" }}>
-              {ready && start != null ? (
-                <>
-                  Start{" "}
-                  <span
-                    className="tabnum font-semibold"
-                    style={{ fontFamily: "var(--font-mono)", color: "var(--ink-2)" }}
-                  >
-                    {start.toFixed(1).replace(".", ",")} kg
-                  </span>
-                </>
-              ) : (
-                "Bez podataka"
-              )}
-            </span>
-            <span
-              className="font-bold"
-              style={{ color: reached ? "var(--train)" : "var(--ink)" }}
-            >
-              {ready && current != null
-                ? reached
-                  ? "Cilj postignut 🎯"
-                  : `još ${Math.abs(toGo as number)
-                      .toFixed(1)
-                      .replace(".", ",")} kg`
-                : ""}
-            </span>
-          </div>
-        </div>
-
-        <Sparkline history={history} target={target} ready={ready} />
-
-        {ready && current == null && (
-          <Link
-            href="/napredak"
-            className="mt-3 flex items-center justify-center rounded-xl py-2.5 text-sm font-bold"
-            style={{ background: "var(--train)", color: "#fff" }}
-          >
-            Unesi prvo vaganje →
-          </Link>
-        )}
-      </div>
-    </section>
-  );
-}
-
-function Sparkline({
-  history,
-  target,
-  ready,
-}: {
-  history: { value: number }[];
-  target: number;
-  ready: boolean;
-}) {
-  if (!ready || history.length < 2) return null;
-
-  const W = 300;
-  const H = 44;
-  const pad = 4;
-  const vals = history.map((h) => h.value).concat(target);
-  let min = Math.min(...vals);
-  let max = Math.max(...vals);
-  if (min === max) {
-    min -= 1;
-    max += 1;
-  }
-  const span = max - min;
-  const x = (i: number) => pad + (i * (W - 2 * pad)) / (history.length - 1);
-  const y = (v: number) => pad + (1 - (v - min) / span) * (H - 2 * pad);
-  const line = history
-    .map((h, i) => `${i === 0 ? "M" : "L"} ${x(i).toFixed(1)} ${y(h.value).toFixed(1)}`)
-    .join(" ");
-  const targetY = y(target);
-
-  return (
-    <svg
-      viewBox={`0 0 ${W} ${H}`}
-      width="100%"
-      className="mt-3"
-      role="img"
-      aria-label="Kretanje težine"
-      style={{ display: "block" }}
-    >
-      {/* ciljna linija */}
-      <line
-        x1={pad}
-        y1={targetY}
-        x2={W - pad}
-        y2={targetY}
-        stroke="var(--line-2)"
-        strokeWidth="1"
-        strokeDasharray="3 3"
-      />
-      <path
-        d={line}
-        fill="none"
-        stroke="var(--train)"
-        strokeWidth="2.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-      {history.map((h, i) => (
-        <circle key={i} cx={x(i)} cy={y(h.value)} r="3" fill="var(--train)" />
-      ))}
-    </svg>
-  );
-}
-
-/* ---------- Today ---------- */
-
-function TodayCard({
-  ready,
-  day,
-  todayN,
-  finished,
-  notStarted,
-  mealsDone,
-  water,
-}: {
-  ready: boolean;
-  day: Day | undefined;
-  todayN: number;
-  finished: boolean;
-  notStarted: boolean;
-  mealsDone: number;
-  water: number;
-}) {
-  if (!day) return null;
-  const totalMeals = day.obroci.length;
-  const waterL = (water * 0.25).toFixed(2).replace(".", ",");
-
-  return (
-    <Link
-      href={`/dan/${todayN}`}
-      className="el block rounded-xl border p-4"
-      style={{ background: "var(--panel)", borderColor: "var(--line)" }}
-    >
-      <div className="flex items-center justify-between">
+        {/* Podnožje */}
         <div
-          className="text-[11px] font-bold uppercase tracking-[0.14em]"
-          style={{ color: "var(--ink-3)" }}
+          className="flex items-start gap-3"
+          style={{ background: "var(--panel)", padding: 16 }}
         >
-          {notStarted ? "Plan kreće" : "Danas"}
+          <span className="w-1 shrink-0 self-stretch" style={{ background: "var(--ink)" }} />
+          <div>
+            <div className="text-sm" style={{ letterSpacing: "0.16px", color: "var(--ink)" }}>
+              Sve gramaže su sirovo — izmjereno prije pripreme.
+            </div>
+            <Link href="/pravila" className="mt-2 inline-block text-sm" style={{ color: "var(--train)" }}>
+              Sva pravila i zamjene →
+            </Link>
+          </div>
         </div>
-        <span
-          className="inline-flex items-center rounded-full px-2.5 py-0.5 text-[11px] font-bold uppercase tracking-wide"
-          style={{
-            background: day.trening ? "var(--train-soft)" : "var(--rest-soft)",
-            color: day.trening ? "var(--train)" : "var(--rest)",
-          }}
-        >
-          {day.trening ? "Trening" : "Odmor"}
-        </span>
-      </div>
-
-      <div className="mt-1 flex items-baseline gap-2">
-        <span
-          className="text-2xl font-bold leading-none"
-          style={{ fontFamily: "var(--font-display)", color: "var(--ink)" }}
-        >
-          Dan {day.n}
-        </span>
-        <span
-          className="tabnum text-sm font-semibold"
-          style={{ fontFamily: "var(--font-mono)", color: "var(--ink-3)" }}
-        >
-          {day.dan}, {day.datum.slice(0, 6)}
-        </span>
-      </div>
-
-      {finished ? (
-        <p className="mt-2 text-sm font-semibold" style={{ color: "var(--train)" }}>
-          Plan je završen — javi treneru za novi.
-        </p>
-      ) : (
-        <div className="mt-3 flex items-center gap-4">
-          <Stat label="Obroci" value={ready ? `${mealsDone}/${totalMeals}` : "—"} />
-          <Stat label="Voda" value={ready ? `${waterL} L` : "—"} />
-          {day.napomene.length > 0 && (
-            <span
-              className="ml-auto inline-flex items-center rounded-md px-2 py-0.5 text-[11px] font-bold uppercase"
-              style={{ background: "var(--flag-soft)", color: "var(--flag)" }}
-            >
-              Napomena
-            </span>
-          )}
-        </div>
-      )}
-    </Link>
+      </main>
+    </>
   );
 }
 
-function Stat({ label, value }: { label: string; value: string }) {
+function StatCell({ label, children }: { label: string; children: React.ReactNode }) {
   return (
-    <div>
-      <div
-        className="text-[10px] font-bold uppercase tracking-wide"
-        style={{ color: "var(--ink-3)" }}
-      >
+    <div style={{ background: "var(--panel)", padding: "16px 12px" }}>
+      <div className="text-xs" style={{ color: "var(--ink-2)", letterSpacing: "0.32px" }}>
         {label}
       </div>
-      <div
-        className="tabnum text-base font-bold"
-        style={{ fontFamily: "var(--font-mono)", color: "var(--ink)" }}
-      >
-        {value}
-      </div>
+      <div className="mt-1">{children}</div>
     </div>
   );
 }
 
-/* ---------- Termini ---------- */
-
-function TerminCard({
-  label,
-  kratko,
-  dana,
-  href,
-}: {
-  label: string;
-  kratko: string;
-  dana: number | null;
-  href: string;
-}) {
-  let sub = "završeno";
-  if (dana != null) {
-    if (dana === 0) sub = "danas";
-    else if (dana > 0) sub = `za ${dana} ${dana === 1 ? "dan" : "dana"}`;
-  }
+function RowCheckbox({ on }: { on: boolean }) {
   return (
-    <Link
-      href={href}
-      className="el rounded-xl border p-3.5"
-      style={{ background: "var(--panel)", borderColor: "var(--line)" }}
+    <span
+      className="flex shrink-0 items-center justify-center border"
+      style={{
+        width: 16,
+        height: 16,
+        borderColor: "var(--ink)",
+        background: on ? "var(--train)" : "transparent",
+        color: "#fff",
+      }}
     >
-      <div
-        className="text-[10px] font-bold uppercase tracking-wide"
-        style={{ color: "var(--ink-3)" }}
-      >
-        {label}
-      </div>
-      <div
-        className="tabnum mt-1 text-xl font-bold leading-none"
-        style={{ fontFamily: "var(--font-display)", color: "var(--ink)" }}
-      >
-        {kratko}
-      </div>
-      <div className="mt-1 text-xs font-semibold" style={{ color: "var(--train)" }}>
-        {sub}
-      </div>
-    </Link>
+      {on && (
+        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M4 12l5 5L20 6" />
+        </svg>
+      )}
+    </span>
   );
 }
-
-/* ---------- Month 2 ---------- */
 
 function MonthTwoNote() {
   return (
-    <section
-      className="rounded-xl border p-4"
-      style={{ background: "var(--flag-soft)", borderColor: "var(--flag-soft)" }}
-    >
-      <div
-        className="text-[11px] font-bold uppercase tracking-[0.14em]"
-        style={{ color: "var(--flag)", opacity: 0.7 }}
-      >
+    <div style={{ background: "var(--panel)", padding: 16 }}>
+      <div className="text-xs" style={{ color: "var(--ink-2)", letterSpacing: "0.32px" }}>
         Mjesec 2
       </div>
-      <p className="mt-1 text-sm font-semibold" style={{ color: "var(--flag)" }}>
+      <p className="mt-1 text-sm" style={{ color: "var(--ink)" }}>
         Mjesec 1 je završen. Novi plan se ubacuje čim ga trener pošalje —
         prethodni mjesec ide u arhivu profila.
       </p>
-    </section>
-  );
-}
-
-/* ---------- Quick actions ---------- */
-
-function QuickAction({
-  href,
-  label,
-  children,
-}: {
-  href: string;
-  label: string;
-  children: React.ReactNode;
-}) {
-  return (
-    <Link
-      href={href}
-      className="el flex flex-col items-center justify-center gap-1.5 rounded-xl border py-3"
-      style={{ background: "var(--panel)", borderColor: "var(--line)" }}
-    >
-      <span style={{ color: "var(--ink)" }}>{children}</span>
-      <span className="text-xs font-semibold" style={{ color: "var(--ink-2)" }}>
-        {label}
-      </span>
-    </Link>
-  );
-}
-
-function PathHome() {
-  return (
-    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M3 10.5L12 3l9 7.5" />
-      <path d="M5 9.5V20h14V9.5" />
-    </svg>
-  );
-}
-function PathScale() {
-  return (
-    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M12 3v18M5 7h14" />
-      <path d="M5 7l-2.5 6a3 3 0 005 0L5 7zM19 7l-2.5 6a3 3 0 005 0L19 7z" />
-      <path d="M8 21h8" />
-    </svg>
-  );
-}
-function PathFlame() {
-  return (
-    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M12 3c1 3-1 4-2 6-1 2 0 4 2 4 1 0 2-1 2-3 2 2 3 4 3 6a5 5 0 01-10 0c0-3 2-5 3-7" />
-    </svg>
+    </div>
   );
 }

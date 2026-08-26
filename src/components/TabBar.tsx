@@ -97,12 +97,16 @@ export default function TabBar() {
               href={it.href}
               aria-current={active ? "page" : undefined}
               className="flex flex-1 flex-col items-center justify-center gap-0.5 px-0.5"
-              style={{ height: 56 }}
+              style={{
+                height: 56,
+                borderTop: `3px solid ${active ? "var(--train)" : "transparent"}`,
+                background: active ? "var(--panel-2)" : "transparent",
+              }}
             >
               {it.icon(active)}
               <span
-                className="whitespace-nowrap text-[9px] font-semibold"
-                style={{ color: active ? "var(--train)" : "var(--ink-3)" }}
+                className="whitespace-nowrap text-[10px]"
+                style={{ letterSpacing: "0.16px", color: active ? "var(--ink)" : "var(--ink-3)" }}
               >
                 {it.label}
               </span>

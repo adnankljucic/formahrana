@@ -27,74 +27,60 @@ export default async function TreningPage({
 
   return (
     <>
-      <header
-        className="sticky top-0 z-30 border-b px-4 pb-3"
-        style={{
-          background: "var(--bg)",
-          borderColor: "var(--line)",
-          paddingTop: "calc(env(safe-area-inset-top) + 1.25rem)",
-        }}
-      >
-        <div className="mx-auto flex max-w-md items-center gap-2">
+      <div className="sticky top-0 z-30" style={{ background: "var(--bg)" }}>
+        <header
+          className="mx-auto flex max-w-md items-center gap-2 border-b px-2"
+          style={{
+            height: 48,
+            background: "var(--panel)",
+            borderColor: "var(--line)",
+            paddingTop: "env(safe-area-inset-top)",
+          }}
+        >
           <Link
             href={`/dan/${d.n}`}
             aria-label="Nazad na dan"
-            className="tap flex items-center justify-center rounded-lg border"
-            style={{ borderColor: "var(--line)", color: "var(--ink)" }}
+            className="tap flex shrink-0 items-center justify-center"
+            style={{ color: "var(--ink)" }}
           >
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
               <path d="M15 18l-6-6 6-6" />
             </svg>
           </Link>
-          <div className="min-w-0 flex-1 text-center">
-            <div
-              className="truncate text-lg font-extrabold leading-tight"
-              style={{ fontFamily: "var(--font-display)", color: "var(--ink)" }}
-            >
+          <div className="min-w-0 flex-1 text-center text-sm" style={{ letterSpacing: "0.16px" }}>
+            <span className="font-semibold" style={{ color: "var(--ink)" }}>
               Trening · Dan {d.n}
-            </div>
-            <div
-              className="tabnum text-xs font-semibold"
-              style={{ fontFamily: "var(--font-mono)", color: "var(--ink-3)" }}
-            >
-              {day.dan}, {d.datum.slice(0, 6)}
-            </div>
+            </span>
+            <span style={{ color: "var(--ink-2)" }}>
+              {" "}
+              · {day.dan}, {d.datum.slice(0, 6)}
+            </span>
           </div>
-          <span className="tap" aria-hidden="true" />
-        </div>
-      </header>
+          <span className="tap shrink-0" aria-hidden="true" />
+        </header>
+      </div>
 
-      <main className="mx-auto max-w-md px-4 pb-6 pt-4">
+      <main className="mx-auto flex max-w-md flex-col" style={{ gap: 1, background: "var(--line)" }}>
         {trening ? (
-          <div className="flex flex-col gap-3">
-            <div
-              className="overflow-hidden rounded-xl"
-              style={{ background: "var(--train)" }}
-            >
-              <div className="p-4" style={{ color: "#fff" }}>
-                <div className="text-[11px] font-bold uppercase tracking-[0.14em] opacity-80">
-                  Fokus
-                </div>
-                <h1
-                  className="mt-1 text-2xl font-bold leading-tight"
-                  style={{ fontFamily: "var(--font-display)" }}
-                >
-                  {trening.naslov}
-                </h1>
-                {trening.fokus && (
-                  <p className="mt-1 text-sm font-semibold opacity-90">
-                    {trening.fokus}
-                  </p>
-                )}
+          <>
+            <div style={{ background: "var(--train)", color: "#fff", padding: 16 }}>
+              <div className="text-xs opacity-80" style={{ letterSpacing: "0.32px" }}>
+                Fokus
               </div>
+              <h1 className="mt-1 text-xl leading-tight">{trening.naslov}</h1>
+              {trening.fokus && (
+                <p className="mt-1 text-sm opacity-90">{trening.fokus}</p>
+              )}
             </div>
 
             <TreningChecklist dayN={d.n} plan={trening} />
 
             <TreningNapomene napomene={opceNapomeneTreninga()} />
-          </div>
+          </>
         ) : (
-          <EmptyTrening />
+          <div style={{ background: "var(--panel)" }}>
+            <EmptyTrening />
+          </div>
         )}
       </main>
     </>
@@ -103,10 +89,7 @@ export default async function TreningPage({
 
 function EmptyTrening() {
   return (
-    <div
-      className="flex flex-col items-center gap-3 el rounded-xl border p-8 text-center"
-      style={{ background: "var(--panel)", borderColor: "var(--line)" }}
-    >
+    <div className="flex flex-col items-center gap-3 p-8 text-center">
       <span
         className="flex h-14 w-14 items-center justify-center rounded-full"
         style={{ background: "var(--train-soft)", color: "var(--train)" }}
@@ -115,10 +98,7 @@ function EmptyTrening() {
           <path d="M6.5 6.5v11M3.5 9v6M17.5 6.5v11M20.5 9v6M6.5 12h11" />
         </svg>
       </span>
-      <div
-        className="text-lg font-bold"
-        style={{ fontFamily: "var(--font-display)", color: "var(--ink)" }}
-      >
+      <div className="text-base" style={{ color: "var(--ink)" }}>
         Trening plan stiže
       </div>
       <p className="text-sm leading-relaxed" style={{ color: "var(--ink-2)" }}>

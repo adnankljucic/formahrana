@@ -31,83 +31,75 @@ export default async function DanPage({
     <>
       <DayHeader n={d.n} dan={d.dan} datum={d.datum} trening={d.trening} />
 
-      <main className="mx-auto max-w-md px-4 pb-6 pt-4">
-        <div className="flex flex-col gap-3.5">
-          {d.n === 30 && <FinishedBanner />}
+      <main className="mx-auto flex max-w-md flex-col" style={{ gap: 1, background: "var(--line)" }}>
+        {d.n === 30 && <FinishedBanner />}
 
-          {/* Gramaže su sirovo — vidljivo, ne fusnota. */}
-          <div
-            className="flex items-center gap-2 el rounded-xl border px-3 py-2 text-sm font-bold"
-            style={{
-              background: "var(--panel-2)",
-              borderColor: "var(--line-2)",
-              color: "var(--ink)",
-            }}
-          >
-            <ScaleIcon />
+        {/* Gramaže su sirovo — vidljivo, ne fusnota. */}
+        <div
+          className="flex items-center gap-2"
+          style={{ background: "var(--panel)", padding: "12px 16px" }}
+        >
+          <ScaleIcon />
+          <span className="text-sm" style={{ letterSpacing: "0.16px", color: "var(--ink)" }}>
             Sve gramaže su sirovo — izmjereno prije pripreme.
-          </div>
+          </span>
+        </div>
 
-          {/* Traka napomene — vaganje, slike forme. Ne smije se propustiti. */}
-          {d.napomene.length > 0 && (
-            <div
-              className="flex flex-col gap-2 el rounded-xl border p-3"
-              style={{
-                background: "var(--flag-soft)",
-                borderColor: "var(--flag)",
-              }}
-            >
-              {d.napomene.map((nap, i) => (
-                <p
-                  key={i}
-                  className="flex gap-2 text-sm font-semibold leading-snug"
-                  style={{ color: "var(--flag)" }}
-                >
-                  <BellIcon />
-                  <span>{nap}</span>
-                </p>
-              ))}
-            </div>
-          )}
-
-          {/* Trening — otvara zaseban ekran s vježbama i čekiranjem. */}
-          {d.trening && (
-            <Link
-              href={`/dan/${d.n}/trening`}
-              className="el flex items-center gap-3 rounded-xl p-4"
-              style={{ background: "var(--train)", color: "#fff" }}
-            >
-              <span
-                className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl"
-                style={{ background: "rgba(255,255,255,0.16)" }}
+        {/* Traka napomene — vaganje, slike forme. Ne smije se propustiti. */}
+        {d.napomene.length > 0 && (
+          <div
+            className="flex flex-col gap-2"
+            style={{ background: "var(--flag-soft)", padding: 16 }}
+          >
+            {d.napomene.map((nap, i) => (
+              <p
+                key={i}
+                className="flex gap-2 text-sm"
+                style={{ letterSpacing: "0.16px", color: "var(--ink)" }}
               >
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M6.5 6.5v11M3.5 9v6M17.5 6.5v11M20.5 9v6M6.5 12h11" />
-                </svg>
-              </span>
-              <div className="min-w-0 flex-1">
-                <div
-                  className="text-base font-bold leading-tight"
-                  style={{ fontFamily: "var(--font-display)" }}
-                >
-                  {trening ? trening.naslov : "Trening"}
-                </div>
-                <div className="text-sm font-semibold opacity-90">
-                  {trening
-                    ? `${trening.vjezbe.length} vježbi · otvori i čekiraj`
-                    : "Plan stiže od trenera"}
-                </div>
-              </div>
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M9 18l6-6-6-6" />
+                <BellIcon />
+                <span>{nap}</span>
+              </p>
+            ))}
+          </div>
+        )}
+
+        {/* Trening — otvara zaseban ekran s vježbama i čekiranjem. */}
+        {d.trening && (
+          <Link
+            href={`/dan/${d.n}/trening`}
+            className="flex items-center gap-3"
+            style={{ background: "var(--train)", color: "#fff", padding: 16 }}
+          >
+            <span
+              className="flex h-11 w-11 shrink-0 items-center justify-center"
+              style={{ background: "rgba(255,255,255,0.16)" }}
+            >
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M6.5 6.5v11M3.5 9v6M17.5 6.5v11M20.5 9v6M6.5 12h11" />
               </svg>
-            </Link>
-          )}
+            </span>
+            <div className="min-w-0 flex-1">
+              <div className="text-base font-medium leading-tight">
+                {trening ? trening.naslov : "Trening"}
+              </div>
+              <div className="text-sm opacity-90">
+                {trening
+                  ? `${trening.vjezbe.length} vježbi · otvori i čekiraj`
+                  : "Plan stiže od trenera"}
+              </div>
+            </div>
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M9 18l6-6-6-6" />
+            </svg>
+          </Link>
+        )}
 
-          {d.obroci.map((meal, i) => (
-            <MealCard key={i} meal={meal} dayN={d.n} mealIdx={i} />
-          ))}
+        {d.obroci.map((meal, i) => (
+          <MealCard key={i} meal={meal} dayN={d.n} mealIdx={i} />
+        ))}
 
+        <div style={{ background: "var(--panel)", padding: 16 }}>
           <WaterTracker dayN={d.n} />
         </div>
       </main>
@@ -128,6 +120,7 @@ function ScaleIcon() {
       strokeLinejoin="round"
       className="shrink-0"
       aria-hidden="true"
+      style={{ color: "var(--ink-2)" }}
     >
       <path d="M12 3v18M5 7h14" />
       <path d="M5 7l-2.5 6a3 3 0 005 0L5 7zM19 7l-2.5 6a3 3 0 005 0L19 7z" />

@@ -38,27 +38,29 @@ export default function Checkbox({
       aria-checked={checked}
       aria-label={label}
       onClick={toggle}
-      className="tap flex items-center justify-center rounded-lg"
+      className="tap flex items-center justify-center rounded-none"
       style={{
         // Prije hidracije prikaži nečekiran izgled da nema skoka.
         opacity: ready ? 1 : 0.9,
       }}
     >
       <span
-        className="flex h-7 w-7 items-center justify-center rounded-md border-2 transition-colors"
+        className="flex items-center justify-center border transition-colors"
         style={{
-          borderColor: checked ? "var(--train)" : "var(--line-2)",
+          width: 18,
+          height: 18,
+          borderColor: checked ? "var(--train)" : "var(--ink)",
           background: checked ? "var(--train)" : "transparent",
         }}
       >
         {checked && (
           <svg
-            width="18"
-            height="18"
+            width="12"
+            height="12"
             viewBox="0 0 24 24"
             fill="none"
             stroke="#fff"
-            strokeWidth="3"
+            strokeWidth="3.5"
             strokeLinecap="round"
             strokeLinejoin="round"
           >

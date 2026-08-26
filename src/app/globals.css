@@ -1,47 +1,68 @@
 @import "tailwindcss";
 
-/* Porsche-inspired: monohromatska baza + Porsche crvena kao jedini akcent. */
+/* IBM Carbon Design System — pravi uglovi, hairline razdjelnici, plavi akcent. */
 :root {
-  --bg: #f2f2f3;
+  --bg: #f4f4f4;
   --panel: #ffffff;
-  --panel-2: #eaeaec;
-  --ink: #0b0c0e;
-  --ink-2: #535358;
-  --ink-3: #8f9094;
-  --line: #e2e3e5;
-  --line-2: #cccdd0;
-  /* Akcent = Porsche crvena. Trening/friteza/tajmer/CTA koriste je. */
-  --train: #d5001c;
-  --train-soft: #fbe5e8;
-  --rest: #535358;
-  --rest-soft: #eaeaec;
-  /* Napomene = inverzna (crna) traka, nemoguće promašiti. */
-  --flag: #ffffff;
-  --flag-soft: #0b0c0e;
-  --heat: #d5001c;
+  --panel-2: #f4f4f4;
+  --panel-hover: #e8e8e8;
+  --ink: #161616;
+  --ink-2: #525252;
+  --ink-3: #6f6f6f;
+  --line: #e0e0e0;
+  --line-2: #8d8d8d;
+  /* Akcent = Carbon Blue 60. Primarna boja, trening dani, CTA. */
+  --train: #0f62fe;
+  --train-hover: #0353e9;
+  --train-active: #002d9c;
+  --train-soft: #edf5ff;
+  --train-badge: #d0e2ff;
+  --train-badge-ink: #0043ce;
+  --rest: #161616;
+  --rest-soft: #e0e0e0;
+  /* Napomene / greška — Carbon support-error. */
+  --flag: #da1e28;
+  --flag-soft: #fff1f1;
+  /* Uspjeh (težina ispod cilja). */
+  --good: #24a148;
+  /* Friteza / tajmer — topla, van plavog/sivog sistema. */
+  --heat: #ba4e00;
+  --heat-soft: #fff2e8;
+  /* Slike forme — Carbon purple. */
+  --violet: #8a3ffc;
+  --violet-soft: #f6f2ff;
 
-  --font-display: var(--ff-display), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--ff-text), ui-sans-serif, system-ui, sans-serif;
   --font-sans: var(--ff-text), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--ff-mono), ui-monospace, "SFMono-Regular", monospace;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --bg: #0d0e11;
-    --panel: #17181c;
-    --panel-2: #202127;
-    --ink: #f4f4f6;
-    --ink-2: #b3b4b9;
-    --ink-3: #7f8086;
-    --line: #292a30;
-    --line-2: #3a3b42;
-    --train: #ff2a3d;
-    --train-soft: #2b1013;
-    --rest: #b3b4b9;
-    --rest-soft: #202127;
-    --flag: #0b0c0e;
-    --flag-soft: #f4f4f6;
-    --heat: #ff2a3d;
+    --bg: #161616;
+    --panel: #262626;
+    --panel-2: #393939;
+    --panel-hover: #4c4c4c;
+    --ink: #f4f4f4;
+    --ink-2: #c6c6c6;
+    --ink-3: #8d8d8d;
+    --line: #393939;
+    --line-2: #525252;
+    --train: #4589ff;
+    --train-hover: #6ea6ff;
+    --train-active: #0f62fe;
+    --train-soft: #0e1e3f;
+    --train-badge: #002d9c;
+    --train-badge-ink: #a6c8ff;
+    --rest: #f4f4f4;
+    --rest-soft: #393939;
+    --flag: #fa4d56;
+    --flag-soft: #2d0709;
+    --good: #42be65;
+    --heat: #ff832b;
+    --heat-soft: #2e1a05;
+    --violet: #a56eff;
+    --violet-soft: #24123f;
   }
 }
 
@@ -65,18 +86,9 @@ body {
   font-variant-numeric: tabular-nums;
 }
 
-/* Meka elevacija (Apple-style) na karticama. */
+/* Carbon je flat — kartice se razdvajaju hairline linijom, ne sjenkom. */
 .el {
-  box-shadow:
-    0 1px 2px rgba(16, 17, 20, 0.04),
-    0 8px 24px rgba(16, 17, 20, 0.05);
-}
-@media (prefers-color-scheme: dark) {
-  .el {
-    box-shadow:
-      0 1px 2px rgba(0, 0, 0, 0.5),
-      0 8px 24px rgba(0, 0, 0, 0.4);
-  }
+  box-shadow: none;
 }
 
 .tap {

@@ -7,10 +7,7 @@ export default function TreningNapomene({ napomene }: { napomene: string[] }) {
   if (napomene.length === 0) return null;
 
   return (
-    <div
-      className="el overflow-hidden rounded-xl border"
-      style={{ borderColor: "var(--line)", background: "var(--panel)" }}
-    >
+    <div style={{ background: "var(--panel)" }}>
       <button
         type="button"
         onClick={() => setOpen((o) => !o)}
@@ -22,10 +19,7 @@ export default function TreningNapomene({ napomene }: { napomene: string[] }) {
             <circle cx="12" cy="12" r="9" />
             <path d="M12 8h.01M11 12h1v5h1" />
           </svg>
-          <span
-            className="text-sm font-bold uppercase tracking-wide"
-            style={{ fontFamily: "var(--font-display)", color: "var(--ink)" }}
-          >
+          <span className="text-sm" style={{ color: "var(--ink)" }}>
             Napomene trenera
           </span>
         </span>

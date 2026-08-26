@@ -32,15 +32,9 @@ export default function MealCard({
   mealIdx: number;
 }) {
   return (
-    <div
-      className="el rounded-xl border p-4"
-      style={{ background: "var(--panel)", borderColor: "var(--line)" }}
-    >
+    <div style={{ background: "var(--panel)", padding: 16 }}>
       <div className="flex items-start justify-between gap-3">
-        <h3
-          className="text-base font-bold leading-tight"
-          style={{ fontFamily: "var(--font-display)", color: "var(--ink)" }}
-        >
+        <h3 className="text-base" style={{ color: "var(--ink)" }}>
           {meal.naslov}
         </h3>
         <Checkbox
@@ -53,7 +47,7 @@ export default function MealCard({
         {meal.stavke.map((stavka, i) => (
           <li
             key={i}
-            className="flex gap-2 text-[15px] leading-snug"
+            className="flex gap-2 text-sm leading-snug"
             style={{ color: "var(--ink-2)" }}
           >
             <span

@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { readJSON, writeJSON, K } from "@/lib/storage";
 import { VAGANJA, SLIKE } from "@/lib/progress";
 import { useSync } from "@/components/SyncProvider";
+import TopBar from "@/components/TopBar";
 
 export default function NapredakPage() {
   const [weights, setWeights] = useState<Record<string, string>>({});
@@ -40,35 +41,23 @@ export default function NapredakPage() {
   }
 
   return (
-    <main
-      className="mx-auto max-w-md px-4 pb-6"
-      style={{ paddingTop: "calc(env(safe-area-inset-top) + 2.25rem)" }}
-    >
-      <h1
-        className="mb-4 text-2xl font-extrabold"
-        style={{ fontFamily: "var(--font-display)", color: "var(--ink)" }}
-      >
-        Napredak
-      </h1>
+    <>
+      <TopBar section="Napredak" />
 
-      {/* Vaganje */}
-      <section className="mb-6">
-        <h2
-          className="mb-2.5 text-sm font-bold uppercase tracking-wide"
-          style={{ fontFamily: "var(--font-display)", color: "var(--ink-2)" }}
-        >
-          Vaganje
-        </h2>
-
-        <div className="flex flex-col gap-2">
+      <main className="mx-auto flex max-w-md flex-col" style={{ gap: 1, background: "var(--line)" }}>
+        {/* Vaganje */}
+        <div style={{ background: "var(--panel)" }}>
+          <div className="px-4 pb-3 pt-4 text-base" style={{ color: "var(--ink)" }}>
+            Vaganje
+          </div>
           {VAGANJA.map((v) => (
             <div
               key={v.datum}
-              className="flex items-center justify-between gap-3 el rounded-xl border p-3"
-              style={{ background: "var(--panel)", borderColor: "var(--line)" }}
+              className="flex items-center justify-between gap-3 border-t px-4 py-3"
+              style={{ borderColor: "var(--line)" }}
             >
               <span
-                className="tabnum text-sm font-semibold"
+                className="tabnum text-sm"
                 style={{ fontFamily: "var(--font-mono)", color: "var(--ink)" }}
               >
                 {v.kratko}
@@ -82,7 +71,7 @@ export default function NapredakPage() {
                   onChange={(e) => setWeight(v.datum, e.target.value)}
                   onFocus={() => locked && openUnlock()}
                   aria-label={`Težina ${v.kratko}`}
-                  className="tabnum w-24 rounded-lg border px-3 py-2 text-right text-base font-bold outline-none"
+                  className="tabnum w-24 border-0 border-b px-3 py-2 text-right text-sm outline-none"
                   style={{
                     fontFamily: "var(--font-mono)",
                     background: "var(--panel-2)",
@@ -90,7 +79,7 @@ export default function NapredakPage() {
                     color: "var(--ink)",
                   }}
                 />
-                <span className="text-sm font-semibold" style={{ color: "var(--ink-3)" }}>
+                <span className="text-sm" style={{ color: "var(--ink-3)" }}>
                   kg
                 </span>
               </div>
@@ -98,18 +87,15 @@ export default function NapredakPage() {
           ))}
         </div>
 
-        <WeightChart weights={weights} ready={ready} />
-      </section>
+        <div style={{ background: "var(--panel)", padding: 16 }}>
+          <WeightChart weights={weights} ready={ready} />
+        </div>
 
-      {/* Slike forme */}
-      <section className="mb-6">
-        <h2
-          className="mb-2.5 text-sm font-bold uppercase tracking-wide"
-          style={{ fontFamily: "var(--font-display)", color: "var(--ink-2)" }}
-        >
-          Slike forme
-        </h2>
-        <div className="flex flex-col gap-2">
+        {/* Slike forme */}
+        <div style={{ background: "var(--panel)" }}>
+          <div className="px-4 pb-3 pt-4 text-base" style={{ color: "var(--ink)" }}>
+            Slike forme
+          </div>
           {SLIKE.map((s) => {
             const done = ready && !!photos[s.datum];
             return (
@@ -118,15 +104,12 @@ export default function NapredakPage() {
                 type="button"
                 onClick={() => togglePhoto(s.datum)}
                 aria-pressed={done}
-                className="flex items-center justify-between gap-3 el rounded-xl border p-3 text-left"
-                style={{
-                  background: done ? "var(--train-soft)" : "var(--panel)",
-                  borderColor: done ? "var(--train)" : "var(--line)",
-                }}
+                className="flex w-full items-center justify-between gap-3 border-t px-4 py-3 text-left"
+                style={{ borderColor: "var(--line)", background: done ? "var(--train-soft)" : "transparent" }}
               >
                 <span className="flex flex-col">
                   <span
-                    className="tabnum text-sm font-bold"
+                    className="tabnum text-sm"
                     style={{ fontFamily: "var(--font-mono)", color: "var(--ink)" }}
                   >
                     {s.kratko}
@@ -136,14 +119,16 @@ export default function NapredakPage() {
                   </span>
                 </span>
                 <span
-                  className="flex h-7 w-7 items-center justify-center rounded-md border-2"
+                  className="flex items-center justify-center border"
                   style={{
-                    borderColor: done ? "var(--train)" : "var(--line-2)",
+                    width: 18,
+                    height: 18,
+                    borderColor: done ? "var(--train)" : "var(--ink)",
                     background: done ? "var(--train)" : "transparent",
                   }}
                 >
                   {done && (
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round">
                       <path d="M4 12l5 5L20 6" />
                     </svg>
                   )}
@@ -152,21 +137,17 @@ export default function NapredakPage() {
             );
           })}
         </div>
-      </section>
 
-      {/* Podsjetnik */}
-      <div
-        className="el rounded-xl border p-3 text-sm leading-relaxed"
-        style={{
-          background: "var(--panel-2)",
-          borderColor: "var(--line-2)",
-          color: "var(--ink-2)",
-        }}
-      >
-        Vaganje ujutru natašte, poslije WC-a, prije vode i hrane. Slike u istom
-        svjetlu i pod istim uglom (sprijeda, bočno, straga).
-      </div>
-    </main>
+        {/* Podsjetnik */}
+        <div className="flex gap-3" style={{ background: "var(--panel)", padding: 16 }}>
+          <span className="w-1 shrink-0 self-stretch" style={{ background: "var(--ink)" }} />
+          <p className="text-sm leading-relaxed" style={{ color: "var(--ink-2)" }}>
+            Vaganje ujutru natašte, poslije WC-a, prije vode i hrane. Slike u istom
+            svjetlu i pod istim uglom (sprijeda, bočno, straga).
+          </p>
+        </div>
+      </main>
+    </>
   );
 }
 
@@ -192,7 +173,7 @@ function WeightChart({
 
   if (!ready || entered.length < 1) {
     return (
-      <p className="mt-3 text-xs" style={{ color: "var(--ink-3)" }}>
+      <p className="text-xs" style={{ color: "var(--ink-3)" }}>
         Unesi bar jedno vaganje za graf promjene.
       </p>
     );
@@ -225,20 +206,17 @@ function WeightChart({
   const delta = last - first;
 
   return (
-    <div
-      className="mt-3 el rounded-xl border p-3"
-      style={{ background: "var(--panel)", borderColor: "var(--line)" }}
-    >
+    <div>
       <div className="mb-2 flex items-baseline justify-between">
-        <span className="text-xs font-semibold uppercase tracking-wide" style={{ color: "var(--ink-3)" }}>
+        <span className="text-xs" style={{ color: "var(--ink-2)", letterSpacing: "0.32px" }}>
           Promjena
         </span>
         {entered.length >= 2 && (
           <span
-            className="tabnum text-sm font-bold"
+            className="tabnum text-sm"
             style={{
               fontFamily: "var(--font-mono)",
-              color: delta <= 0 ? "var(--train)" : "var(--rest)",
+              color: delta <= 0 ? "var(--good)" : "var(--flag)",
             }}
           >
             {delta > 0 ? "+" : ""}
@@ -257,7 +235,7 @@ function WeightChart({
         <line x1={padX} y1={H - padY} x2={W - padX} y2={H - padY} stroke="var(--line-2)" strokeWidth="1" />
         {/* Linija */}
         {entered.length >= 2 && (
-          <path d={line} fill="none" stroke="var(--train)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+          <path d={line} fill="none" stroke="var(--train)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
         )}
         {/* Tačke + oznake termina */}
         {points.map((p) => (
@@ -274,13 +252,13 @@ function WeightChart({
             </text>
             {p.value != null && (
               <>
-                <circle cx={x(p.i)} cy={y(p.value)} r="4" fill="var(--train)" />
+                <circle cx={x(p.i)} cy={y(p.value)} r="3" fill="var(--train)" />
                 <text
                   x={x(p.i)}
                   y={y(p.value) - 8}
                   textAnchor="middle"
                   fontSize="9"
-                  fontWeight="700"
+                  fontWeight="600"
                   fill="var(--ink)"
                   style={{ fontFamily: "var(--font-mono)" }}
                 >

@@ -1,16 +1,15 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { readJSON, writeJSON, K } from "@/lib/storage";
 import { useSync } from "./SyncProvider";
 
 const GLASSES = 12; // 12 × 250 ml = 3 L
 
+// Bez sopstvenog panela/border-a — roditelj obezbjeđuje omot (Carbon flat blok).
 export default function WaterTracker({ dayN }: { dayN: number }) {
   const [count, setCount] = useState(0);
   const key = K.water(dayN);
-  const longPressed = useRef(false);
-  const timer = useRef<number | null>(null);
   const { locked, openUnlock } = useSync();
 
   useEffect(() => {
@@ -23,84 +22,69 @@ export default function WaterTracker({ dayN }: { dayN: number }) {
     writeJSON(key, clamped);
   }
 
-  function onPointerDown() {
+  // Tap na čašu i: ako je već popunjena i posljednja popunjena → isprazni do i (isključi);
+  // inače popuni do i (uključivo). Isti obrazac kao referentni dizajn.
+  function tapGlass(i: number) {
     if (locked) {
       openUnlock();
       return;
     }
-    longPressed.current = false;
-    timer.current = window.setTimeout(() => {
-      longPressed.current = true;
-      // Long-press briše zadnju čašu.
-      save(readJSON<number>(key, count) - 1);
-    }, 500);
-  }
-
-  function onPointerUp() {
-    if (locked) return;
-    if (timer.current) {
-      window.clearTimeout(timer.current);
-      timer.current = null;
-    }
-    if (!longPressed.current) {
-      // Tap dodaje čašu.
-      save(count + 1);
-    }
-  }
-
-  function onPointerLeave() {
-    if (timer.current) {
-      window.clearTimeout(timer.current);
-      timer.current = null;
-    }
+    save(i < count ? i : i + 1);
   }
 
   const ml = count * 250;
+  const pct = Math.min(100, Math.round((count / GLASSES) * 100));
 
   return (
-    <div
-      className="el rounded-xl border p-4"
-      style={{ background: "var(--panel)", borderColor: "var(--line)" }}
-    >
-      <div className="mb-2 flex items-baseline justify-between">
-        <h3
-          className="text-sm font-bold uppercase tracking-wide"
-          style={{ fontFamily: "var(--font-display)", color: "var(--ink-2)" }}
-        >
+    <div>
+      <div className="flex items-baseline justify-between">
+        <span className="text-base" style={{ color: "var(--ink)" }}>
           Voda
-        </h3>
+        </span>
         <span
-          className="tabnum text-sm font-semibold"
+          className="tabnum text-sm"
           style={{ fontFamily: "var(--font-mono)", color: "var(--ink-2)" }}
         >
           {(ml / 1000).toFixed(2).replace(".", ",")} L / 3 L
         </span>
       </div>
 
-      <button
-        type="button"
-        onPointerDown={onPointerDown}
-        onPointerUp={onPointerUp}
-        onPointerLeave={onPointerLeave}
-        onContextMenu={(e) => e.preventDefault()}
-        aria-label={`Voda: ${count} od ${GLASSES} čaša. Tap dodaje, dugi pritisak briše.`}
-        className="grid w-full touch-none grid-cols-12 gap-1.5"
-        style={{ touchAction: "manipulation" }}
-      >
+      <div className="mt-3 h-1" style={{ background: "var(--line)" }}>
+        <div className="h-1" style={{ background: "var(--train)", width: `${pct}%` }} />
+      </div>
+
+      <div className="mt-3 grid grid-cols-6 gap-1">
         {Array.from({ length: GLASSES }).map((_, i) => (
-          <span
+          <button
             key={i}
-            className="h-9 rounded-md border transition-colors"
+            type="button"
+            onClick={() => tapGlass(i)}
+            aria-label={`Čaša vode ${i + 1} (250 ml)`}
+            aria-pressed={i < count}
+            className="border"
             style={{
-              background: i < count ? "var(--ink)" : "var(--panel-2)",
-              borderColor: i < count ? "var(--ink)" : "var(--line)",
+              height: 44,
+              borderColor: "var(--line-2)",
+              background: i < count ? "var(--train)" : "transparent",
+              padding: 0,
             }}
           />
         ))}
-      </button>
-      <p className="mt-2 text-xs" style={{ color: "var(--ink-3)" }}>
-        Tap dodaje čašu (250 ml) · dugi pritisak briše.
-      </p>
+      </div>
+
+      <div className="mt-3 flex items-center justify-between gap-3">
+        <span className="text-xs" style={{ color: "var(--ink-3)" }}>
+          Jedan dodir = čaša (250 ml).
+        </span>
+        <button
+          type="button"
+          onClick={() => (locked ? openUnlock() : save(0))}
+          className="h-8 px-3 text-xs"
+          style={{ background: "transparent", border: "1px solid var(--train)", color: "var(--train)" }}
+        >
+          Reset
+        </button>
+      </div>
     </div>
   );
 }

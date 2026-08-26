@@ -1,28 +1,21 @@
 import type { Metadata, Viewport } from "next";
-import { Space_Grotesk, Inter, IBM_Plex_Mono } from "next/font/google";
+import { IBM_Plex_Sans, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
 import TabBar from "@/components/TabBar";
 import CycleStrip from "@/components/CycleStrip";
 import TimerProvider from "@/components/TimerProvider";
 import SyncProvider, { SyncedContent } from "@/components/SyncProvider";
 
-const display = Space_Grotesk({
+const text = IBM_Plex_Sans({
   subsets: ["latin", "latin-ext"],
-  weight: ["500", "600", "700"],
-  variable: "--ff-display",
-  display: "swap",
-});
-
-const text = Inter({
-  subsets: ["latin", "latin-ext"],
-  weight: ["400", "500", "600", "700"],
+  weight: ["300", "400", "500", "600"],
   variable: "--ff-text",
   display: "swap",
 });
 
 const mono = IBM_Plex_Mono({
   subsets: ["latin", "latin-ext"],
-  weight: ["400", "500", "600"],
+  weight: ["300", "400", "500", "600"],
   variable: "--ff-mono",
   display: "swap",
 });
@@ -46,8 +39,8 @@ export const viewport: Viewport = {
   initialScale: 1,
   viewportFit: "cover",
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#f2f2f3" },
-    { media: "(prefers-color-scheme: dark)", color: "#0d0e11" },
+    { media: "(prefers-color-scheme: light)", color: "#f4f4f4" },
+    { media: "(prefers-color-scheme: dark)", color: "#161616" },
   ],
 };
 
@@ -58,9 +51,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="bs">
-      <body
-        className={`${display.variable} ${text.variable} ${mono.variable}`}
-      >
+      <body className={`${text.variable} ${mono.variable}`}>
         <SyncProvider>
           <TimerProvider>
             <SyncedContent>{children}</SyncedContent>

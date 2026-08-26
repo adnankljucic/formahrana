@@ -15,14 +15,13 @@ export default function FinishedBanner() {
 
   return (
     <div
-      className="rounded-xl border p-3 text-sm font-semibold"
-      style={{
-        background: "var(--flag-soft)",
-        borderColor: "var(--flag)",
-        color: "var(--flag)",
-      }}
+      className="flex gap-3"
+      style={{ background: "var(--flag-soft)", padding: 16 }}
     >
-      Plan je završen, javi treneru za novi.
+      <span className="w-[3px] shrink-0 self-stretch" style={{ background: "var(--flag)" }} />
+      <span className="text-sm" style={{ color: "var(--ink)" }}>
+        Plan je završen, javi treneru za novi.
+      </span>
     </div>
   );
 }

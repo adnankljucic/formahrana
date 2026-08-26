@@ -39,49 +39,56 @@ export default function DayHeader({
   const showToday = today != null && today !== n;
 
   return (
-    <header
-      className="sticky top-0 z-30 border-b px-4 pb-3"
-      style={{
-        background: "var(--bg)",
-        borderColor: "var(--line)",
-        paddingTop: "calc(env(safe-area-inset-top) + 1.25rem)",
-      }}
-    >
-      <div className="mx-auto flex max-w-md items-center gap-2">
+    <div className="sticky top-0 z-30" style={{ background: "var(--bg)" }}>
+      <header
+        className="mx-auto flex max-w-md items-center gap-2 border-b px-2"
+        style={{
+          height: 48,
+          background: "var(--panel)",
+          borderColor: "var(--line)",
+          paddingTop: "env(safe-area-inset-top)",
+        }}
+      >
         <NavArrow to={prev} dir="prev" />
 
         <div className="min-w-0 flex-1 text-center">
           <div
-            className="truncate text-lg font-extrabold leading-tight"
-            style={{ fontFamily: "var(--font-display)", color: "var(--ink)" }}
+            className="truncate text-sm"
+            style={{ letterSpacing: "0.16px", color: "var(--ink)" }}
           >
-            Dan {n} · {short} {dm}
-          </div>
-          <div className="mt-1 flex items-center justify-center gap-2">
-            <span
-              className="inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-bold uppercase tracking-wide"
-              style={{
-                background: trening ? "var(--train-soft)" : "var(--rest-soft)",
-                color: trening ? "var(--train)" : "var(--rest)",
-              }}
-            >
-              {trening ? "Trening" : "Odmor"}
+            <span className="font-semibold">Dan {n}</span>
+            <span style={{ color: "var(--ink-2)" }}>
+              {" "}
+              · {short} {dm}
             </span>
-            {showToday && (
-              <Link
-                href={`/dan/${today}`}
-                className="inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold"
-                style={{ borderColor: "var(--line-2)", color: "var(--ink-2)" }}
-              >
-                Danas →
-              </Link>
-            )}
           </div>
         </div>
 
+        <span
+          className="inline-flex h-6 shrink-0 items-center rounded-full px-2.5 text-xs"
+          style={{
+            letterSpacing: "0.32px",
+            background: trening ? "var(--train-badge)" : "var(--rest-soft)",
+            color: trening ? "var(--train-badge-ink)" : "var(--rest)",
+          }}
+        >
+          {trening ? "Trening" : "Odmor"}
+        </span>
+
         <NavArrow to={next} dir="next" />
-      </div>
-    </header>
+      </header>
+
+      {showToday && (
+        <div
+          className="mx-auto max-w-md border-b px-4 py-1.5 text-right"
+          style={{ background: "var(--panel)", borderColor: "var(--line)" }}
+        >
+          <Link href={`/dan/${today}`} className="text-xs" style={{ color: "var(--train)" }}>
+            Danas →
+          </Link>
+        </div>
+      )}
+    </div>
   );
 }
 
@@ -107,7 +114,7 @@ function NavArrow({ to, dir }: { to: number | null; dir: "prev" | "next" }) {
   if (to == null) {
     return (
       <span
-        className="tap flex items-center justify-center rounded-lg"
+        className="tap flex shrink-0 items-center justify-center"
         style={{ color: "var(--line-2)" }}
         aria-hidden="true"
       >
@@ -120,8 +127,8 @@ function NavArrow({ to, dir }: { to: number | null; dir: "prev" | "next" }) {
     <Link
       href={`/dan/${to}`}
       aria-label={label}
-      className="tap flex items-center justify-center rounded-lg border"
-      style={{ borderColor: "var(--line)", color: "var(--ink)" }}
+      className="tap flex shrink-0 items-center justify-center"
+      style={{ color: "var(--ink)" }}
     >
       {icon}
     </Link>

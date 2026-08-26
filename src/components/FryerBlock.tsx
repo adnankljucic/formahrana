@@ -17,7 +17,7 @@ export default function FryerBlock({
 
   return (
     <div
-      className="mt-3 overflow-hidden rounded-xl border"
+      className="mt-3 overflow-hidden rounded-none border"
       style={{ borderColor: "var(--line)", background: "var(--panel-2)" }}
     >
       <button
@@ -28,10 +28,7 @@ export default function FryerBlock({
       >
         <span className="flex items-center gap-2">
           <FlameIcon />
-          <span
-            className="text-sm font-bold uppercase tracking-wide"
-            style={{ fontFamily: "var(--font-display)", color: "var(--heat)" }}
-          >
+          <span className="text-sm" style={{ color: "var(--heat)" }}>
             Friteza
           </span>
         </span>
@@ -57,7 +54,7 @@ export default function FryerBlock({
         <div className="reveal px-3 pb-3">
           {/* Podsjetnik iznad prve košare. */}
           <div
-            className="mb-3 rounded-lg border p-2.5 text-xs leading-snug"
+            className="mb-3 rounded-none border p-2.5 text-xs leading-snug"
             style={{
               borderColor: "var(--line-2)",
               background: "var(--panel)",
@@ -76,7 +73,7 @@ export default function FryerBlock({
               return (
                 <div
                   key={i}
-                  className="rounded-lg border p-2.5"
+                  className="rounded-none border p-2.5"
                   style={{
                     borderColor: "var(--line)",
                     background: "var(--panel)",
@@ -84,7 +81,7 @@ export default function FryerBlock({
                 >
                   <div className="flex items-start gap-2">
                     <span
-                      className="mt-0.5 inline-flex shrink-0 items-center rounded-md px-2 py-0.5 text-xs font-bold"
+                      className="mt-0.5 inline-flex shrink-0 items-center px-2 py-0.5 text-xs"
                       style={{
                         background: "var(--heat)",
                         color: "#fff",
@@ -111,7 +108,7 @@ export default function FryerBlock({
                             minutes: p.timerMinutes as number,
                           })
                         }
-                        className="tap inline-flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-sm font-semibold"
+                        className="tap inline-flex items-center gap-1.5 px-3 py-1.5 text-sm"
                         style={{ background: "var(--heat)", color: "#fff" }}
                       >
                         <TimerIcon />
