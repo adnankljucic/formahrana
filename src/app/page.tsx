@@ -440,11 +440,11 @@ export default function Dashboard() {
             })}
             <Link
               href={`/dan/${todayN}`}
-              className="flex items-center justify-between border-t px-4 py-3.5 text-sm"
+              className="flex items-center justify-between border-t px-4 py-3.5 text-sm font-semibold"
               style={{ borderColor: "var(--line)", letterSpacing: "0.16px", color: "var(--ink)" }}
             >
               <span>Cijeli dan i gramaže</span>
-              <span>→</span>
+              <span style={{ color: "var(--train)" }}>→</span>
             </Link>
           </div>
         )}
@@ -459,7 +459,7 @@ export default function Dashboard() {
         {/* Sljedeće */}
         {(nextVaga || nextSlika) && (
           <div style={{ background: "var(--panel)" }}>
-            <div className="px-4 pb-2 pt-4 text-base" style={{ color: "var(--ink)" }}>
+            <div className="px-4 pb-2 pt-4 text-base font-semibold" style={{ color: "var(--ink)" }}>
               Sljedeće
             </div>
             {[
@@ -491,7 +491,7 @@ export default function Dashboard() {
                         {meta} · {x.note}
                       </div>
                     </div>
-                    <span style={{ color: "var(--ink-2)" }}>→</span>
+                    <span style={{ color: "var(--train)" }}>→</span>
                   </Link>
                 );
               })}
