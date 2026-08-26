@@ -1,27 +1,27 @@
 import type { Metadata, Viewport } from "next";
-import { Archivo, Source_Sans_3, IBM_Plex_Mono } from "next/font/google";
+import { Space_Grotesk, Inter, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
 import TabBar from "@/components/TabBar";
 import TimerProvider from "@/components/TimerProvider";
 
-const archivo = Archivo({
+const display = Space_Grotesk({
   subsets: ["latin", "latin-ext"],
-  weight: ["600", "700", "800"],
-  variable: "--font-archivo",
+  weight: ["500", "600", "700"],
+  variable: "--ff-display",
   display: "swap",
 });
 
-const sourceSans = Source_Sans_3({
+const text = Inter({
   subsets: ["latin", "latin-ext"],
-  weight: ["400", "600", "700"],
-  variable: "--font-source",
+  weight: ["400", "500", "600", "700"],
+  variable: "--ff-text",
   display: "swap",
 });
 
-const plexMono = IBM_Plex_Mono({
+const mono = IBM_Plex_Mono({
   subsets: ["latin", "latin-ext"],
   weight: ["400", "500", "600"],
-  variable: "--font-mono-ibm",
+  variable: "--ff-mono",
   display: "swap",
 });
 
@@ -44,8 +44,8 @@ export const viewport: Viewport = {
   initialScale: 1,
   viewportFit: "cover",
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#f6f5f1" },
-    { media: "(prefers-color-scheme: dark)", color: "#14160f" },
+    { media: "(prefers-color-scheme: light)", color: "#f2f2f3" },
+    { media: "(prefers-color-scheme: dark)", color: "#0d0e11" },
   ],
 };
 
@@ -57,7 +57,7 @@ export default function RootLayout({
   return (
     <html lang="bs">
       <body
-        className={`${archivo.variable} ${sourceSans.variable} ${plexMono.variable}`}
+        className={`${display.variable} ${text.variable} ${mono.variable}`}
       >
         <TimerProvider>
           <div

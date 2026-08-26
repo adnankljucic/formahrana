@@ -44,6 +44,7 @@ export const K = {
   meal: (dayN: number, mealIdx: number) => `pi:meal:${dayN}:${mealIdx}`,
   water: (dayN: number) => `pi:water:${dayN}`,
   weight: () => `pi:weight`,
+  target: () => `pi:target`,
   photos: () => `pi:photos`,
   timers: () => `pi:timers`,
 };

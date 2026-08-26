@@ -23,6 +23,20 @@ export default function TabBar() {
 
   const items: Item[] = [
     {
+      key: "pregled",
+      label: "Pregled",
+      href: "/",
+      match: (p) => p === "/",
+      icon: (a) => (
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke={a ? "var(--train)" : "var(--ink-3)"} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <rect x="3" y="3" width="7" height="9" rx="1.5" />
+          <rect x="14" y="3" width="7" height="5" rx="1.5" />
+          <rect x="14" y="12" width="7" height="9" rx="1.5" />
+          <rect x="3" y="16" width="7" height="5" rx="1.5" />
+        </svg>
+      ),
+    },
+    {
       key: "danas",
       label: "Danas",
       href: `/dan/${todayN}`,
@@ -101,12 +115,12 @@ export default function TabBar() {
               key={it.key}
               href={it.href}
               aria-current={active ? "page" : undefined}
-              className="flex flex-1 flex-col items-center justify-center gap-0.5"
+              className="flex flex-1 flex-col items-center justify-center gap-0.5 px-0.5"
               style={{ height: 56 }}
             >
               {it.icon(active)}
               <span
-                className="text-[10px] font-semibold"
+                className="whitespace-nowrap text-[9px] font-semibold"
                 style={{ color: active ? "var(--train)" : "var(--ink-3)" }}
               >
                 {it.label}

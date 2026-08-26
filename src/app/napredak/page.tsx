@@ -2,19 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { readJSON, writeJSON, K } from "@/lib/storage";
-
-const VAGANJA = [
-  { datum: "27.08.2026.", kratko: "27.08." },
-  { datum: "03.09.2026.", kratko: "03.09." },
-  { datum: "10.09.2026.", kratko: "10.09." },
-  { datum: "17.09.2026.", kratko: "17.09." },
-  { datum: "24.09.2026.", kratko: "24.09." },
-];
-
-const SLIKE = [
-  { datum: "10.09.2026.", kratko: "10.09." },
-  { datum: "24.09.2026.", kratko: "24.09." },
-];
+import { VAGANJA, SLIKE } from "@/lib/progress";
 
 export default function NapredakPage() {
   const [weights, setWeights] = useState<Record<string, string>>({});

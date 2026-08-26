@@ -85,8 +85,8 @@ export default function WaterTracker({ dayN }: { dayN: number }) {
             key={i}
             className="h-9 rounded-md border transition-colors"
             style={{
-              background: i < count ? "var(--train)" : "var(--panel-2)",
-              borderColor: i < count ? "var(--train)" : "var(--line)",
+              background: i < count ? "var(--ink)" : "var(--panel-2)",
+              borderColor: i < count ? "var(--ink)" : "var(--line)",
             }}
           />
         ))}

@@ -1,63 +1,48 @@
 @import "tailwindcss";
 
+/* Porsche-inspired: monohromatska baza + Porsche crvena kao jedini akcent. */
 :root {
-  --bg: #f6f5f1;
+  --bg: #f2f2f3;
   --panel: #ffffff;
-  --panel-2: #efeee8;
-  --ink: #1c1f1b;
-  --ink-2: #4a4f48;
-  --ink-3: #7c8279;
-  --line: #dedcd3;
-  --line-2: #c9c7bc;
-  --train: #1f5d46;
-  --train-soft: #e3efe9;
-  --rest: #8d6210;
-  --rest-soft: #f4ebda;
-  --flag: #9b2c25;
-  --flag-soft: #f7e6e4;
-  --heat: #c2410c; /* friteza, tajmer */
+  --panel-2: #eaeaec;
+  --ink: #0b0c0e;
+  --ink-2: #535358;
+  --ink-3: #8f9094;
+  --line: #e2e3e5;
+  --line-2: #cccdd0;
+  /* Akcent = Porsche crvena. Trening/friteza/tajmer/CTA koriste je. */
+  --train: #d5001c;
+  --train-soft: #fbe5e8;
+  --rest: #535358;
+  --rest-soft: #eaeaec;
+  /* Napomene = inverzna (crna) traka, nemoguće promašiti. */
+  --flag: #ffffff;
+  --flag-soft: #0b0c0e;
+  --heat: #d5001c;
+
+  --font-display: var(--ff-display), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--ff-text), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--ff-mono), ui-monospace, "SFMono-Regular", monospace;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --bg: #14160f;
-    --panel: #1c1f19;
-    --panel-2: #23271f;
-    --ink: #eceade;
-    --ink-2: #b9bcb0;
-    --ink-3: #878b7e;
-    --line: #2e3329;
-    --line-2: #3d4337;
-    --train: #5fc79c;
-    --train-soft: #163025;
-    --rest: #dda63f;
-    --rest-soft: #332714;
-    --flag: #f08b80;
-    --flag-soft: #3a1f1c;
-    --heat: #f97316;
+    --bg: #0d0e11;
+    --panel: #17181c;
+    --panel-2: #202127;
+    --ink: #f4f4f6;
+    --ink-2: #b3b4b9;
+    --ink-3: #7f8086;
+    --line: #292a30;
+    --line-2: #3a3b42;
+    --train: #ff2a3d;
+    --train-soft: #2b1013;
+    --rest: #b3b4b9;
+    --rest-soft: #202127;
+    --flag: #0b0c0e;
+    --flag-soft: #f4f4f6;
+    --heat: #ff2a3d;
   }
-}
-
-/* Font varijable dolaze iz next/font (--font-archivo, --font-sans, --font-mono). */
-@theme inline {
-  --color-bg: var(--bg);
-  --color-panel: var(--panel);
-  --color-panel-2: var(--panel-2);
-  --color-ink: var(--ink);
-  --color-ink-2: var(--ink-2);
-  --color-ink-3: var(--ink-3);
-  --color-line: var(--line);
-  --color-line-2: var(--line-2);
-  --color-train: var(--train);
-  --color-train-soft: var(--train-soft);
-  --color-rest: var(--rest);
-  --color-rest-soft: var(--rest-soft);
-  --color-flag: var(--flag);
-  --color-flag-soft: var(--flag-soft);
-  --color-heat: var(--heat);
-  --font-display: var(--font-archivo), ui-sans-serif, system-ui, sans-serif;
-  --font-sans: var(--font-source), ui-sans-serif, system-ui, sans-serif;
-  --font-mono: var(--font-mono-ibm), ui-monospace, "SFMono-Regular", monospace;
 }
 
 * {
@@ -76,12 +61,10 @@ body {
   overflow-x: hidden;
 }
 
-/* Tabelarni brojevi na monospace elementima. */
 .tabnum {
   font-variant-numeric: tabular-nums;
 }
 
-/* Minimalna dodirna meta 44×44. */
 .tap {
   min-width: 44px;
   min-height: 44px;
