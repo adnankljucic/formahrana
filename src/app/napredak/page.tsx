@@ -3,11 +3,13 @@
 import { useEffect, useState } from "react";
 import { readJSON, writeJSON, K } from "@/lib/storage";
 import { VAGANJA, SLIKE } from "@/lib/progress";
+import { useSync } from "@/components/SyncProvider";
 
 export default function NapredakPage() {
   const [weights, setWeights] = useState<Record<string, string>>({});
   const [photos, setPhotos] = useState<Record<string, boolean>>({});
   const [ready, setReady] = useState(false);
+  const { locked, openUnlock } = useSync();
 
   useEffect(() => {
     setWeights(readJSON<Record<string, string>>(K.weight(), {}));
@@ -16,6 +18,10 @@ export default function NapredakPage() {
   }, []);
 
   function setWeight(datum: string, val: string) {
+    if (locked) {
+      openUnlock();
+      return;
+    }
     // Dozvoli samo brojeve i jedan decimalni znak.
     const clean = val.replace(",", ".").replace(/[^0-9.]/g, "");
     const next = { ...weights, [datum]: clean };
@@ -24,6 +30,10 @@ export default function NapredakPage() {
   }
 
   function togglePhoto(datum: string) {
+    if (locked) {
+      openUnlock();
+      return;
+    }
     const next = { ...photos, [datum]: !photos[datum] };
     setPhotos(next);
     writeJSON(K.photos(), next);
@@ -67,8 +77,10 @@ export default function NapredakPage() {
                 <input
                   inputMode="decimal"
                   placeholder="—"
+                  readOnly={locked}
                   value={ready ? weights[v.datum] ?? "" : ""}
                   onChange={(e) => setWeight(v.datum, e.target.value)}
+                  onFocus={() => locked && openUnlock()}
                   aria-label={`Težina ${v.kratko}`}
                   className="tabnum w-24 rounded-lg border px-3 py-2 text-right text-base font-bold outline-none"
                   style={{

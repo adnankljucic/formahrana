@@ -33,7 +33,7 @@ export default function MealCard({
 }) {
   return (
     <div
-      className="rounded-2xl border p-4"
+      className="el rounded-2xl border p-4"
       style={{ background: "var(--panel)", borderColor: "var(--line)" }}
     >
       <div className="flex items-start justify-between gap-3">

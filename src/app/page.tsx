@@ -22,7 +22,7 @@ import {
   type WeightSummary,
 } from "@/lib/progress";
 import { readJSON, writeJSON, K } from "@/lib/storage";
-import SyncCard from "@/components/SyncCard";
+import { useSync } from "@/components/SyncProvider";
 
 const days = plan as Day[];
 
@@ -44,6 +44,7 @@ export default function Dashboard() {
     slike: false,
     trening: false,
   });
+  const { locked, openUnlock } = useSync();
 
   useEffect(() => {
     const n = dayNumberFor();
@@ -78,6 +79,10 @@ export default function Dashboard() {
   const day = days.find((d) => d.n === todayN) as Day | undefined;
 
   function saveTarget(val: string) {
+    if (locked) {
+      openUnlock();
+      return;
+    }
     const clean = parseFloat(val.replace(",", "."));
     const t = Number.isFinite(clean) && clean > 0 ? clean : 0;
     setTarget(t);
@@ -93,19 +98,23 @@ export default function Dashboard() {
       style={{ paddingTop: "calc(env(safe-area-inset-top) + 1rem)" }}
     >
       {/* Zaglavlje */}
-      <div className="mb-4">
-        <div
-          className="text-[11px] font-bold uppercase tracking-[0.18em]"
-          style={{ color: "var(--train)" }}
-        >
-          Mjesec 1 · 27.08 – 25.09.2026.
+      <div className="mb-5 flex items-start justify-between gap-3">
+        <div className="min-w-0">
+          <div
+            className="text-[11px] font-bold uppercase tracking-[0.18em]"
+            style={{ color: "var(--train)" }}
+          >
+            Mjesec 1 · 27.08 – 25.09.2026.
+          </div>
+          <h1
+            className="mt-1.5 text-[26px] font-bold leading-[1.1] tracking-tight"
+            style={{ fontFamily: "var(--font-display)", color: "var(--ink)" }}
+          >
+            Pregled treninga
+            <br />i ishrane
+          </h1>
         </div>
-        <h1
-          className="mt-1 text-[28px] font-bold leading-none"
-          style={{ fontFamily: "var(--font-display)", color: "var(--ink)" }}
-        >
-          Pregled
-        </h1>
+        {ready && <LockChip locked={locked} onClick={openUnlock} />}
       </div>
 
       <div className="flex flex-col gap-3">
@@ -116,6 +125,8 @@ export default function Dashboard() {
           weights={weights}
           target={target}
           onTarget={saveTarget}
+          locked={locked}
+          onLocked={openUnlock}
         />
 
         <TodayCard
@@ -159,10 +170,44 @@ export default function Dashboard() {
             <PathFlame />
           </QuickAction>
         </div>
-
-        <SyncCard />
       </div>
     </main>
+  );
+}
+
+function LockChip({
+  locked,
+  onClick,
+}: {
+  locked: boolean;
+  onClick: () => void;
+}) {
+  if (!locked) {
+    return (
+      <span
+        className="inline-flex shrink-0 items-center gap-1.5 rounded-full px-3 py-1.5 text-[11px] font-bold"
+        style={{ background: "var(--train-soft)", color: "var(--train)" }}
+      >
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M4 12l5 5L20 6" />
+        </svg>
+        Izmjene
+      </span>
+    );
+  }
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      className="tap inline-flex shrink-0 items-center gap-1.5 rounded-full border px-3 py-1.5 text-[11px] font-bold"
+      style={{ borderColor: "var(--line-2)", color: "var(--ink-2)" }}
+    >
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+        <rect x="4" y="10" width="16" height="11" rx="2.5" />
+        <path d="M8 10V7a4 4 0 018 0v3" />
+      </svg>
+      Otključaj
+    </button>
   );
 }
 
@@ -263,11 +308,15 @@ function WeightCard({
   weights,
   target,
   onTarget,
+  locked,
+  onLocked,
 }: {
   ready: boolean;
   weights: WeightSummary;
   target: number;
   onTarget: (v: string) => void;
+  locked: boolean;
+  onLocked: () => void;
 }) {
   const { current, start, history } = weights;
   const toGo = current != null ? current - target : null;
@@ -284,7 +333,7 @@ function WeightCard({
 
   return (
     <section
-      className="overflow-hidden rounded-2xl border"
+      className="el overflow-hidden rounded-2xl border"
       style={{ background: "var(--panel)", borderColor: "var(--line)" }}
     >
       <div
@@ -330,8 +379,10 @@ function WeightCard({
             <div className="mt-1 flex items-center justify-end gap-1">
               <input
                 inputMode="decimal"
+                readOnly={locked}
                 value={ready ? String(target).replace(".", ",") : ""}
                 onChange={(e) => onTarget(e.target.value)}
+                onFocus={() => locked && onLocked()}
                 aria-label="Ciljana težina"
                 className="tabnum w-16 rounded-lg border px-2 py-1 text-right text-xl font-bold outline-none"
                 style={{
@@ -498,7 +549,7 @@ function TodayCard({
   return (
     <Link
       href={`/dan/${todayN}`}
-      className="block rounded-2xl border p-4"
+      className="el block rounded-2xl border p-4"
       style={{ background: "var(--panel)", borderColor: "var(--line)" }}
     >
       <div className="flex items-center justify-between">
@@ -580,7 +631,7 @@ function Stat({ label, value }: { label: string; value: string }) {
 function CycleBar({ todayN, finished }: { todayN: number; finished: boolean }) {
   return (
     <section
-      className="rounded-2xl border p-4"
+      className="el rounded-2xl border p-4"
       style={{ background: "var(--panel)", borderColor: "var(--line)" }}
     >
       <div className="mb-2 flex items-baseline justify-between">
@@ -642,7 +693,7 @@ function TerminCard({
   return (
     <Link
       href={href}
-      className="rounded-2xl border p-3.5"
+      className="el rounded-2xl border p-3.5"
       style={{ background: "var(--panel)", borderColor: "var(--line)" }}
     >
       <div
@@ -700,7 +751,7 @@ function QuickAction({
   return (
     <Link
       href={href}
-      className="flex flex-col items-center justify-center gap-1.5 rounded-2xl border py-3"
+      className="el flex flex-col items-center justify-center gap-1.5 rounded-2xl border py-3"
       style={{ background: "var(--panel)", borderColor: "var(--line)" }}
     >
       <span style={{ color: "var(--ink)" }}>{children}</span>

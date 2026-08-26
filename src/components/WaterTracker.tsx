@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { readJSON, writeJSON, K } from "@/lib/storage";
+import { useSync } from "./SyncProvider";
 
 const GLASSES = 12; // 12 × 250 ml = 3 L
 
@@ -10,6 +11,7 @@ export default function WaterTracker({ dayN }: { dayN: number }) {
   const key = K.water(dayN);
   const longPressed = useRef(false);
   const timer = useRef<number | null>(null);
+  const { locked, openUnlock } = useSync();
 
   useEffect(() => {
     setCount(readJSON<number>(key, 0));
@@ -22,6 +24,10 @@ export default function WaterTracker({ dayN }: { dayN: number }) {
   }
 
   function onPointerDown() {
+    if (locked) {
+      openUnlock();
+      return;
+    }
     longPressed.current = false;
     timer.current = window.setTimeout(() => {
       longPressed.current = true;
@@ -31,6 +37,7 @@ export default function WaterTracker({ dayN }: { dayN: number }) {
   }
 
   function onPointerUp() {
+    if (locked) return;
     if (timer.current) {
       window.clearTimeout(timer.current);
       timer.current = null;
@@ -52,7 +59,7 @@ export default function WaterTracker({ dayN }: { dayN: number }) {
 
   return (
     <div
-      className="rounded-2xl border p-4"
+      className="el rounded-2xl border p-4"
       style={{ background: "var(--panel)", borderColor: "var(--line)" }}
     >
       <div className="mb-2 flex items-baseline justify-between">

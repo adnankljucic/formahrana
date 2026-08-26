@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import type { TreningPlan } from "@/lib/types";
 import { readJSON, writeJSON, K } from "@/lib/storage";
+import { useSync } from "./SyncProvider";
 
 export default function TreningChecklist({
   dayN,
@@ -15,6 +16,7 @@ export default function TreningChecklist({
     plan.vjezbe.map(() => false)
   );
   const [ready, setReady] = useState(false);
+  const { locked, openUnlock } = useSync();
 
   useEffect(() => {
     setDone(plan.vjezbe.map((_, i) => readJSON<boolean>(K.trening(dayN, i), false)));
@@ -22,6 +24,10 @@ export default function TreningChecklist({
   }, [dayN, plan.vjezbe]);
 
   function toggle(i: number) {
+    if (locked) {
+      openUnlock();
+      return;
+    }
     setDone((prev) => {
       const next = [...prev];
       next[i] = !next[i];

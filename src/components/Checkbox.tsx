@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { readJSON, writeJSON } from "@/lib/storage";
+import { useSync } from "./SyncProvider";
 
 // Checkbox čije stanje se čuva u localStorage-u pod datim ključem.
 export default function Checkbox({
@@ -13,6 +14,7 @@ export default function Checkbox({
 }) {
   const [checked, setChecked] = useState(false);
   const [ready, setReady] = useState(false);
+  const { locked, openUnlock } = useSync();
 
   useEffect(() => {
     setChecked(readJSON<boolean>(storageKey, false));
@@ -20,6 +22,10 @@ export default function Checkbox({
   }, [storageKey]);
 
   function toggle() {
+    if (locked) {
+      openUnlock();
+      return;
+    }
     const next = !checked;
     setChecked(next);
     writeJSON(storageKey, next);
