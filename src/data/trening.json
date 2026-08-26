@@ -1,0 +1,12 @@
+{
+  "_opis": "Trening plan po danu plana (ključ = broj dana). Popuni kad trener pošalje. Primjer strukture je u komentaru ispod — obriši _opis i _primjer kad ubaciš prave podatke.",
+  "_primjer": {
+    "naslov": "Gornji dio tijela",
+    "fokus": "Grudi, ramena, triceps",
+    "vjezbe": [
+      { "naziv": "Bench press", "serije": "4", "ponavljanja": "8–12", "napomena": "Zagrijavanje 2 serije" },
+      { "naziv": "Potisak bučicama iznad glave", "serije": "3", "ponavljanja": "10–12" },
+      { "naziv": "Sklekovi", "serije": "3", "ponavljanja": "do otkaza" }
+    ]
+  }
+}

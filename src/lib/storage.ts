@@ -42,6 +42,7 @@ export function writeString(key: string, value: string): void {
 // Ključevi vezani za datum (dd.mm ili n dana) — čekiranje obroka, voda.
 export const K = {
   meal: (dayN: number, mealIdx: number) => `pi:meal:${dayN}:${mealIdx}`,
+  trening: (dayN: number, exIdx: number) => `pi:trening:${dayN}:${exIdx}`,
   water: (dayN: number) => `pi:water:${dayN}`,
   weight: () => `pi:weight`,
   target: () => `pi:target`,

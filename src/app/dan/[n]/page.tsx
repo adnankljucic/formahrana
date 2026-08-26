@@ -1,6 +1,8 @@
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import plan from "@/data/plan.json";
 import type { Day } from "@/lib/types";
+import { treningZaDan } from "@/lib/trening";
 import DayHeader from "@/components/DayHeader";
 import MealCard from "@/components/MealCard";
 import WaterTracker from "@/components/WaterTracker";
@@ -23,6 +25,7 @@ export default async function DanPage({
   if (!day || !Number.isInteger(num)) notFound();
 
   const d = day as Day;
+  const trening = d.trening ? treningZaDan(d.n) : null;
 
   return (
     <>
@@ -65,6 +68,40 @@ export default async function DanPage({
                 </p>
               ))}
             </div>
+          )}
+
+          {/* Trening — otvara zaseban ekran s vježbama i čekiranjem. */}
+          {d.trening && (
+            <Link
+              href={`/dan/${d.n}/trening`}
+              className="flex items-center gap-3 rounded-2xl p-4"
+              style={{ background: "var(--train)", color: "#fff" }}
+            >
+              <span
+                className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl"
+                style={{ background: "rgba(255,255,255,0.16)" }}
+              >
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M6.5 6.5v11M3.5 9v6M17.5 6.5v11M20.5 9v6M6.5 12h11" />
+                </svg>
+              </span>
+              <div className="min-w-0 flex-1">
+                <div
+                  className="text-base font-bold leading-tight"
+                  style={{ fontFamily: "var(--font-display)" }}
+                >
+                  {trening ? trening.naslov : "Trening"}
+                </div>
+                <div className="text-sm font-semibold opacity-90">
+                  {trening
+                    ? `${trening.vjezbe.length} vježbi · otvori i čekiraj`
+                    : "Plan stiže od trenera"}
+                </div>
+              </div>
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M9 18l6-6-6-6" />
+              </svg>
+            </Link>
           )}
 
           {d.obroci.map((meal, i) => (

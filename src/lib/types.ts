@@ -19,6 +19,19 @@ export interface Day {
   napomene: string[];
 }
 
+export interface Vjezba {
+  naziv: string;
+  serije?: string; // npr. "4"
+  ponavljanja?: string; // npr. "8–12" ili "30 sek"
+  napomena?: string;
+}
+
+export interface TreningPlan {
+  naslov: string; // npr. "Gornji dio tijela"
+  fokus?: string; // npr. "Grudi, ramena, triceps"
+  vjezbe: Vjezba[];
+}
+
 export interface FryerRow {
   kat: string;
   namirnica: string;
