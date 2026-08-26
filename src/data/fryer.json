@@ -1,0 +1,209 @@
+[
+ {
+  "kat": "Meso i riba",
+  "namirnica": "Pileći file / prsa",
+  "g": "200 g",
+  "temp": 190,
+  "vrijeme": "18–22 min",
+  "program": "Perad",
+  "napomena": "Okreni na pola. Deblje od 3 cm prepolovi po dužini. Gotovo na 74 °C."
+ },
+ {
+  "kat": "Meso i riba",
+  "namirnica": "Pileći file / prsa",
+  "g": "250 g",
+  "temp": 190,
+  "vrijeme": "22–26 min",
+  "program": "Perad",
+  "napomena": "Okreni na pola. Gotovo na 74 °C."
+ },
+ {
+  "kat": "Meso i riba",
+  "namirnica": "Puretina, file",
+  "g": "200 g",
+  "temp": 190,
+  "vrijeme": "20–23 min",
+  "program": "Perad",
+  "napomena": "Suša je od piletine — ne prepeci."
+ },
+ {
+  "kat": "Meso i riba",
+  "namirnica": "Puretina, file",
+  "g": "250 g",
+  "temp": 190,
+  "vrijeme": "23–27 min",
+  "program": "Perad",
+  "napomena": "Okreni na pola."
+ },
+ {
+  "kat": "Meso i riba",
+  "namirnica": "Juneća šnicla, nemasna ~2 cm",
+  "g": "200 g",
+  "temp": 200,
+  "vrijeme": "10–13 min",
+  "program": "Biftek",
+  "napomena": "Okreni na pola. Pusti 5 min da odstoji prije rezanja."
+ },
+ {
+  "kat": "Meso i riba",
+  "namirnica": "Juneća šnicla, nemasna ~2 cm",
+  "g": "250 g",
+  "temp": 200,
+  "vrijeme": "13–16 min",
+  "program": "Biftek",
+  "napomena": "Okreni na pola."
+ },
+ {
+  "kat": "Meso i riba",
+  "namirnica": "Teleća šnicla",
+  "g": "200 g",
+  "temp": 195,
+  "vrijeme": "9–12 min",
+  "program": "Biftek",
+  "napomena": "Nemasna, brzo se osuši — radije kraće pa doradi 2 min."
+ },
+ {
+  "kat": "Meso i riba",
+  "namirnica": "Teleća šnicla",
+  "g": "250 g",
+  "temp": 195,
+  "vrijeme": "12–15 min",
+  "program": "Biftek",
+  "napomena": "Provjeri termometrom."
+ },
+ {
+  "kat": "Meso i riba",
+  "namirnica": "Bijela riba, file",
+  "g": "200 g",
+  "temp": 180,
+  "vrijeme": "10–12 min",
+  "program": "Riba",
+  "napomena": "Ne okretati tanak file. Gotova kad se lista viljuškom, 63 °C."
+ },
+ {
+  "kat": "Meso i riba",
+  "namirnica": "Bijela riba, file",
+  "g": "250 g",
+  "temp": 180,
+  "vrijeme": "12–15 min",
+  "program": "Riba",
+  "napomena": "Papir za pečenje pod ribu da se ne lijepi."
+ },
+ {
+  "kat": "Meso i riba",
+  "namirnica": "Tuna u konzervi",
+  "g": "—",
+  "temp": 0,
+  "vrijeme": "—",
+  "program": "—",
+  "napomena": "Ne peče se. Samo dobro procijedi ulje."
+ },
+ {
+  "kat": "Prilozi",
+  "namirnica": "Krompir, kocke 2 cm",
+  "g": "250 g",
+  "temp": 200,
+  "vrijeme": "20–24 min",
+  "program": "Pomfrit",
+  "napomena": "Namoči 10 min u hladnoj vodi, dobro osuši, sprej za ulje. Protresi 2 puta."
+ },
+ {
+  "kat": "Prilozi",
+  "namirnica": "Krompir, kocke 2 cm",
+  "g": "300 g",
+  "temp": 200,
+  "vrijeme": "22–26 min",
+  "program": "Pomfrit",
+  "napomena": "Ne puni košaru preko 2/3."
+ },
+ {
+  "kat": "Prilozi",
+  "namirnica": "Batat, kocke 2 cm",
+  "g": "250 g",
+  "temp": 190,
+  "vrijeme": "16–20 min",
+  "program": "Pomfrit",
+  "napomena": "Brže karamelizira od krompira — protresi na svakih 7 min."
+ },
+ {
+  "kat": "Prilozi",
+  "namirnica": "Batat, kocke 2 cm",
+  "g": "300 g",
+  "temp": 190,
+  "vrijeme": "18–22 min",
+  "program": "Pomfrit",
+  "napomena": "Protresi na svakih 7 min."
+ },
+ {
+  "kat": "Prilozi",
+  "namirnica": "Riža / integralna tjestenina",
+  "g": "80–100 g",
+  "temp": 0,
+  "vrijeme": "—",
+  "program": "—",
+  "napomena": "Kuha se u vodi, ne ide u fritezu."
+ },
+ {
+  "kat": "Povrće",
+  "namirnica": "Brokula, ruže",
+  "g": "po želji",
+  "temp": 180,
+  "vrijeme": "8–10 min",
+  "program": "Povrće",
+  "napomena": "Sprej za ulje. Rukolu dodaj svježu poslije."
+ },
+ {
+  "kat": "Povrće",
+  "namirnica": "Tikvice i gljive",
+  "g": "po želji",
+  "temp": 180,
+  "vrijeme": "10–12 min",
+  "program": "Povrće",
+  "napomena": "Tikvice na kolutove 1 cm, gljive prepolovljene. Protresi na pola."
+ },
+ {
+  "kat": "Povrće",
+  "namirnica": "Prokulice",
+  "g": "po želji",
+  "temp": 185,
+  "vrijeme": "12–15 min",
+  "program": "Povrće",
+  "napomena": "Prepolovi, rezanom stranom prema dolje. Protresi na pola."
+ },
+ {
+  "kat": "Povrće",
+  "namirnica": "Paprika i luk",
+  "g": "po želji",
+  "temp": 180,
+  "vrijeme": "10–12 min",
+  "program": "Povrće",
+  "napomena": "Paprika na trake, luk na kolutove."
+ },
+ {
+  "kat": "Povrće",
+  "namirnica": "Cikla",
+  "g": "po želji",
+  "temp": 190,
+  "vrijeme": "25–30 min",
+  "program": "Povrće",
+  "napomena": "Cijela u foliji, ili na ploške 15 min."
+ },
+ {
+  "kat": "Jaja",
+  "namirnica": "Tvrdo kuhana jaja",
+  "g": "4 kom",
+  "temp": 140,
+  "vrijeme": "15–16 min",
+  "program": "—",
+  "napomena": "Odmah u ledenu vodu 2 min — ljuska se skida bez muke."
+ },
+ {
+  "kat": "Jaja",
+  "namirnica": "Kajgana",
+  "g": "4 kom",
+  "temp": 0,
+  "vrijeme": "—",
+  "program": "—",
+  "napomena": "Na tavi, sprej za ulje ili kap maslinovog."
+ }
+]

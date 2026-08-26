@@ -1,0 +1,2354 @@
+[
+ {
+  "n": 1,
+  "date": "2026-08-27",
+  "dan": "Četvrtak",
+  "datum": "27.08.2026.",
+  "trening": false,
+  "obroci": [
+   {
+    "naslov": "Obrok 1",
+    "stavke": [
+     "4 jaja (kuhana ili kajgana na sprej za ulje)",
+     "150 g delux šunke",
+     "povrće: zelena salata + krastavac + paradajz, sirće"
+    ],
+    "friteza": [
+     {
+      "kosara": "A",
+      "tekst": "Tvrdo kuhana jaja u fritezi: 140 °C, 15–16 min, pa odmah u ledenu vodu 2 min. Ljuska se skida bez muke."
+     }
+    ]
+   },
+   {
+    "naslov": "Obrok 2",
+    "stavke": [
+     "250 g pileći file",
+     "1 jušna kašika maslinovog ulja",
+     "povrće: cikla + krastavac",
+     "voćka: 1 jabuka"
+    ],
+    "friteza": [
+     {
+      "kosara": "A — protein",
+      "tekst": "250 g pileći file · 190 °C · 20–24 min · program „Perad“. Okreni na pola. Gotovo kad je unutra 74 °C i sok bistar."
+     },
+     {
+      "kosara": "Druga tura",
+      "tekst": "cikla + krastavac · 190 °C · 25–30 min. Cijela cikla umotana u foliju, ili narezana na ploške 15 min."
+     }
+    ]
+   },
+   {
+    "naslov": "Obrok 3",
+    "stavke": [
+     "250 g pileća prsa",
+     "100 g riže",
+     "1 jušna kašika maslinovog ulja",
+     "povrće: prokulice + miks salata"
+    ],
+    "friteza": [
+     {
+      "kosara": "A — protein",
+      "tekst": "250 g pileća prsa · 190 °C · 22–26 min · program „Perad“. Ako je komad deblji od 3 cm, prepolovi po dužini da se ravnomjerno ispeče."
+     },
+     {
+      "kosara": "B — prilog",
+      "tekst": "100 g riže — kuhaj u vodi, ne ide u fritezu."
+     },
+     {
+      "kosara": "Druga tura",
+      "tekst": "prokulice + miks salata · 185 °C · 12–15 min. Prokulice prepolovi, rezanom stranom prema dolje. Protresi na pola."
+     }
+    ]
+   },
+   {
+    "naslov": "Obrok 4",
+    "stavke": [
+     "150 g skyra",
+     "pola mjerice wheya",
+     "40 g kikirikija (Gud Diet)",
+     "(mrvicu vode pa zamijesati da bude kao sladoled, tek onda orašasti)"
+    ],
+    "friteza": []
+   }
+  ],
+  "napomene": [
+   "VAGANJE — ujutru, natašte, poslije WC-a, prije vode i hrane. Javi kg treneru."
+  ]
+ },
+ {
+  "n": 2,
+  "date": "2026-08-28",
+  "dan": "Petak",
+  "datum": "28.08.2026.",
+  "trening": true,
+  "obroci": [
+   {
+    "naslov": "Obrok 1",
+    "stavke": [
+     "4 jaja (kuhana ili kajgana na sprej za ulje)",
+     "2 šnite raženog integralnog kruha ILI 1 integralna tortilja",
+     "povrće: špinat / blitva"
+    ],
+    "friteza": [
+     {
+      "kosara": "A",
+      "tekst": "Tvrdo kuhana jaja u fritezi: 140 °C, 15–16 min, pa odmah u ledenu vodu 2 min. Ljuska se skida bez muke."
+     }
+    ]
+   },
+   {
+    "naslov": "Obrok 2",
+    "stavke": [
+     "200 g bijela riba (oslić / brancin / orada, file)",
+     "250 g krompira",
+     "1 jušna kašika maslinovog ulja",
+     "povrće: brokula + rukola"
+    ],
+    "friteza": [
+     {
+      "kosara": "A — protein",
+      "tekst": "200 g bijela riba (oslić / brancin / orada, file) · 180 °C · 10–12 min · program „Riba“. Ne okretati ako je tanak file — samo provjeri da se lista viljuškom."
+     },
+     {
+      "kosara": "B — prilog",
+      "tekst": "250 g krompira · 200 °C · 20–24 min · program „Pomfrit“. Kocke 2 cm, namoči 10 min u hladnoj vodi, dobro osuši, sprej za ulje. Protresi 2 puta."
+     },
+     {
+      "kosara": "Druga tura",
+      "tekst": "brokula + rukola · 180 °C · 8–10 min. Brokula na ruže, sprej za ulje. Rukolu dodaj svježu poslije."
+     }
+    ]
+   },
+   {
+    "naslov": "Obrok 3",
+    "stavke": [
+     "200 g pileća prsa",
+     "80 g riže",
+     "1 jušna kašika maslinovog ulja",
+     "povrće: prokulice + miks salata"
+    ],
+    "friteza": [
+     {
+      "kosara": "A — protein",
+      "tekst": "200 g pileća prsa · 190 °C · 18–22 min · program „Perad“. Ako je komad deblji od 3 cm, prepolovi po dužini da se ravnomjerno ispeče."
+     },
+     {
+      "kosara": "B — prilog",
+      "tekst": "80 g riže — kuhaj u vodi, ne ide u fritezu."
+     },
+     {
+      "kosara": "Druga tura",
+      "tekst": "prokulice + miks salata · 185 °C · 12–15 min. Prokulice prepolovi, rezanom stranom prema dolje. Protresi na pola."
+     }
+    ]
+   },
+   {
+    "naslov": "Obrok 4",
+    "stavke": [
+     "150 g skyra",
+     "pola mjerice wheya",
+     "40 g lješnjaka",
+     "(mrvicu vode pa zamijesati da bude kao sladoled, tek onda orašasti)"
+    ],
+    "friteza": []
+   },
+   {
+    "naslov": "Poslije treninga",
+    "stavke": [
+     "1 mjerica wheya s vodom",
+     "1 banana"
+    ],
+    "friteza": []
+   }
+  ],
+  "napomene": []
+ },
+ {
+  "n": 3,
+  "date": "2026-08-29",
+  "dan": "Subota",
+  "datum": "29.08.2026.",
+  "trening": false,
+  "obroci": [
+   {
+    "naslov": "Obrok 1",
+    "stavke": [
+     "4 jaja (kuhana ili kajgana na sprej za ulje)",
+     "150 g pileće dimljene prsa",
+     "povrće: cikla + krastavac"
+    ],
+    "friteza": [
+     {
+      "kosara": "A",
+      "tekst": "Tvrdo kuhana jaja u fritezi: 140 °C, 15–16 min, pa odmah u ledenu vodu 2 min. Ljuska se skida bez muke."
+     }
+    ]
+   },
+   {
+    "naslov": "Obrok 2",
+    "stavke": [
+     "250 g puretina (file)",
+     "1 jušna kašika maslinovog ulja",
+     "povrće: špinat / blitva",
+     "voćka: 150 g lubenice ili dinje"
+    ],
+    "friteza": [
+     {
+      "kosara": "A — protein",
+      "tekst": "250 g puretina (file) · 190 °C · 23–27 min · program „Perad“. Okreni na pola. Puretina je suša od piletine — ne prepeci."
+     }
+    ]
+   },
+   {
+    "naslov": "Obrok 3",
+    "stavke": [
+     "250 g teleća šnicla",
+     "100 g riže",
+     "1 jušna kašika maslinovog ulja",
+     "povrće: zelena salata + krastavac + paradajz, sirće"
+    ],
+    "friteza": [
+     {
+      "kosara": "A — protein",
+      "tekst": "250 g teleća šnicla · 195 °C · 12–15 min · program „Biftek“. Teletina je nemasna i brzo se osuši — radije kraće pa doradi 2 min ako treba."
+     },
+     {
+      "kosara": "B — prilog",
+      "tekst": "100 g riže — kuhaj u vodi, ne ide u fritezu."
+     }
+    ]
+   },
+   {
+    "naslov": "Obrok 4",
+    "stavke": [
+     "150 g grčkog jogurta (pravi grčki, NE „grčki tip“)",
+     "pola mjerice wheya",
+     "40 g badema",
+     "(mrvicu vode pa zamijesati da bude kao sladoled, tek onda orašasti)"
+    ],
+    "friteza": []
+   }
+  ],
+  "napomene": []
+ },
+ {
+  "n": 4,
+  "date": "2026-08-30",
+  "dan": "Nedjelja",
+  "datum": "30.08.2026.",
+  "trening": false,
+  "obroci": [
+   {
+    "naslov": "Obrok 1",
+    "stavke": [
+     "4 jaja (kuhana ili kajgana na sprej za ulje)",
+     "bez dodatka (samo jaja i povrće)",
+     "povrće: tikvice i gljive"
+    ],
+    "friteza": [
+     {
+      "kosara": "A",
+      "tekst": "Tvrdo kuhana jaja u fritezi: 140 °C, 15–16 min, pa odmah u ledenu vodu 2 min. Ljuska se skida bez muke."
+     }
+    ]
+   },
+   {
+    "naslov": "Obrok 2",
+    "stavke": [
+     "250 g juneća šnicla (nemasna)",
+     "1 jušna kašika maslinovog ulja",
+     "povrće: prokulice + miks salata",
+     "voćka: 2 kivija"
+    ],
+    "friteza": [
+     {
+      "kosara": "A — protein",
+      "tekst": "250 g juneća šnicla (nemasna) · 200 °C · 13–16 min · program „Biftek“. Okreni na pola. Za medium ~2 cm debljine. Pusti 5 min da odstoji prije rezanja."
+     },
+     {
+      "kosara": "Druga tura",
+      "tekst": "prokulice + miks salata · 185 °C · 12–15 min. Prokulice prepolovi, rezanom stranom prema dolje. Protresi na pola."
+     }
+    ]
+   },
+   {
+    "naslov": "Obrok 3",
+    "stavke": [
+     "250 g pileći file",
+     "300 g batata ili krompira",
+     "1 jušna kašika maslinovog ulja",
+     "povrće: brokula + rukola"
+    ],
+    "friteza": [
+     {
+      "kosara": "A — protein",
+      "tekst": "250 g pileći file · 190 °C · 20–24 min · program „Perad“. Okreni na pola. Gotovo kad je unutra 74 °C i sok bistar."
+     },
+     {
+      "kosara": "B — prilog",
+      "tekst": "300 g batata ili krompira · 190 °C · 18–22 min · program „Pomfrit“. Protresi na svakih 7 min."
+     },
+     {
+      "kosara": "Druga tura",
+      "tekst": "brokula + rukola · 180 °C · 8–10 min. Brokula na ruže, sprej za ulje. Rukolu dodaj svježu poslije."
+     }
+    ]
+   },
+   {
+    "naslov": "Obrok 4",
+    "stavke": [
+     "150 g skyra",
+     "pola mjerice wheya",
+     "40 g lješnjaka",
+     "(mrvicu vode pa zamijesati da bude kao sladoled, tek onda orašasti)"
+    ],
+    "friteza": []
+   }
+  ],
+  "napomene": []
+ },
+ {
+  "n": 5,
+  "date": "2026-08-31",
+  "dan": "Ponedjeljak",
+  "datum": "31.08.2026.",
+  "trening": true,
+  "obroci": [
+   {
+    "naslov": "Obrok 1",
+    "stavke": [
+     "4 jaja (kuhana ili kajgana na sprej za ulje)",
+     "2 šnite raženog integralnog kruha ILI 1 integralna tortilja",
+     "povrće: zelena salata + krastavac + paradajz, sirće"
+    ],
+    "friteza": [
+     {
+      "kosara": "A",
+      "tekst": "Tvrdo kuhana jaja u fritezi: 140 °C, 15–16 min, pa odmah u ledenu vodu 2 min. Ljuska se skida bez muke."
+     }
+    ]
+   },
+   {
+    "naslov": "Obrok 2",
+    "stavke": [
+     "200 g pileća prsa",
+     "80 g riže",
+     "1 jušna kašika maslinovog ulja",
+     "povrće: špinat / blitva"
+    ],
+    "friteza": [
+     {
+      "kosara": "A — protein",
+      "tekst": "200 g pileća prsa · 190 °C · 18–22 min · program „Perad“. Ako je komad deblji od 3 cm, prepolovi po dužini da se ravnomjerno ispeče."
+     },
+     {
+      "kosara": "B — prilog",
+      "tekst": "80 g riže — kuhaj u vodi, ne ide u fritezu."
+     }
+    ]
+   },
+   {
+    "naslov": "Obrok 3",
+    "stavke": [
+     "200 g pileći file",
+     "250 g krompira",
+     "1 jušna kašika maslinovog ulja",
+     "povrće: brokula + rukola"
+    ],
+    "friteza": [
+     {
+      "kosara": "A — protein",
+      "tekst": "200 g pileći file · 190 °C · 18–20 min · program „Perad“. Okreni na pola. Gotovo kad je unutra 74 °C i sok bistar."
+     },
+     {
+      "kosara": "B — prilog",
+      "tekst": "250 g krompira · 200 °C · 20–24 min · program „Pomfrit“. Kocke 2 cm, namoči 10 min u hladnoj vodi, dobro osuši, sprej za ulje. Protresi 2 puta."
+     },
+     {
+      "kosara": "Druga tura",
+      "tekst": "brokula + rukola · 180 °C · 8–10 min. Brokula na ruže, sprej za ulje. Rukolu dodaj svježu poslije."
+     }
+    ]
+   },
+   {
+    "naslov": "Obrok 4",
+    "stavke": [
+     "150 g skyra",
+     "pola mjerice wheya",
+     "40 g badema",
+     "(mrvicu vode pa zamijesati da bude kao sladoled, tek onda orašasti)"
+    ],
+    "friteza": []
+   },
+   {
+    "naslov": "Poslije treninga",
+    "stavke": [
+     "1 mjerica wheya s vodom",
+     "1 banana"
+    ],
+    "friteza": []
+   }
+  ],
+  "napomene": []
+ },
+ {
+  "n": 6,
+  "date": "2026-09-01",
+  "dan": "Utorak",
+  "datum": "01.09.2026.",
+  "trening": false,
+  "obroci": [
+   {
+    "naslov": "Obrok 1",
+    "stavke": [
+     "4 jaja (kuhana ili kajgana na sprej za ulje)",
+     "150 g pureće dimljene prsa",
+     "povrće: prokulice + miks salata"
+    ],
+    "friteza": [
+     {
+      "kosara": "A",
+      "tekst": "Tvrdo kuhana jaja u fritezi: 140 °C, 15–16 min, pa odmah u ledenu vodu 2 min. Ljuska se skida bez muke."
+     }
+    ]
+   },
+   {
+    "naslov": "Obrok 2",
+    "stavke": [
+     "250 g tuna u konzervi (procijeđena) ili bijela riba",
+     "1 jušna kašika maslinovog ulja",
+     "povrće: zelena salata + krastavac + paradajz, sirće",
+     "voćka: 150 g grožđa"
+    ],
+    "friteza": [
+     {
+      "kosara": "A — protein",
+      "tekst": "Tuna iz konzerve se ne peče — samo dobro procijedi ulje. Ako uzmeš ribu: 180 °C, 12–15 min."
+     }
+    ]
+   },
+   {
+    "naslov": "Obrok 3",
+    "stavke": [
+     "250 g puretina (file)",
+     "300 g krompira",
+     "1 jušna kašika maslinovog ulja",
+     "povrće: tikvice i gljive"
+    ],
+    "friteza": [
+     {
+      "kosara": "A — protein",
+      "tekst": "250 g puretina (file) · 190 °C · 23–27 min · program „Perad“. Okreni na pola. Puretina je suša od piletine — ne prepeci."
+     },
+     {
+      "kosara": "B — prilog",
+      "tekst": "300 g krompira · 200 °C · 22–26 min · program „Pomfrit“. Kocke 2 cm, namoči 10 min, osuši, sprej. Protresi 2 puta."
+     },
+     {
+      "kosara": "Druga tura",
+      "tekst": "tikvice i gljive · 180 °C · 10–12 min. Tikvice na kolutove 1 cm, gljive prepolovljene. Protresi na pola."
+     }
+    ]
+   },
+   {
+    "naslov": "Obrok 4",
+    "stavke": [
+     "150 g grčkog jogurta (pravi grčki, NE „grčki tip“)",
+     "pola mjerice wheya",
+     "40 g kikiriki maslaca",
+     "(mrvicu vode pa zamijesati da bude kao sladoled, tek onda orašasti)"
+    ],
+    "friteza": []
+   }
+  ],
+  "napomene": []
+ },
+ {
+  "n": 7,
+  "date": "2026-09-02",
+  "dan": "Srijeda",
+  "datum": "02.09.2026.",
+  "trening": true,
+  "obroci": [
+   {
+    "naslov": "Obrok 1",
+    "stavke": [
+     "60 g zobenih pahuljica",
+     "30 g whey proteina (s vodom)",
+     "100 g višnje",
+     "30 g kikirikija (Gud Diet)"
+    ],
+    "friteza": []
+   },
+   {
+    "naslov": "Obrok 2",
+    "stavke": [
+     "200 g teleća šnicla",
+     "80 g riže",
+     "1 jušna kašika maslinovog ulja",
+     "povrće: paprika i luk + kupus salata"
+    ],
+    "friteza": [
+     {
+      "kosara": "A — protein",
+      "tekst": "200 g teleća šnicla · 195 °C · 9–12 min · program „Biftek“. Teletina je nemasna i brzo se osuši — radije kraće pa doradi 2 min ako treba."
+     },
+     {
+      "kosara": "B — prilog",
+      "tekst": "80 g riže — kuhaj u vodi, ne ide u fritezu."
+     },
+     {
+      "kosara": "Druga tura",
+      "tekst": "paprika i luk + kupus salata · 180 °C · 10–12 min. Paprika na trake, luk na kolutove. Protresi na pola."
+     }
+    ]
+   },
+   {
+    "naslov": "Obrok 3",
+    "stavke": [
+     "200 g puretina (file)",
+     "250 g batata",
+     "1 jušna kašika maslinovog ulja",
+     "povrće: tikvice i gljive"
+    ],
+    "friteza": [
+     {
+      "kosara": "A — protein",
+      "tekst": "200 g puretina (file) · 190 °C · 20–23 min · program „Perad“. Okreni na pola. Puretina je suša od piletine — ne prepeci."
+     },
+     {
+      "kosara": "B — prilog",
+      "tekst": "250 g batata · 190 °C · 16–20 min · program „Pomfrit“. Batat se brže karamelizira od krompira — protresi na svakih 7 min."
+     },
+     {
+      "kosara": "Druga tura",
+      "tekst": "tikvice i gljive · 180 °C · 10–12 min. Tikvice na kolutove 1 cm, gljive prepolovljene. Protresi na pola."
+     }
+    ]
+   },
+   {
+    "naslov": "Obrok 4",
+    "stavke": [
+     "150 g grčkog jogurta (pravi grčki, NE „grčki tip“)",
+     "pola mjerice wheya",
+     "40 g kikirikija (Gud Diet)",
+     "(mrvicu vode pa zamijesati da bude kao sladoled, tek onda orašasti)"
+    ],
+    "friteza": []
+   },
+   {
+    "naslov": "Poslije treninga",
+    "stavke": [
+     "1 mjerica wheya s vodom",
+     "1 banana"
+    ],
+    "friteza": []
+   }
+  ],
+  "napomene": []
+ },
+ {
+  "n": 8,
+  "date": "2026-09-03",
+  "dan": "Četvrtak",
+  "datum": "03.09.2026.",
+  "trening": false,
+  "obroci": [
+   {
+    "naslov": "Obrok 1",
+    "stavke": [
+     "4 jaja (kuhana ili kajgana na sprej za ulje)",
+     "bez dodatka (samo jaja i povrće)",
+     "povrće: zelena salata + krastavac + paradajz, sirće"
+    ],
+    "friteza": [
+     {
+      "kosara": "A",
+      "tekst": "Tvrdo kuhana jaja u fritezi: 140 °C, 15–16 min, pa odmah u ledenu vodu 2 min. Ljuska se skida bez muke."
+     }
+    ]
+   },
+   {
+    "naslov": "Obrok 2",
+    "stavke": [
+     "250 g pileći file",
+     "1 jušna kašika maslinovog ulja",
+     "povrće: cikla + krastavac",
+     "voćka: 1 jabuka"
+    ],
+    "friteza": [
+     {
+      "kosara": "A — protein",
+      "tekst": "250 g pileći file · 190 °C · 20–24 min · program „Perad“. Okreni na pola. Gotovo kad je unutra 74 °C i sok bistar."
+     },
+     {
+      "kosara": "Druga tura",
+      "tekst": "cikla + krastavac · 190 °C · 25–30 min. Cijela cikla umotana u foliju, ili narezana na ploške 15 min."
+     }
+    ]
+   },
+   {
+    "naslov": "Obrok 3",
+    "stavke": [
+     "250 g pileća prsa",
+     "300 g krompira",
+     "1 jušna kašika maslinovog ulja",
+     "povrće: prokulice + miks salata"
+    ],
+    "friteza": [
+     {
+      "kosara": "A — protein",
+      "tekst": "250 g pileća prsa · 190 °C · 22–26 min · program „Perad“. Ako je komad deblji od 3 cm, prepolovi po dužini da se ravnomjerno ispeče."
+     },
+     {
+      "kosara": "B — prilog",
+      "tekst": "300 g krompira · 200 °C · 22–26 min · program „Pomfrit“. Kocke 2 cm, namoči 10 min, osuši, sprej. Protresi 2 puta. Ne puni košaru preko 2/3."
+     },
+     {
+      "kosara": "Druga tura",
+      "tekst": "prokulice + miks salata · 185 °C · 12–15 min. Prokulice prepolovi, rezanom stranom prema dolje. Protresi na pola."
+     }
+    ]
+   },
+   {
+    "naslov": "Obrok 4",
+    "stavke": [
+     "150 g posnog sira",
+     "pola mjerice wheya",
+     "40 g lješnjaka",
+     "(mrvicu vode pa zamijesati da bude kao sladoled, tek onda orašasti)"
+    ],
+    "friteza": []
+   }
+  ],
+  "napomene": [
+   "VAGANJE — ujutru, natašte, poslije WC-a, prije vode i hrane. Javi kg treneru."
+  ]
+ },
+ {
+  "n": 9,
+  "date": "2026-09-04",
+  "dan": "Petak",
+  "datum": "04.09.2026.",
+  "trening": true,
+  "obroci": [
+   {
+    "naslov": "Obrok 1 — proteinske palačinke",
+    "stavke": [
+     "50 g sitnih zobenih + 30 g wheya + 2 bjelanjka",
+     "pola praška za pecivo, prstohvat soli, 6 smrvljenih Natrena, malo vode",
+     "peći na tavi na spreju za ulje, poklopljeno 2–3 min pa 30 sek na drugu stranu",
+     "odozgo: 50 g maline + 30 g kikiriki maslaca"
+    ],
+    "friteza": []
+   },
+   {
+    "naslov": "Obrok 2",
+    "stavke": [
+     "200 g bijela riba (oslić / brancin / orada, file)",
+     "80 g riže",
+     "1 jušna kašika maslinovog ulja",
+     "povrće: brokula + rukola"
+    ],
+    "friteza": [
+     {
+      "kosara": "A — protein",
+      "tekst": "200 g bijela riba (oslić / brancin / orada, file) · 180 °C · 10–12 min · program „Riba“. Ne okretati ako je tanak file — samo provjeri da se lista viljuškom."
+     },
+     {
+      "kosara": "B — prilog",
+      "tekst": "80 g riže — kuhaj u vodi, ne ide u fritezu."
+     },
+     {
+      "kosara": "Druga tura",
+      "tekst": "brokula + rukola · 180 °C · 8–10 min. Brokula na ruže, sprej za ulje. Rukolu dodaj svježu poslije."
+     }
+    ]
+   },
+   {
+    "naslov": "Obrok 3",
+    "stavke": [
+     "200 g pileća prsa",
+     "250 g krompira",
+     "1 jušna kašika maslinovog ulja",
+     "povrće: prokulice + miks salata"
+    ],
+    "friteza": [
+     {
+      "kosara": "A — protein",
+      "tekst": "200 g pileća prsa · 190 °C · 18–22 min · program „Perad“. Ako je komad deblji od 3 cm, prepolovi po dužini da se ravnomjerno ispeče."
+     },
+     {
+      "kosara": "B — prilog",
+      "tekst": "250 g krompira · 200 °C · 20–24 min · program „Pomfrit“. Kocke 2 cm, namoči 10 min u hladnoj vodi, dobro osuši, sprej za ulje. Protresi 2 puta."
+     },
+     {
+      "kosara": "Druga tura",
+      "tekst": "prokulice + miks salata · 185 °C · 12–15 min. Prokulice prepolovi, rezanom stranom prema dolje. Protresi na pola."
+     }
+    ]
+   },
+   {
+    "naslov": "Obrok 4",
+    "stavke": [
+     "150 g posnog sira",
+     "pola mjerice wheya",
+     "40 g badema",
+     "(mrvicu vode pa zamijesati da bude kao sladoled, tek onda orašasti)"
+    ],
+    "friteza": []
+   },
+   {
+    "naslov": "Poslije treninga",
+    "stavke": [
+     "1 mjerica wheya s vodom",
+     "1 banana"
+    ],
+    "friteza": []
+   }
+  ],
+  "napomene": []
+ },
+ {
+  "n": 10,
+  "date": "2026-09-05",
+  "dan": "Subota",
+  "datum": "05.09.2026.",
+  "trening": false,
+  "obroci": [
+   {
+    "naslov": "Obrok 1",
+    "stavke": [
+     "4 jaja (kuhana ili kajgana na sprej za ulje)",
+     "150 g pureće dimljene prsa",
+     "povrće: cikla + krastavac"
+    ],
+    "friteza": [
+     {
+      "kosara": "A",
+      "tekst": "Tvrdo kuhana jaja u fritezi: 140 °C, 15–16 min, pa odmah u ledenu vodu 2 min. Ljuska se skida bez muke."
+     }
+    ]
+   },
+   {
+    "naslov": "Obrok 2",
+    "stavke": [
+     "250 g puretina (file)",
+     "1 jušna kašika maslinovog ulja",
+     "povrće: špinat / blitva",
+     "voćka: 150 g lubenice ili dinje"
+    ],
+    "friteza": [
+     {
+      "kosara": "A — protein",
+      "tekst": "250 g puretina (file) · 190 °C · 23–27 min · program „Perad“. Okreni na pola. Puretina je suša od piletine — ne prepeci."
+     }
+    ]
+   },
+   {
+    "naslov": "Obrok 3",
+    "stavke": [
+     "250 g teleća šnicla",
+     "300 g batata ili krompira",
+     "1 jušna kašika maslinovog ulja",
+     "povrće: zelena salata + krastavac + paradajz, sirće"
+    ],
+    "friteza": [
+     {
+      "kosara": "A — protein",
+      "tekst": "250 g teleća šnicla · 195 °C · 12–15 min · program „Biftek“. Teletina je nemasna i brzo se osuši — radije kraće pa doradi 2 min ako treba."
+     },
+     {
+      "kosara": "B — prilog",
+      "tekst": "300 g batata ili krompira · 190 °C · 18–22 min · program „Pomfrit“. Protresi na svakih 7 min."
+     }
+    ]
+   },
+   {
+    "naslov": "Obrok 4",
+    "stavke": [
+     "150 g skyra",
+     "pola mjerice wheya",
+     "40 g kikiriki maslaca",
+     "(mrvicu vode pa zamijesati da bude kao sladoled, tek onda orašasti)"
+    ],
+    "friteza": []
+   }
+  ],
+  "napomene": []
+ },
+ {
+  "n": 11,
+  "date": "2026-09-06",
+  "dan": "Nedjelja",
+  "datum": "06.09.2026.",
+  "trening": false,
+  "obroci": [
+   {
+    "naslov": "Obrok 1",
+    "stavke": [
+     "4 jaja (kuhana ili kajgana na sprej za ulje)",
+     "150 g pileće dimljene prsa",
+     "povrće: tikvice i gljive"
+    ],
+    "friteza": [
+     {
+      "kosara": "A",
+      "tekst": "Tvrdo kuhana jaja u fritezi: 140 °C, 15–16 min, pa odmah u ledenu vodu 2 min. Ljuska se skida bez muke."
+     }
+    ]
+   },
+   {
+    "naslov": "Obrok 2",
+    "stavke": [
+     "250 g juneća šnicla (nemasna)",
+     "1 jušna kašika maslinovog ulja",
+     "povrće: prokulice + miks salata",
+     "voćka: 2 kivija"
+    ],
+    "friteza": [
+     {
+      "kosara": "A — protein",
+      "tekst": "250 g juneća šnicla (nemasna) · 200 °C · 13–16 min · program „Biftek“. Okreni na pola. Za medium ~2 cm debljine. Pusti 5 min da odstoji prije rezanja."
+     },
+     {
+      "kosara": "Druga tura",
+      "tekst": "prokulice + miks salata · 185 °C · 12–15 min. Prokulice prepolovi, rezanom stranom prema dolje. Protresi na pola."
+     }
+    ]
+   },
+   {
+    "naslov": "Obrok 3",
+    "stavke": [
+     "250 g pileći file",
+     "100 g riže",
+     "1 jušna kašika maslinovog ulja",
+     "povrće: brokula + rukola"
+    ],
+    "friteza": [
+     {
+      "kosara": "A — protein",
+      "tekst": "250 g pileći file · 190 °C · 20–24 min · program „Perad“. Okreni na pola. Gotovo kad je unutra 74 °C i sok bistar."
+     },
+     {
+      "kosara": "B — prilog",
+      "tekst": "100 g riže — kuhaj u vodi, ne ide u fritezu."
+     },
+     {
+      "kosara": "Druga tura",
+      "tekst": "brokula + rukola · 180 °C · 8–10 min. Brokula na ruže, sprej za ulje. Rukolu dodaj svježu poslije."
+     }
+    ]
+   },
+   {
+    "naslov": "Obrok 4",
+    "stavke": [
+     "150 g posnog sira",
+     "pola mjerice wheya",
+     "40 g badema",
+     "(mrvicu vode pa zamijesati da bude kao sladoled, tek onda orašasti)"
+    ],
+    "friteza": []
+   }
+  ],
+  "napomene": []
+ },
+ {
+  "n": 12,
+  "date": "2026-09-07",
+  "dan": "Ponedjeljak",
+  "datum": "07.09.2026.",
+  "trening": true,
+  "obroci": [
+   {
+    "naslov": "Obrok 1 — proteinske palačinke",
+    "stavke": [
+     "50 g sitnih zobenih + 30 g wheya + 2 bjelanjka",
+     "pola praška za pecivo, prstohvat soli, 6 smrvljenih Natrena, malo vode",
+     "peći na tavi na spreju za ulje, poklopljeno 2–3 min pa 30 sek na drugu stranu",
+     "odozgo: 50 g jagode + 30 g kikiriki maslaca"
+    ],
+    "friteza": []
+   },
+   {
+    "naslov": "Obrok 2",
+    "stavke": [
+     "200 g pileća prsa",
+     "250 g krompira",
+     "1 jušna kašika maslinovog ulja",
+     "povrće: špinat / blitva"
+    ],
+    "friteza": [
+     {
+      "kosara": "A — protein",
+      "tekst": "200 g pileća prsa · 190 °C · 18–22 min · program „Perad“. Ako je komad deblji od 3 cm, prepolovi po dužini da se ravnomjerno ispeče."
+     },
+     {
+      "kosara": "B — prilog",
+      "tekst": "250 g krompira · 200 °C · 20–24 min · program „Pomfrit“. Kocke 2 cm, namoči 10 min u hladnoj vodi, dobro osuši, sprej za ulje. Protresi 2 puta."
+     }
+    ]
+   },
+   {
+    "naslov": "Obrok 3",
+    "stavke": [
+     "200 g pileći file",
+     "80 g riže",
+     "1 jušna kašika maslinovog ulja",
+     "povrće: brokula + rukola"
+    ],
+    "friteza": [
+     {
+      "kosara": "A — protein",
+      "tekst": "200 g pileći file · 190 °C · 18–20 min · program „Perad“. Okreni na pola. Gotovo kad je unutra 74 °C i sok bistar."
+     },
+     {
+      "kosara": "B — prilog",
+      "tekst": "80 g riže — kuhaj u vodi, ne ide u fritezu."
+     },
+     {
+      "kosara": "Druga tura",
+      "tekst": "brokula + rukola · 180 °C · 8–10 min. Brokula na ruže, sprej za ulje. Rukolu dodaj svježu poslije."
+     }
+    ]
+   },
+   {
+    "naslov": "Obrok 4",
+    "stavke": [
+     "150 g posnog sira",
+     "pola mjerice wheya",
+     "40 g kikiriki maslaca",
+     "(mrvicu vode pa zamijesati da bude kao sladoled, tek onda orašasti)"
+    ],
+    "friteza": []
+   },
+   {
+    "naslov": "Poslije treninga",
+    "stavke": [
+     "1 mjerica wheya s vodom",
+     "1 banana"
+    ],
+    "friteza": []
+   }
+  ],
+  "napomene": []
+ },
+ {
+  "n": 13,
+  "date": "2026-09-08",
+  "dan": "Utorak",
+  "datum": "08.09.2026.",
+  "trening": false,
+  "obroci": [
+   {
+    "naslov": "Obrok 1",
+    "stavke": [
+     "4 jaja (kuhana ili kajgana na sprej za ulje)",
+     "150 g delux šunke",
+     "povrće: prokulice + miks salata"
+    ],
+    "friteza": [
+     {
+      "kosara": "A",
+      "tekst": "Tvrdo kuhana jaja u fritezi: 140 °C, 15–16 min, pa odmah u ledenu vodu 2 min. Ljuska se skida bez muke."
+     }
+    ]
+   },
+   {
+    "naslov": "Obrok 2",
+    "stavke": [
+     "250 g tuna u konzervi (procijeđena) ili bijela riba",
+     "1 jušna kašika maslinovog ulja",
+     "povrće: zelena salata + krastavac + paradajz, sirće",
+     "voćka: 150 g grožđa"
+    ],
+    "friteza": [
+     {
+      "kosara": "A — protein",
+      "tekst": "Tuna iz konzerve se ne peče — samo dobro procijedi ulje. Ako uzmeš ribu: 180 °C, 12–15 min."
+     }
+    ]
+   },
+   {
+    "naslov": "Obrok 3",
+    "stavke": [
+     "250 g puretina (file)",
+     "100 g riže",
+     "1 jušna kašika maslinovog ulja",
+     "povrće: tikvice i gljive"
+    ],
+    "friteza": [
+     {
+      "kosara": "A — protein",
+      "tekst": "250 g puretina (file) · 190 °C · 23–27 min · program „Perad“. Okreni na pola. Puretina je suša od piletine — ne prepeci."
+     },
+     {
+      "kosara": "B — prilog",
+      "tekst": "100 g riže — kuhaj u vodi, ne ide u fritezu."
+     },
+     {
+      "kosara": "Druga tura",
+      "tekst": "tikvice i gljive · 180 °C · 10–12 min. Tikvice na kolutove 1 cm, gljive prepolovljene. Protresi na pola."
+     }
+    ]
+   },
+   {
+    "naslov": "Obrok 4",
+    "stavke": [
+     "150 g skyra",
+     "pola mjerice wheya",
+     "40 g kikirikija (Gud Diet)",
+     "(mrvicu vode pa zamijesati da bude kao sladoled, tek onda orašasti)"
+    ],
+    "friteza": []
+   }
+  ],
+  "napomene": []
+ },
+ {
+  "n": 14,
+  "date": "2026-09-09",
+  "dan": "Srijeda",
+  "datum": "09.09.2026.",
+  "trening": true,
+  "obroci": [
+   {
+    "naslov": "Obrok 1",
+    "stavke": [
+     "4 jaja (kuhana ili kajgana na sprej za ulje)",
+     "2 šnite raženog integralnog kruha ILI 1 integralna tortilja",
+     "povrće: cikla + krastavac"
+    ],
+    "friteza": [
+     {
+      "kosara": "A",
+      "tekst": "Tvrdo kuhana jaja u fritezi: 140 °C, 15–16 min, pa odmah u ledenu vodu 2 min. Ljuska se skida bez muke."
+     }
+    ]
+   },
+   {
+    "naslov": "Obrok 2",
+    "stavke": [
+     "200 g teleća šnicla",
+     "250 g krompira",
+     "1 jušna kašika maslinovog ulja",
+     "povrće: paprika i luk + kupus salata"
+    ],
+    "friteza": [
+     {
+      "kosara": "A — protein",
+      "tekst": "200 g teleća šnicla · 195 °C · 9–12 min · program „Biftek“. Teletina je nemasna i brzo se osuši — radije kraće pa doradi 2 min ako treba."
+     },
+     {
+      "kosara": "B — prilog",
+      "tekst": "250 g krompira · 200 °C · 20–24 min · program „Pomfrit“. Kocke 2 cm, namoči 10 min u hladnoj vodi, dobro osuši, sprej za ulje. Protresi 2 puta."
+     },
+     {
+      "kosara": "Druga tura",
+      "tekst": "paprika i luk + kupus salata · 180 °C · 10–12 min. Paprika na trake, luk na kolutove. Protresi na pola."
+     }
+    ]
+   },
+   {
+    "naslov": "Obrok 3",
+    "stavke": [
+     "200 g puretina (file)",
+     "80 g riže",
+     "1 jušna kašika maslinovog ulja",
+     "povrće: tikvice i gljive"
+    ],
+    "friteza": [
+     {
+      "kosara": "A — protein",
+      "tekst": "200 g puretina (file) · 190 °C · 20–23 min · program „Perad“. Okreni na pola. Puretina je suša od piletine — ne prepeci."
+     },
+     {
+      "kosara": "B — prilog",
+      "tekst": "80 g riže — kuhaj u vodi, ne ide u fritezu."
+     },
+     {
+      "kosara": "Druga tura",
+      "tekst": "tikvice i gljive · 180 °C · 10–12 min. Tikvice na kolutove 1 cm, gljive prepolovljene. Protresi na pola."
+     }
+    ]
+   },
+   {
+    "naslov": "Obrok 4",
+    "stavke": [
+     "150 g skyra",
+     "pola mjerice wheya",
+     "40 g lješnjaka",
+     "(mrvicu vode pa zamijesati da bude kao sladoled, tek onda orašasti)"
+    ],
+    "friteza": []
+   },
+   {
+    "naslov": "Poslije treninga",
+    "stavke": [
+     "1 mjerica wheya s vodom",
+     "1 banana"
+    ],
+    "friteza": []
+   }
+  ],
+  "napomene": []
+ },
+ {
+  "n": 15,
+  "date": "2026-09-10",
+  "dan": "Četvrtak",
+  "datum": "10.09.2026.",
+  "trening": false,
+  "obroci": [
+   {
+    "naslov": "Obrok 1",
+    "stavke": [
+     "4 jaja (kuhana ili kajgana na sprej za ulje)",
+     "150 g pileće dimljene prsa",
+     "povrće: zelena salata + krastavac + paradajz, sirće"
+    ],
+    "friteza": [
+     {
+      "kosara": "A",
+      "tekst": "Tvrdo kuhana jaja u fritezi: 140 °C, 15–16 min, pa odmah u ledenu vodu 2 min. Ljuska se skida bez muke."
+     }
+    ]
+   },
+   {
+    "naslov": "Obrok 2",
+    "stavke": [
+     "250 g pileći file",
+     "1 jušna kašika maslinovog ulja",
+     "povrće: cikla + krastavac",
+     "voćka: 1 jabuka"
+    ],
+    "friteza": [
+     {
+      "kosara": "A — protein",
+      "tekst": "250 g pileći file · 190 °C · 20–24 min · program „Perad“. Okreni na pola. Gotovo kad je unutra 74 °C i sok bistar."
+     },
+     {
+      "kosara": "Druga tura",
+      "tekst": "cikla + krastavac · 190 °C · 25–30 min. Cijela cikla umotana u foliju, ili narezana na ploške 15 min."
+     }
+    ]
+   },
+   {
+    "naslov": "Obrok 3",
+    "stavke": [
+     "250 g pileća prsa",
+     "100 g riže",
+     "1 jušna kašika maslinovog ulja",
+     "povrće: prokulice + miks salata"
+    ],
+    "friteza": [
+     {
+      "kosara": "A — protein",
+      "tekst": "250 g pileća prsa · 190 °C · 22–26 min · program „Perad“. Ako je komad deblji od 3 cm, prepolovi po dužini da se ravnomjerno ispeče."
+     },
+     {
+      "kosara": "B — prilog",
+      "tekst": "100 g riže — kuhaj u vodi, ne ide u fritezu."
+     },
+     {
+      "kosara": "Druga tura",
+      "tekst": "prokulice + miks salata · 185 °C · 12–15 min. Prokulice prepolovi, rezanom stranom prema dolje. Protresi na pola."
+     }
+    ]
+   },
+   {
+    "naslov": "Obrok 4",
+    "stavke": [
+     "150 g grčkog jogurta (pravi grčki, NE „grčki tip“)",
+     "pola mjerice wheya",
+     "40 g badema",
+     "(mrvicu vode pa zamijesati da bude kao sladoled, tek onda orašasti)"
+    ],
+    "friteza": []
+   }
+  ],
+  "napomene": [
+   "VAGANJE — ujutru, natašte, poslije WC-a, prije vode i hrane. Javi kg treneru.",
+   "SLIKE FORME — ujutru natašte, isto svjetlo i isti ugao (sprijeda, bočno, straga). Pošalji treneru."
+  ]
+ },
+ {
+  "n": 16,
+  "date": "2026-09-11",
+  "dan": "Petak",
+  "datum": "11.09.2026.",
+  "trening": true,
+  "obroci": [
+   {
+    "naslov": "Obrok 1",
+    "stavke": [
+     "60 g zobenih pahuljica",
+     "30 g whey proteina (s vodom)",
+     "100 g kupine",
+     "30 g kikiriki maslaca"
+    ],
+    "friteza": []
+   },
+   {
+    "naslov": "Obrok 2",
+    "stavke": [
+     "200 g bijela riba (oslić / brancin / orada, file)",
+     "250 g batata",
+     "1 jušna kašika maslinovog ulja",
+     "povrće: brokula + rukola"
+    ],
+    "friteza": [
+     {
+      "kosara": "A — protein",
+      "tekst": "200 g bijela riba (oslić / brancin / orada, file) · 180 °C · 10–12 min · program „Riba“. Ne okretati ako je tanak file — samo provjeri da se lista viljuškom."
+     },
+     {
+      "kosara": "B — prilog",
+      "tekst": "250 g batata · 190 °C · 16–20 min · program „Pomfrit“. Batat se brže karamelizira od krompira — protresi na svakih 7 min."
+     },
+     {
+      "kosara": "Druga tura",
+      "tekst": "brokula + rukola · 180 °C · 8–10 min. Brokula na ruže, sprej za ulje. Rukolu dodaj svježu poslije."
+     }
+    ]
+   },
+   {
+    "naslov": "Obrok 3",
+    "stavke": [
+     "200 g pileća prsa",
+     "80 g riže",
+     "1 jušna kašika maslinovog ulja",
+     "povrće: prokulice + miks salata"
+    ],
+    "friteza": [
+     {
+      "kosara": "A — protein",
+      "tekst": "200 g pileća prsa · 190 °C · 18–22 min · program „Perad“. Ako je komad deblji od 3 cm, prepolovi po dužini da se ravnomjerno ispeče."
+     },
+     {
+      "kosara": "B — prilog",
+      "tekst": "80 g riže — kuhaj u vodi, ne ide u fritezu."
+     },
+     {
+      "kosara": "Druga tura",
+      "tekst": "prokulice + miks salata · 185 °C · 12–15 min. Prokulice prepolovi, rezanom stranom prema dolje. Protresi na pola."
+     }
+    ]
+   },
+   {
+    "naslov": "Obrok 4",
+    "stavke": [
+     "150 g grčkog jogurta (pravi grčki, NE „grčki tip“)",
+     "pola mjerice wheya",
+     "40 g kikiriki maslaca",
+     "(mrvicu vode pa zamijesati da bude kao sladoled, tek onda orašasti)"
+    ],
+    "friteza": []
+   },
+   {
+    "naslov": "Poslije treninga",
+    "stavke": [
+     "1 mjerica wheya s vodom",
+     "1 banana"
+    ],
+    "friteza": []
+   }
+  ],
+  "napomene": []
+ },
+ {
+  "n": 17,
+  "date": "2026-09-12",
+  "dan": "Subota",
+  "datum": "12.09.2026.",
+  "trening": false,
+  "obroci": [
+   {
+    "naslov": "Obrok 1",
+    "stavke": [
+     "4 jaja (kuhana ili kajgana na sprej za ulje)",
+     "150 g delux šunke",
+     "povrće: cikla + krastavac"
+    ],
+    "friteza": [
+     {
+      "kosara": "A",
+      "tekst": "Tvrdo kuhana jaja u fritezi: 140 °C, 15–16 min, pa odmah u ledenu vodu 2 min. Ljuska se skida bez muke."
+     }
+    ]
+   },
+   {
+    "naslov": "Obrok 2",
+    "stavke": [
+     "250 g puretina (file)",
+     "1 jušna kašika maslinovog ulja",
+     "povrće: špinat / blitva",
+     "voćka: 150 g lubenice ili dinje"
+    ],
+    "friteza": [
+     {
+      "kosara": "A — protein",
+      "tekst": "250 g puretina (file) · 190 °C · 23–27 min · program „Perad“. Okreni na pola. Puretina je suša od piletine — ne prepeci."
+     }
+    ]
+   },
+   {
+    "naslov": "Obrok 3",
+    "stavke": [
+     "250 g teleća šnicla",
+     "100 g riže",
+     "1 jušna kašika maslinovog ulja",
+     "povrće: zelena salata + krastavac + paradajz, sirće"
+    ],
+    "friteza": [
+     {
+      "kosara": "A — protein",
+      "tekst": "250 g teleća šnicla · 195 °C · 12–15 min · program „Biftek“. Teletina je nemasna i brzo se osuši — radije kraće pa doradi 2 min ako treba."
+     },
+     {
+      "kosara": "B — prilog",
+      "tekst": "100 g riže — kuhaj u vodi, ne ide u fritezu."
+     }
+    ]
+   },
+   {
+    "naslov": "Obrok 4",
+    "stavke": [
+     "150 g posnog sira",
+     "pola mjerice wheya",
+     "40 g kikirikija (Gud Diet)",
+     "(mrvicu vode pa zamijesati da bude kao sladoled, tek onda orašasti)"
+    ],
+    "friteza": []
+   }
+  ],
+  "napomene": []
+ },
+ {
+  "n": 18,
+  "date": "2026-09-13",
+  "dan": "Nedjelja",
+  "datum": "13.09.2026.",
+  "trening": false,
+  "obroci": [
+   {
+    "naslov": "Obrok 1",
+    "stavke": [
+     "4 jaja (kuhana ili kajgana na sprej za ulje)",
+     "150 g pureće dimljene prsa",
+     "povrće: tikvice i gljive"
+    ],
+    "friteza": [
+     {
+      "kosara": "A",
+      "tekst": "Tvrdo kuhana jaja u fritezi: 140 °C, 15–16 min, pa odmah u ledenu vodu 2 min. Ljuska se skida bez muke."
+     }
+    ]
+   },
+   {
+    "naslov": "Obrok 2",
+    "stavke": [
+     "250 g juneća šnicla (nemasna)",
+     "1 jušna kašika maslinovog ulja",
+     "povrće: prokulice + miks salata",
+     "voćka: 2 kivija"
+    ],
+    "friteza": [
+     {
+      "kosara": "A — protein",
+      "tekst": "250 g juneća šnicla (nemasna) · 200 °C · 13–16 min · program „Biftek“. Okreni na pola. Za medium ~2 cm debljine. Pusti 5 min da odstoji prije rezanja."
+     },
+     {
+      "kosara": "Druga tura",
+      "tekst": "prokulice + miks salata · 185 °C · 12–15 min. Prokulice prepolovi, rezanom stranom prema dolje. Protresi na pola."
+     }
+    ]
+   },
+   {
+    "naslov": "Obrok 3",
+    "stavke": [
+     "250 g pileći file",
+     "300 g krompira",
+     "1 jušna kašika maslinovog ulja",
+     "povrće: brokula + rukola"
+    ],
+    "friteza": [
+     {
+      "kosara": "A — protein",
+      "tekst": "250 g pileći file · 190 °C · 20–24 min · program „Perad“. Okreni na pola. Gotovo kad je unutra 74 °C i sok bistar."
+     },
+     {
+      "kosara": "B — prilog",
+      "tekst": "300 g krompira · 200 °C · 22–26 min · program „Pomfrit“. Kocke 2 cm, namoči 10 min, osuši, sprej. Protresi 2 puta."
+     },
+     {
+      "kosara": "Druga tura",
+      "tekst": "brokula + rukola · 180 °C · 8–10 min. Brokula na ruže, sprej za ulje. Rukolu dodaj svježu poslije."
+     }
+    ]
+   },
+   {
+    "naslov": "Obrok 4",
+    "stavke": [
+     "150 g grčkog jogurta (pravi grčki, NE „grčki tip“)",
+     "pola mjerice wheya",
+     "40 g kikiriki maslaca",
+     "(mrvicu vode pa zamijesati da bude kao sladoled, tek onda orašasti)"
+    ],
+    "friteza": []
+   }
+  ],
+  "napomene": []
+ },
+ {
+  "n": 19,
+  "date": "2026-09-14",
+  "dan": "Ponedjeljak",
+  "datum": "14.09.2026.",
+  "trening": true,
+  "obroci": [
+   {
+    "naslov": "Obrok 1",
+    "stavke": [
+     "60 g zobenih pahuljica",
+     "30 g whey proteina (s vodom)",
+     "100 g višnje",
+     "30 g kikirikija (Gud Diet)"
+    ],
+    "friteza": []
+   },
+   {
+    "naslov": "Obrok 2",
+    "stavke": [
+     "200 g pileća prsa",
+     "80 g riže",
+     "1 jušna kašika maslinovog ulja",
+     "povrće: špinat / blitva"
+    ],
+    "friteza": [
+     {
+      "kosara": "A — protein",
+      "tekst": "200 g pileća prsa · 190 °C · 18–22 min · program „Perad“. Ako je komad deblji od 3 cm, prepolovi po dužini da se ravnomjerno ispeče."
+     },
+     {
+      "kosara": "B — prilog",
+      "tekst": "80 g riže — kuhaj u vodi, ne ide u fritezu."
+     }
+    ]
+   },
+   {
+    "naslov": "Obrok 3",
+    "stavke": [
+     "200 g pileći file",
+     "250 g batata",
+     "1 jušna kašika maslinovog ulja",
+     "povrće: brokula + rukola"
+    ],
+    "friteza": [
+     {
+      "kosara": "A — protein",
+      "tekst": "200 g pileći file · 190 °C · 18–20 min · program „Perad“. Okreni na pola. Gotovo kad je unutra 74 °C i sok bistar."
+     },
+     {
+      "kosara": "B — prilog",
+      "tekst": "250 g batata · 190 °C · 16–20 min · program „Pomfrit“. Batat se brže karamelizira od krompira — protresi na svakih 7 min."
+     },
+     {
+      "kosara": "Druga tura",
+      "tekst": "brokula + rukola · 180 °C · 8–10 min. Brokula na ruže, sprej za ulje. Rukolu dodaj svježu poslije."
+     }
+    ]
+   },
+   {
+    "naslov": "Obrok 4",
+    "stavke": [
+     "150 g grčkog jogurta (pravi grčki, NE „grčki tip“)",
+     "pola mjerice wheya",
+     "40 g kikirikija (Gud Diet)",
+     "(mrvicu vode pa zamijesati da bude kao sladoled, tek onda orašasti)"
+    ],
+    "friteza": []
+   },
+   {
+    "naslov": "Poslije treninga",
+    "stavke": [
+     "1 mjerica wheya s vodom",
+     "1 banana"
+    ],
+    "friteza": []
+   }
+  ],
+  "napomene": []
+ },
+ {
+  "n": 20,
+  "date": "2026-09-15",
+  "dan": "Utorak",
+  "datum": "15.09.2026.",
+  "trening": false,
+  "obroci": [
+   {
+    "naslov": "Obrok 1",
+    "stavke": [
+     "4 jaja (kuhana ili kajgana na sprej za ulje)",
+     "bez dodatka (samo jaja i povrće)",
+     "povrće: prokulice + miks salata"
+    ],
+    "friteza": [
+     {
+      "kosara": "A",
+      "tekst": "Tvrdo kuhana jaja u fritezi: 140 °C, 15–16 min, pa odmah u ledenu vodu 2 min. Ljuska se skida bez muke."
+     }
+    ]
+   },
+   {
+    "naslov": "Obrok 2",
+    "stavke": [
+     "250 g tuna u konzervi (procijeđena) ili bijela riba",
+     "1 jušna kašika maslinovog ulja",
+     "povrće: zelena salata + krastavac + paradajz, sirće",
+     "voćka: 150 g grožđa"
+    ],
+    "friteza": [
+     {
+      "kosara": "A — protein",
+      "tekst": "Tuna iz konzerve se ne peče — samo dobro procijedi ulje. Ako uzmeš ribu: 180 °C, 12–15 min."
+     }
+    ]
+   },
+   {
+    "naslov": "Obrok 3",
+    "stavke": [
+     "250 g puretina (file)",
+     "300 g krompira",
+     "1 jušna kašika maslinovog ulja",
+     "povrće: tikvice i gljive"
+    ],
+    "friteza": [
+     {
+      "kosara": "A — protein",
+      "tekst": "250 g puretina (file) · 190 °C · 23–27 min · program „Perad“. Okreni na pola. Puretina je suša od piletine — ne prepeci."
+     },
+     {
+      "kosara": "B — prilog",
+      "tekst": "300 g krompira · 200 °C · 22–26 min · program „Pomfrit“. Kocke 2 cm, namoči 10 min, osuši, sprej. Protresi 2 puta. Ne puni košaru preko 2/3."
+     },
+     {
+      "kosara": "Druga tura",
+      "tekst": "tikvice i gljive · 180 °C · 10–12 min. Tikvice na kolutove 1 cm, gljive prepolovljene. Protresi na pola."
+     }
+    ]
+   },
+   {
+    "naslov": "Obrok 4",
+    "stavke": [
+     "150 g posnog sira",
+     "pola mjerice wheya",
+     "40 g lješnjaka",
+     "(mrvicu vode pa zamijesati da bude kao sladoled, tek onda orašasti)"
+    ],
+    "friteza": []
+   }
+  ],
+  "napomene": []
+ },
+ {
+  "n": 21,
+  "date": "2026-09-16",
+  "dan": "Srijeda",
+  "datum": "16.09.2026.",
+  "trening": true,
+  "obroci": [
+   {
+    "naslov": "Obrok 1 — proteinske palačinke",
+    "stavke": [
+     "50 g sitnih zobenih + 30 g wheya + 2 bjelanjka",
+     "pola praška za pecivo, prstohvat soli, 6 smrvljenih Natrena, malo vode",
+     "peći na tavi na spreju za ulje, poklopljeno 2–3 min pa 30 sek na drugu stranu",
+     "odozgo: 50 g maline + 30 g kikiriki maslaca"
+    ],
+    "friteza": []
+   },
+   {
+    "naslov": "Obrok 2",
+    "stavke": [
+     "200 g teleća šnicla",
+     "80 g riže",
+     "1 jušna kašika maslinovog ulja",
+     "povrće: paprika i luk + kupus salata"
+    ],
+    "friteza": [
+     {
+      "kosara": "A — protein",
+      "tekst": "200 g teleća šnicla · 195 °C · 9–12 min · program „Biftek“. Teletina je nemasna i brzo se osuši — radije kraće pa doradi 2 min ako treba."
+     },
+     {
+      "kosara": "B — prilog",
+      "tekst": "80 g riže — kuhaj u vodi, ne ide u fritezu."
+     },
+     {
+      "kosara": "Druga tura",
+      "tekst": "paprika i luk + kupus salata · 180 °C · 10–12 min. Paprika na trake, luk na kolutove. Protresi na pola."
+     }
+    ]
+   },
+   {
+    "naslov": "Obrok 3",
+    "stavke": [
+     "200 g puretina (file)",
+     "250 g krompira",
+     "1 jušna kašika maslinovog ulja",
+     "povrće: tikvice i gljive"
+    ],
+    "friteza": [
+     {
+      "kosara": "A — protein",
+      "tekst": "200 g puretina (file) · 190 °C · 20–23 min · program „Perad“. Okreni na pola. Puretina je suša od piletine — ne prepeci."
+     },
+     {
+      "kosara": "B — prilog",
+      "tekst": "250 g krompira · 200 °C · 20–24 min · program „Pomfrit“. Kocke 2 cm, namoči 10 min u hladnoj vodi, dobro osuši, sprej za ulje. Protresi 2 puta."
+     },
+     {
+      "kosara": "Druga tura",
+      "tekst": "tikvice i gljive · 180 °C · 10–12 min. Tikvice na kolutove 1 cm, gljive prepolovljene. Protresi na pola."
+     }
+    ]
+   },
+   {
+    "naslov": "Obrok 4",
+    "stavke": [
+     "150 g posnog sira",
+     "pola mjerice wheya",
+     "40 g badema",
+     "(mrvicu vode pa zamijesati da bude kao sladoled, tek onda orašasti)"
+    ],
+    "friteza": []
+   },
+   {
+    "naslov": "Poslije treninga",
+    "stavke": [
+     "1 mjerica wheya s vodom",
+     "1 banana"
+    ],
+    "friteza": []
+   }
+  ],
+  "napomene": []
+ },
+ {
+  "n": 22,
+  "date": "2026-09-17",
+  "dan": "Četvrtak",
+  "datum": "17.09.2026.",
+  "trening": false,
+  "obroci": [
+   {
+    "naslov": "Obrok 1",
+    "stavke": [
+     "4 jaja (kuhana ili kajgana na sprej za ulje)",
+     "150 g pureće dimljene prsa",
+     "povrće: zelena salata + krastavac + paradajz, sirće"
+    ],
+    "friteza": [
+     {
+      "kosara": "A",
+      "tekst": "Tvrdo kuhana jaja u fritezi: 140 °C, 15–16 min, pa odmah u ledenu vodu 2 min. Ljuska se skida bez muke."
+     }
+    ]
+   },
+   {
+    "naslov": "Obrok 2",
+    "stavke": [
+     "250 g pileći file",
+     "1 jušna kašika maslinovog ulja",
+     "povrće: cikla + krastavac",
+     "voćka: 1 jabuka"
+    ],
+    "friteza": [
+     {
+      "kosara": "A — protein",
+      "tekst": "250 g pileći file · 190 °C · 20–24 min · program „Perad“. Okreni na pola. Gotovo kad je unutra 74 °C i sok bistar."
+     },
+     {
+      "kosara": "Druga tura",
+      "tekst": "cikla + krastavac · 190 °C · 25–30 min. Cijela cikla umotana u foliju, ili narezana na ploške 15 min."
+     }
+    ]
+   },
+   {
+    "naslov": "Obrok 3",
+    "stavke": [
+     "250 g pileća prsa",
+     "300 g batata ili krompira",
+     "1 jušna kašika maslinovog ulja",
+     "povrće: prokulice + miks salata"
+    ],
+    "friteza": [
+     {
+      "kosara": "A — protein",
+      "tekst": "250 g pileća prsa · 190 °C · 22–26 min · program „Perad“. Ako je komad deblji od 3 cm, prepolovi po dužini da se ravnomjerno ispeče."
+     },
+     {
+      "kosara": "B — prilog",
+      "tekst": "300 g batata ili krompira · 190 °C · 18–22 min · program „Pomfrit“. Protresi na svakih 7 min."
+     },
+     {
+      "kosara": "Druga tura",
+      "tekst": "prokulice + miks salata · 185 °C · 12–15 min. Prokulice prepolovi, rezanom stranom prema dolje. Protresi na pola."
+     }
+    ]
+   },
+   {
+    "naslov": "Obrok 4",
+    "stavke": [
+     "150 g skyra",
+     "pola mjerice wheya",
+     "40 g kikiriki maslaca",
+     "(mrvicu vode pa zamijesati da bude kao sladoled, tek onda orašasti)"
+    ],
+    "friteza": []
+   }
+  ],
+  "napomene": [
+   "VAGANJE — ujutru, natašte, poslije WC-a, prije vode i hrane. Javi kg treneru."
+  ]
+ },
+ {
+  "n": 23,
+  "date": "2026-09-18",
+  "dan": "Petak",
+  "datum": "18.09.2026.",
+  "trening": true,
+  "obroci": [
+   {
+    "naslov": "Obrok 1",
+    "stavke": [
+     "4 jaja (kuhana ili kajgana na sprej za ulje)",
+     "2 šnite raženog integralnog kruha ILI 1 integralna tortilja",
+     "povrće: špinat / blitva"
+    ],
+    "friteza": [
+     {
+      "kosara": "A",
+      "tekst": "Tvrdo kuhana jaja u fritezi: 140 °C, 15–16 min, pa odmah u ledenu vodu 2 min. Ljuska se skida bez muke."
+     }
+    ]
+   },
+   {
+    "naslov": "Obrok 2",
+    "stavke": [
+     "200 g bijela riba (oslić / brancin / orada, file)",
+     "80 g riže",
+     "1 jušna kašika maslinovog ulja",
+     "povrće: brokula + rukola"
+    ],
+    "friteza": [
+     {
+      "kosara": "A — protein",
+      "tekst": "200 g bijela riba (oslić / brancin / orada, file) · 180 °C · 10–12 min · program „Riba“. Ne okretati ako je tanak file — samo provjeri da se lista viljuškom."
+     },
+     {
+      "kosara": "B — prilog",
+      "tekst": "80 g riže — kuhaj u vodi, ne ide u fritezu."
+     },
+     {
+      "kosara": "Druga tura",
+      "tekst": "brokula + rukola · 180 °C · 8–10 min. Brokula na ruže, sprej za ulje. Rukolu dodaj svježu poslije."
+     }
+    ]
+   },
+   {
+    "naslov": "Obrok 3",
+    "stavke": [
+     "200 g pileća prsa",
+     "250 g krompira",
+     "1 jušna kašika maslinovog ulja",
+     "povrće: prokulice + miks salata"
+    ],
+    "friteza": [
+     {
+      "kosara": "A — protein",
+      "tekst": "200 g pileća prsa · 190 °C · 18–22 min · program „Perad“. Ako je komad deblji od 3 cm, prepolovi po dužini da se ravnomjerno ispeče."
+     },
+     {
+      "kosara": "B — prilog",
+      "tekst": "250 g krompira · 200 °C · 20–24 min · program „Pomfrit“. Kocke 2 cm, namoči 10 min u hladnoj vodi, dobro osuši, sprej za ulje. Protresi 2 puta."
+     },
+     {
+      "kosara": "Druga tura",
+      "tekst": "prokulice + miks salata · 185 °C · 12–15 min. Prokulice prepolovi, rezanom stranom prema dolje. Protresi na pola."
+     }
+    ]
+   },
+   {
+    "naslov": "Obrok 4",
+    "stavke": [
+     "150 g skyra",
+     "pola mjerice wheya",
+     "40 g kikirikija (Gud Diet)",
+     "(mrvicu vode pa zamijesati da bude kao sladoled, tek onda orašasti)"
+    ],
+    "friteza": []
+   },
+   {
+    "naslov": "Poslije treninga",
+    "stavke": [
+     "1 mjerica wheya s vodom",
+     "1 banana"
+    ],
+    "friteza": []
+   }
+  ],
+  "napomene": []
+ },
+ {
+  "n": 24,
+  "date": "2026-09-19",
+  "dan": "Subota",
+  "datum": "19.09.2026.",
+  "trening": false,
+  "obroci": [
+   {
+    "naslov": "Obrok 1",
+    "stavke": [
+     "4 jaja (kuhana ili kajgana na sprej za ulje)",
+     "bez dodatka (samo jaja i povrće)",
+     "povrće: cikla + krastavac"
+    ],
+    "friteza": [
+     {
+      "kosara": "A",
+      "tekst": "Tvrdo kuhana jaja u fritezi: 140 °C, 15–16 min, pa odmah u ledenu vodu 2 min. Ljuska se skida bez muke."
+     }
+    ]
+   },
+   {
+    "naslov": "Obrok 2",
+    "stavke": [
+     "250 g puretina (file)",
+     "1 jušna kašika maslinovog ulja",
+     "povrće: špinat / blitva",
+     "voćka: 150 g lubenice ili dinje"
+    ],
+    "friteza": [
+     {
+      "kosara": "A — protein",
+      "tekst": "250 g puretina (file) · 190 °C · 23–27 min · program „Perad“. Okreni na pola. Puretina je suša od piletine — ne prepeci."
+     }
+    ]
+   },
+   {
+    "naslov": "Obrok 3",
+    "stavke": [
+     "250 g teleća šnicla",
+     "300 g krompira",
+     "1 jušna kašika maslinovog ulja",
+     "povrće: zelena salata + krastavac + paradajz, sirće"
+    ],
+    "friteza": [
+     {
+      "kosara": "A — protein",
+      "tekst": "250 g teleća šnicla · 195 °C · 12–15 min · program „Biftek“. Teletina je nemasna i brzo se osuši — radije kraće pa doradi 2 min ako treba."
+     },
+     {
+      "kosara": "B — prilog",
+      "tekst": "300 g krompira · 200 °C · 22–26 min · program „Pomfrit“. Kocke 2 cm, namoči 10 min, osuši, sprej. Protresi 2 puta."
+     }
+    ]
+   },
+   {
+    "naslov": "Obrok 4",
+    "stavke": [
+     "150 g grčkog jogurta (pravi grčki, NE „grčki tip“)",
+     "pola mjerice wheya",
+     "40 g lješnjaka",
+     "(mrvicu vode pa zamijesati da bude kao sladoled, tek onda orašasti)"
+    ],
+    "friteza": []
+   }
+  ],
+  "napomene": []
+ },
+ {
+  "n": 25,
+  "date": "2026-09-20",
+  "dan": "Nedjelja",
+  "datum": "20.09.2026.",
+  "trening": false,
+  "obroci": [
+   {
+    "naslov": "Obrok 1",
+    "stavke": [
+     "4 jaja (kuhana ili kajgana na sprej za ulje)",
+     "150 g delux šunke",
+     "povrće: tikvice i gljive"
+    ],
+    "friteza": [
+     {
+      "kosara": "A",
+      "tekst": "Tvrdo kuhana jaja u fritezi: 140 °C, 15–16 min, pa odmah u ledenu vodu 2 min. Ljuska se skida bez muke."
+     }
+    ]
+   },
+   {
+    "naslov": "Obrok 2",
+    "stavke": [
+     "250 g juneća šnicla (nemasna)",
+     "1 jušna kašika maslinovog ulja",
+     "povrće: prokulice + miks salata",
+     "voćka: 2 kivija"
+    ],
+    "friteza": [
+     {
+      "kosara": "A — protein",
+      "tekst": "250 g juneća šnicla (nemasna) · 200 °C · 13–16 min · program „Biftek“. Okreni na pola. Za medium ~2 cm debljine. Pusti 5 min da odstoji prije rezanja."
+     },
+     {
+      "kosara": "Druga tura",
+      "tekst": "prokulice + miks salata · 185 °C · 12–15 min. Prokulice prepolovi, rezanom stranom prema dolje. Protresi na pola."
+     }
+    ]
+   },
+   {
+    "naslov": "Obrok 3",
+    "stavke": [
+     "250 g pileći file",
+     "100 g riže",
+     "1 jušna kašika maslinovog ulja",
+     "povrće: brokula + rukola"
+    ],
+    "friteza": [
+     {
+      "kosara": "A — protein",
+      "tekst": "250 g pileći file · 190 °C · 20–24 min · program „Perad“. Okreni na pola. Gotovo kad je unutra 74 °C i sok bistar."
+     },
+     {
+      "kosara": "B — prilog",
+      "tekst": "100 g riže — kuhaj u vodi, ne ide u fritezu."
+     },
+     {
+      "kosara": "Druga tura",
+      "tekst": "brokula + rukola · 180 °C · 8–10 min. Brokula na ruže, sprej za ulje. Rukolu dodaj svježu poslije."
+     }
+    ]
+   },
+   {
+    "naslov": "Obrok 4",
+    "stavke": [
+     "150 g skyra",
+     "pola mjerice wheya",
+     "40 g kikirikija (Gud Diet)",
+     "(mrvicu vode pa zamijesati da bude kao sladoled, tek onda orašasti)"
+    ],
+    "friteza": []
+   }
+  ],
+  "napomene": []
+ },
+ {
+  "n": 26,
+  "date": "2026-09-21",
+  "dan": "Ponedjeljak",
+  "datum": "21.09.2026.",
+  "trening": true,
+  "obroci": [
+   {
+    "naslov": "Obrok 1",
+    "stavke": [
+     "4 jaja (kuhana ili kajgana na sprej za ulje)",
+     "2 šnite raženog integralnog kruha ILI 1 integralna tortilja",
+     "povrće: zelena salata + krastavac + paradajz, sirće"
+    ],
+    "friteza": [
+     {
+      "kosara": "A",
+      "tekst": "Tvrdo kuhana jaja u fritezi: 140 °C, 15–16 min, pa odmah u ledenu vodu 2 min. Ljuska se skida bez muke."
+     }
+    ]
+   },
+   {
+    "naslov": "Obrok 2",
+    "stavke": [
+     "200 g pileća prsa",
+     "250 g krompira",
+     "1 jušna kašika maslinovog ulja",
+     "povrće: špinat / blitva"
+    ],
+    "friteza": [
+     {
+      "kosara": "A — protein",
+      "tekst": "200 g pileća prsa · 190 °C · 18–22 min · program „Perad“. Ako je komad deblji od 3 cm, prepolovi po dužini da se ravnomjerno ispeče."
+     },
+     {
+      "kosara": "B — prilog",
+      "tekst": "250 g krompira · 200 °C · 20–24 min · program „Pomfrit“. Kocke 2 cm, namoči 10 min u hladnoj vodi, dobro osuši, sprej za ulje. Protresi 2 puta."
+     }
+    ]
+   },
+   {
+    "naslov": "Obrok 3",
+    "stavke": [
+     "200 g pileći file",
+     "80 g riže",
+     "1 jušna kašika maslinovog ulja",
+     "povrće: brokula + rukola"
+    ],
+    "friteza": [
+     {
+      "kosara": "A — protein",
+      "tekst": "200 g pileći file · 190 °C · 18–20 min · program „Perad“. Okreni na pola. Gotovo kad je unutra 74 °C i sok bistar."
+     },
+     {
+      "kosara": "B — prilog",
+      "tekst": "80 g riže — kuhaj u vodi, ne ide u fritezu."
+     },
+     {
+      "kosara": "Druga tura",
+      "tekst": "brokula + rukola · 180 °C · 8–10 min. Brokula na ruže, sprej za ulje. Rukolu dodaj svježu poslije."
+     }
+    ]
+   },
+   {
+    "naslov": "Obrok 4",
+    "stavke": [
+     "150 g skyra",
+     "pola mjerice wheya",
+     "40 g lješnjaka",
+     "(mrvicu vode pa zamijesati da bude kao sladoled, tek onda orašasti)"
+    ],
+    "friteza": []
+   },
+   {
+    "naslov": "Poslije treninga",
+    "stavke": [
+     "1 mjerica wheya s vodom",
+     "1 banana"
+    ],
+    "friteza": []
+   }
+  ],
+  "napomene": []
+ },
+ {
+  "n": 27,
+  "date": "2026-09-22",
+  "dan": "Utorak",
+  "datum": "22.09.2026.",
+  "trening": false,
+  "obroci": [
+   {
+    "naslov": "Obrok 1",
+    "stavke": [
+     "4 jaja (kuhana ili kajgana na sprej za ulje)",
+     "150 g pileće dimljene prsa",
+     "povrće: prokulice + miks salata"
+    ],
+    "friteza": [
+     {
+      "kosara": "A",
+      "tekst": "Tvrdo kuhana jaja u fritezi: 140 °C, 15–16 min, pa odmah u ledenu vodu 2 min. Ljuska se skida bez muke."
+     }
+    ]
+   },
+   {
+    "naslov": "Obrok 2",
+    "stavke": [
+     "250 g tuna u konzervi (procijeđena) ili bijela riba",
+     "1 jušna kašika maslinovog ulja",
+     "povrće: zelena salata + krastavac + paradajz, sirće",
+     "voćka: 150 g grožđa"
+    ],
+    "friteza": [
+     {
+      "kosara": "A — protein",
+      "tekst": "Tuna iz konzerve se ne peče — samo dobro procijedi ulje. Ako uzmeš ribu: 180 °C, 12–15 min."
+     }
+    ]
+   },
+   {
+    "naslov": "Obrok 3",
+    "stavke": [
+     "250 g puretina (file)",
+     "100 g riže",
+     "1 jušna kašika maslinovog ulja",
+     "povrće: tikvice i gljive"
+    ],
+    "friteza": [
+     {
+      "kosara": "A — protein",
+      "tekst": "250 g puretina (file) · 190 °C · 23–27 min · program „Perad“. Okreni na pola. Puretina je suša od piletine — ne prepeci."
+     },
+     {
+      "kosara": "B — prilog",
+      "tekst": "100 g riže — kuhaj u vodi, ne ide u fritezu."
+     },
+     {
+      "kosara": "Druga tura",
+      "tekst": "tikvice i gljive · 180 °C · 10–12 min. Tikvice na kolutove 1 cm, gljive prepolovljene. Protresi na pola."
+     }
+    ]
+   },
+   {
+    "naslov": "Obrok 4",
+    "stavke": [
+     "150 g grčkog jogurta (pravi grčki, NE „grčki tip“)",
+     "pola mjerice wheya",
+     "40 g badema",
+     "(mrvicu vode pa zamijesati da bude kao sladoled, tek onda orašasti)"
+    ],
+    "friteza": []
+   }
+  ],
+  "napomene": []
+ },
+ {
+  "n": 28,
+  "date": "2026-09-23",
+  "dan": "Srijeda",
+  "datum": "23.09.2026.",
+  "trening": true,
+  "obroci": [
+   {
+    "naslov": "Obrok 1",
+    "stavke": [
+     "60 g zobenih pahuljica",
+     "30 g whey proteina (s vodom)",
+     "100 g kupine",
+     "30 g kikiriki maslaca"
+    ],
+    "friteza": []
+   },
+   {
+    "naslov": "Obrok 2",
+    "stavke": [
+     "200 g teleća šnicla",
+     "250 g batata",
+     "1 jušna kašika maslinovog ulja",
+     "povrće: paprika i luk + kupus salata"
+    ],
+    "friteza": [
+     {
+      "kosara": "A — protein",
+      "tekst": "200 g teleća šnicla · 195 °C · 9–12 min · program „Biftek“. Teletina je nemasna i brzo se osuši — radije kraće pa doradi 2 min ako treba."
+     },
+     {
+      "kosara": "B — prilog",
+      "tekst": "250 g batata · 190 °C · 16–20 min · program „Pomfrit“. Batat se brže karamelizira od krompira — protresi na svakih 7 min."
+     },
+     {
+      "kosara": "Druga tura",
+      "tekst": "paprika i luk + kupus salata · 180 °C · 10–12 min. Paprika na trake, luk na kolutove. Protresi na pola."
+     }
+    ]
+   },
+   {
+    "naslov": "Obrok 3",
+    "stavke": [
+     "200 g puretina (file)",
+     "80 g riže",
+     "1 jušna kašika maslinovog ulja",
+     "povrće: tikvice i gljive"
+    ],
+    "friteza": [
+     {
+      "kosara": "A — protein",
+      "tekst": "200 g puretina (file) · 190 °C · 20–23 min · program „Perad“. Okreni na pola. Puretina je suša od piletine — ne prepeci."
+     },
+     {
+      "kosara": "B — prilog",
+      "tekst": "80 g riže — kuhaj u vodi, ne ide u fritezu."
+     },
+     {
+      "kosara": "Druga tura",
+      "tekst": "tikvice i gljive · 180 °C · 10–12 min. Tikvice na kolutove 1 cm, gljive prepolovljene. Protresi na pola."
+     }
+    ]
+   },
+   {
+    "naslov": "Obrok 4",
+    "stavke": [
+     "150 g grčkog jogurta (pravi grčki, NE „grčki tip“)",
+     "pola mjerice wheya",
+     "40 g kikiriki maslaca",
+     "(mrvicu vode pa zamijesati da bude kao sladoled, tek onda orašasti)"
+    ],
+    "friteza": []
+   },
+   {
+    "naslov": "Poslije treninga",
+    "stavke": [
+     "1 mjerica wheya s vodom",
+     "1 banana"
+    ],
+    "friteza": []
+   }
+  ],
+  "napomene": []
+ },
+ {
+  "n": 29,
+  "date": "2026-09-24",
+  "dan": "Četvrtak",
+  "datum": "24.09.2026.",
+  "trening": false,
+  "obroci": [
+   {
+    "naslov": "Obrok 1",
+    "stavke": [
+     "4 jaja (kuhana ili kajgana na sprej za ulje)",
+     "150 g delux šunke",
+     "povrće: zelena salata + krastavac + paradajz, sirće"
+    ],
+    "friteza": [
+     {
+      "kosara": "A",
+      "tekst": "Tvrdo kuhana jaja u fritezi: 140 °C, 15–16 min, pa odmah u ledenu vodu 2 min. Ljuska se skida bez muke."
+     }
+    ]
+   },
+   {
+    "naslov": "Obrok 2",
+    "stavke": [
+     "250 g pileći file",
+     "1 jušna kašika maslinovog ulja",
+     "povrće: cikla + krastavac",
+     "voćka: 1 jabuka"
+    ],
+    "friteza": [
+     {
+      "kosara": "A — protein",
+      "tekst": "250 g pileći file · 190 °C · 20–24 min · program „Perad“. Okreni na pola. Gotovo kad je unutra 74 °C i sok bistar."
+     },
+     {
+      "kosara": "Druga tura",
+      "tekst": "cikla + krastavac · 190 °C · 25–30 min. Cijela cikla umotana u foliju, ili narezana na ploške 15 min."
+     }
+    ]
+   },
+   {
+    "naslov": "Obrok 3",
+    "stavke": [
+     "250 g pileća prsa",
+     "100 g riže",
+     "1 jušna kašika maslinovog ulja",
+     "povrće: prokulice + miks salata"
+    ],
+    "friteza": [
+     {
+      "kosara": "A — protein",
+      "tekst": "250 g pileća prsa · 190 °C · 22–26 min · program „Perad“. Ako je komad deblji od 3 cm, prepolovi po dužini da se ravnomjerno ispeče."
+     },
+     {
+      "kosara": "B — prilog",
+      "tekst": "100 g riže — kuhaj u vodi, ne ide u fritezu."
+     },
+     {
+      "kosara": "Druga tura",
+      "tekst": "prokulice + miks salata · 185 °C · 12–15 min. Prokulice prepolovi, rezanom stranom prema dolje. Protresi na pola."
+     }
+    ]
+   },
+   {
+    "naslov": "Obrok 4",
+    "stavke": [
+     "150 g posnog sira",
+     "pola mjerice wheya",
+     "40 g kikirikija (Gud Diet)",
+     "(mrvicu vode pa zamijesati da bude kao sladoled, tek onda orašasti)"
+    ],
+    "friteza": []
+   }
+  ],
+  "napomene": [
+   "VAGANJE — ujutru, natašte, poslije WC-a, prije vode i hrane. Javi kg treneru.",
+   "SLIKE FORME — ujutru natašte, isto svjetlo i isti ugao (sprijeda, bočno, straga). Pošalji treneru."
+  ]
+ },
+ {
+  "n": 30,
+  "date": "2026-09-25",
+  "dan": "Petak",
+  "datum": "25.09.2026.",
+  "trening": true,
+  "obroci": [
+   {
+    "naslov": "Obrok 1 — proteinske palačinke",
+    "stavke": [
+     "50 g sitnih zobenih + 30 g wheya + 2 bjelanjka",
+     "pola praška za pecivo, prstohvat soli, 6 smrvljenih Natrena, malo vode",
+     "peći na tavi na spreju za ulje, poklopljeno 2–3 min pa 30 sek na drugu stranu",
+     "odozgo: 50 g jagode + 30 g kikiriki maslaca"
+    ],
+    "friteza": []
+   },
+   {
+    "naslov": "Obrok 2",
+    "stavke": [
+     "200 g bijela riba (oslić / brancin / orada, file)",
+     "250 g krompira",
+     "1 jušna kašika maslinovog ulja",
+     "povrće: brokula + rukola"
+    ],
+    "friteza": [
+     {
+      "kosara": "A — protein",
+      "tekst": "200 g bijela riba (oslić / brancin / orada, file) · 180 °C · 10–12 min · program „Riba“. Ne okretati ako je tanak file — samo provjeri da se lista viljuškom."
+     },
+     {
+      "kosara": "B — prilog",
+      "tekst": "250 g krompira · 200 °C · 20–24 min · program „Pomfrit“. Kocke 2 cm, namoči 10 min u hladnoj vodi, dobro osuši, sprej za ulje. Protresi 2 puta."
+     },
+     {
+      "kosara": "Druga tura",
+      "tekst": "brokula + rukola · 180 °C · 8–10 min. Brokula na ruže, sprej za ulje. Rukolu dodaj svježu poslije."
+     }
+    ]
+   },
+   {
+    "naslov": "Obrok 3",
+    "stavke": [
+     "200 g pileća prsa",
+     "80 g riže",
+     "1 jušna kašika maslinovog ulja",
+     "povrće: prokulice + miks salata"
+    ],
+    "friteza": [
+     {
+      "kosara": "A — protein",
+      "tekst": "200 g pileća prsa · 190 °C · 18–22 min · program „Perad“. Ako je komad deblji od 3 cm, prepolovi po dužini da se ravnomjerno ispeče."
+     },
+     {
+      "kosara": "B — prilog",
+      "tekst": "80 g riže — kuhaj u vodi, ne ide u fritezu."
+     },
+     {
+      "kosara": "Druga tura",
+      "tekst": "prokulice + miks salata · 185 °C · 12–15 min. Prokulice prepolovi, rezanom stranom prema dolje. Protresi na pola."
+     }
+    ]
+   },
+   {
+    "naslov": "Obrok 4",
+    "stavke": [
+     "150 g posnog sira",
+     "pola mjerice wheya",
+     "40 g lješnjaka",
+     "(mrvicu vode pa zamijesati da bude kao sladoled, tek onda orašasti)"
+    ],
+    "friteza": []
+   },
+   {
+    "naslov": "Poslije treninga",
+    "stavke": [
+     "1 mjerica wheya s vodom",
+     "1 banana"
+    ],
+    "friteza": []
+   }
+  ],
+  "napomene": []
+ }
+]
