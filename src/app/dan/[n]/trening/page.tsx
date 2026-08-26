@@ -27,11 +27,11 @@ export default async function TreningPage({
   return (
     <>
       <header
-        className="sticky top-0 z-30 border-b px-3 pb-3"
+        className="sticky top-0 z-30 border-b px-4 pb-3"
         style={{
           background: "var(--bg)",
           borderColor: "var(--line)",
-          paddingTop: "calc(env(safe-area-inset-top) + 0.75rem)",
+          paddingTop: "calc(env(safe-area-inset-top) + 1.25rem)",
         }}
       >
         <div className="mx-auto flex max-w-md items-center gap-2">
@@ -63,7 +63,7 @@ export default async function TreningPage({
         </div>
       </header>
 
-      <main className="mx-auto max-w-md px-3 pb-4 pt-3">
+      <main className="mx-auto max-w-md px-4 pb-6 pt-4">
         {trening ? (
           <div className="flex flex-col gap-3">
             <div

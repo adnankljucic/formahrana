@@ -16,8 +16,8 @@ export default function DaniPage() {
   }, []);
 
   return (
-    <main className="mx-auto max-w-md px-3 pb-4 pt-3"
-      style={{ paddingTop: "calc(env(safe-area-inset-top) + 0.75rem)" }}>
+    <main className="mx-auto max-w-md px-4 pb-6"
+      style={{ paddingTop: "calc(env(safe-area-inset-top) + 2.25rem)" }}>
       <h1
         className="mb-1 text-2xl font-extrabold"
         style={{ fontFamily: "var(--font-display)", color: "var(--ink)" }}

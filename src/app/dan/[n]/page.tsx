@@ -31,8 +31,8 @@ export default async function DanPage({
     <>
       <DayHeader n={d.n} dan={d.dan} datum={d.datum} trening={d.trening} />
 
-      <main className="mx-auto max-w-md px-3 pb-4 pt-3">
-        <div className="flex flex-col gap-3">
+      <main className="mx-auto max-w-md px-4 pb-6 pt-4">
+        <div className="flex flex-col gap-3.5">
           {d.n === 30 && <FinishedBanner />}
 
           {/* Gramaže su sirovo — vidljivo, ne fusnota. */}

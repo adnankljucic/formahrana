@@ -40,11 +40,11 @@ export default function DayHeader({
 
   return (
     <header
-      className="sticky top-0 z-30 border-b px-3 pb-3 pt-3"
+      className="sticky top-0 z-30 border-b px-4 pb-3"
       style={{
         background: "var(--bg)",
         borderColor: "var(--line)",
-        paddingTop: "calc(env(safe-area-inset-top) + 0.75rem)",
+        paddingTop: "calc(env(safe-area-inset-top) + 1.25rem)",
       }}
     >
       <div className="mx-auto flex max-w-md items-center gap-2">

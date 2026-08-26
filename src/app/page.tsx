@@ -99,11 +99,11 @@ export default function Dashboard() {
 
   return (
     <main
-      className="mx-auto max-w-md px-3 pb-4"
-      style={{ paddingTop: "calc(env(safe-area-inset-top) + 1rem)" }}
+      className="mx-auto max-w-md px-4 pb-6"
+      style={{ paddingTop: "calc(env(safe-area-inset-top) + 2.25rem)" }}
     >
       {/* Zaglavlje */}
-      <div className="mb-5 flex items-start justify-between gap-3">
+      <div className="mb-6 flex items-start justify-between gap-3">
         <div className="min-w-0">
           <div
             className="text-[11px] font-bold uppercase tracking-[0.18em]"
@@ -122,7 +122,7 @@ export default function Dashboard() {
         {ready && <LockChip locked={locked} onClick={openUnlock} />}
       </div>
 
-      <div className="flex flex-col gap-3">
+      <div className="flex flex-col gap-3.5">
         {ready && <TodayFlags flags={flags} todayN={todayN} />}
 
         <WeightCard

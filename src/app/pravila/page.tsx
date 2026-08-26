@@ -21,8 +21,8 @@ const ZAMJENE = [
 export default function PravilaPage() {
   return (
     <main
-      className="mx-auto max-w-md px-3 pb-4 pt-3"
-      style={{ paddingTop: "calc(env(safe-area-inset-top) + 0.75rem)" }}
+      className="mx-auto max-w-md px-4 pb-6"
+      style={{ paddingTop: "calc(env(safe-area-inset-top) + 2.25rem)" }}
     >
       <h1
         className="mb-4 text-2xl font-extrabold"
