@@ -1,12 +1,164 @@
 {
-  "_opis": "Trening plan po danu plana (ključ = broj dana). Popuni kad trener pošalje. Primjer strukture je u komentaru ispod — obriši _opis i _primjer kad ubaciš prave podatke.",
-  "_primjer": {
-    "naslov": "Gornji dio tijela",
-    "fokus": "Grudi, ramena, triceps",
-    "vjezbe": [
-      { "naziv": "Bench press", "serije": "4", "ponavljanja": "8–12", "napomena": "Zagrijavanje 2 serije" },
-      { "naziv": "Potisak bučicama iznad glave", "serije": "3", "ponavljanja": "10–12" },
-      { "naziv": "Sklekovi", "serije": "3", "ponavljanja": "do otkaza" }
-    ]
+  "opce_napomene": [
+    "Kardio: mimo treninga snage, 3x sedmično traka brzi hod uz lagani nagib uzbrdo, 25–30 min (poslije treninga ili odvojeno u danima bez treninga).",
+    "Fokus je na pravilnoj tehnici i progresivnom opterećenju. Radna serija je ona u kojoj ti realno ostane snage za max 1–2 ponavljanja ili ništa u rezervi. Prije radnih serija odradi 1–2 serije laganog zagrijavanja.",
+    "Odmor: između serija 2–3 min, za manje vježbe (ruke) oko 90 sekundi — za teške vježbe uzmi i više ako ti treba.",
+    "Progresija: čim dođeš do gornje granice ponavljanja u svim serijama s istom težinom, na sljedećem treningu lagano povećaj težinu — uz dobru i pravilnu formu.",
+    "Voda i san: minimalno 7–8 sati sna i dovoljno hidracije, bez toga se tijelo ne oporavlja.",
+    "Ne bacaj tegove s točke A na točku B. Fokusiraj se na mišić koji radi i kontroliraj uteg, pogotovo u negativu (spuštanje).",
+    "Stisni mišić na vrhu svakog ponavljanja jednu sekundu (npr. veslanje za leđa, biceps pregib).",
+    "Bilježi trening — koliko si kila digao i koliko ponavljanja za svaku vježbu. Cilj: budi barem 1% bolji nego prošli put.",
+    "Prava radna serija je ona u kojoj se boriš s zadnja dva ponavljanja — ne čim mišići malo zapeku.",
+    "Slušaj tijelo: razlikuj dobru bol (mišićni umor) od loše (oštra bol u zglobu/tetivi). Kod oštre boli stani i javi treneru, po mogućnosti snimi izvedbu."
+  ],
+  "dani": {
+    "2": {
+      "naslov": "Gornji dio tijela (Upper 1)",
+      "fokus": "Prsa, leđa, ramena, biceps, triceps",
+      "vjezbe": [
+        {
+          "naziv": "Bench potisak šipkom na ravnoj klupi (Prsa)",
+          "serije": "4 radne",
+          "ponavljanja": "8–10",
+          "napomena": "Stopala čvrsto na podu, lopatice spojene, ramena cijelo vrijeme dole. Šipku spuštaj kontrolirano do sredine prsa. Laktovi pod kutem od 45° (ne skroz rašireni). Zamišljaj da bicepsom stišćeš prsa. Hvat u širini ramena, malo šire."
+        },
+        {
+          "naziv": "Povlačenje na Lat mašini ispred glave (Leđa)",
+          "serije": "4 radne",
+          "ponavljanja": "8–12",
+          "napomena": "Prsa izbaci prema gore, blago se nagni unazad, rame ostaje dole. Vuci šipku laktovima prema gornjem dijelu prsa. Bez ljuljanja tijela — vučeš iz laktova, ne iz šaka."
+        },
+        {
+          "naziv": "Kosi potisak bučicama (Prsa)",
+          "serije": "3 radne",
+          "ponavljanja": "10–12",
+          "napomena": "Nagib klupe 30–45°. Kontrolirano istezanje na dnu, snažan potisak prema gore bez spajanja bučica na vrhu (zadrži tenziju). Skupi lopatice, ramena zaljepljena za klupu."
+        },
+        {
+          "naziv": "Veslanje na donjoj koloturi / Cable Row (Leđa)",
+          "serije": "3 radne",
+          "ponavljanja": "10–12",
+          "napomena": "Ravna leđa, uski hvat, vuci ručku prema pupku. Na kraju snažno stisni lopatice. Ne daj da te težina pogrbi — ideš do 90° tijelom i tu se pokret završava."
+        },
+        {
+          "naziv": "Potisak bučicama iznad glave / Seated DB Press (Ramena)",
+          "serije": "3 radne",
+          "ponavljanja": "8–12",
+          "napomena": "Sjedi uspravno. Spuštaj bučice do razine ušiju, potisak iznad glave. Laktovi blago ispred ravnine ramena (sigurnost zgloba, bolje pogađa prednje rame). Ne moraš gore spajati bučice."
+        },
+        {
+          "naziv": "Pregib EZ šipkom stojeći (Biceps)",
+          "serije": "4 radne",
+          "ponavljanja": "10–12",
+          "napomena": "Laktovi fiksirani uz tijelo, blago ispred ramena — kao da ih zabadaš u rebra. Bez zabacivanja i trzanja leđima. Kontrolirano spuštaj, zaustavi šipku malo prije brade."
+        },
+        {
+          "naziv": "Ekstenzija tricepsa na sajli s konopom (Triceps)",
+          "serije": "4 radne",
+          "ponavljanja": "12–15",
+          "napomena": "Laktovi fiksirani, ne pomiču se. Širi konop na dnu pokreta za jaču vanjsku glavu tricepsa, gore isteži do kraja."
+        }
+      ]
+    },
+    "5": {
+      "naslov": "Donji dio tijela (Lower 1)",
+      "fokus": "Kvadriceps, zadnja loža, gluteus, listovi",
+      "vjezbe": [
+        {
+          "naziv": "Čučanj sa šipkom / Barbell Squat (Kvadriceps) ili Hack čučanj",
+          "serije": "4 radne",
+          "ponavljanja": "8–10",
+          "napomena": "Šipka stabilna na trapezima, prsa visoko. Spuštaj se dok su leđa ravna (idealno do paralele). Koljena prate smjer prstiju, ne žuri. Kod Hack-a leđa priljepi uz oslonac, guzicom propadaj ravno dolje."
+        },
+        {
+          "naziv": "Rumunjsko mrtvo dizanje / RDL (Zadnja loža) — šipka ili bučice",
+          "serije": "4 radne",
+          "ponavljanja": "8–12",
+          "napomena": "Šipka/bučice klize uz noge cijelo vrijeme. Guraj kukove maksimalno unazad dok ne osjetiš istezanje u loži — pokret ide iz kukova, ne iz savijanja leđa. Leđa cijelo vrijeme ravna kao daska."
+        },
+        {
+          "naziv": "Nožna ekstenzija na mašini / Leg extension (Kvadriceps)",
+          "serije": "3 radne",
+          "ponavljanja": "10–15",
+          "napomena": "Stisni trbuh, ne daj kukovima da bježe s klupe. Kontrolirano podiži i spuštaj nakon svake kontrakcije. Prste nožne zategni prema sebi cijelo vrijeme; donju platformu namjesti malo iznad gležnjeva."
+        },
+        {
+          "naziv": "Hodajući iskoraci (komplet noge)",
+          "serije": "3 radne",
+          "ponavljanja": "20",
+          "napomena": "Šipka na leđa ili bučice/girije u ruke. Prsa gore, leđa ravno. Koljena idu prirodno malo ispred prstiju, ne naginji tijelo previše naprijed. Više uspravno = više kvadriceps; malo naginjanje naprijed = više gluteus."
+        },
+        {
+          "naziv": "Nožna presa / Leg Press (Kvadriceps)",
+          "serije": "4 radne",
+          "ponavljanja": "10–12",
+          "napomena": "Stopala u širini ramena, malo uže i nisko na platformi. Spuštaj polako dok se donji dio leđa ne počne odvajati od sjedala. Na vrhu nikad ne zaključavaj koljena; ako se pete odvajaju, podigni stopala na platformi."
+        },
+        {
+          "naziv": "Stojeće podizanje na listove (Listovi)",
+          "serije": "4 radne",
+          "ponavljanja": "12–15",
+          "napomena": "Pun opseg pokreta. Na dnu zadrži istezanje 1 sekundu, na vrhu se podigni na prste i snažno stisni. Bez zabacivanja i skakutanja."
+        }
+      ]
+    },
+    "7": {
+      "naslov": "Gornji dio tijela (Upper 2)",
+      "fokus": "Leđa, prsa, ramena, biceps, triceps",
+      "vjezbe": [
+        {
+          "naziv": "Zgibovi na vratilu/mašini (Leđa) ili Veslanje u pretklonu sa šipkom",
+          "serije": "4 radne",
+          "ponavljanja": "6–10",
+          "napomena": "Zgibovi: fokus na povlačenje iz lopatica, grudi idu prema šipki; ako ne ide bez pomoći, koristi gumu ili mašinu s asistencijom. Veslanje: pretklon, leđa ravno, isprsi se, hvat u ravnini ramena, laktove uz tijelo, stisni lopatice."
+        },
+        {
+          "naziv": "Bench potisak bučicama (Prsa) ili Chest press mašina",
+          "serije": "4 radne",
+          "ponavljanja": "8–12",
+          "napomena": "Bučice: dublji pokret nego šipka, ne skraćuj ga. Laktovi ne bježe vani — obori ih na ~45°. Gore spajaj bučice, ne moraju se sudarati. Mašina: ista pažnja — lopatice skupljene odmah, ramena zaljepljena nazad, stisni bicepsom prsa."
+        },
+        {
+          "naziv": "Jednoručno veslanje bučicom u pretklonu (Leđa)",
+          "serije": "3 radne",
+          "ponavljanja": "10–12",
+          "napomena": "Leđa paralelna s podom. Bučicu vuci prema kuku (ne prema prsima) za maksimalnu aktivaciju latisimusa — kao da je ubacuješ u džep."
+        },
+        {
+          "naziv": "Razvlačenje na sajlama/mašini/bučicama / Flyes (Prsa)",
+          "serije": "4 radne",
+          "ponavljanja": "12–15",
+          "napomena": "Zamisli da grliš veliko bure. Fokus na osjećaju stezanja u prsima, ne na težini. Ramena stalno nazad — ako idu naprijed, smanji težinu. Laktove samo mrvicu savij."
+        },
+        {
+          "naziv": "Bočno letenje bučicama / Lateral Raises (Ramena)",
+          "serije": "4 radne",
+          "ponavljanja": "12–15",
+          "napomena": "Podiži bučice u stranu do visine ramena. Laktovi uvijek mrvicu iznad šaka. Bez zamaha tijelom — kao da prosipaš vodu iz bučica, polako kontrolirano spuštaj."
+        },
+        {
+          "naziv": "Hammer pregib bučicama (Biceps)",
+          "serije": "4 radne",
+          "ponavljanja": "10–12",
+          "napomena": "Neutralni hvat (dlanovi jedan u drugog / palac u plafon). Gradi debljinu ruke i pogađa podlakticu. Bez zabacivanja, polako spuštaj negativni dio pokreta."
+        },
+        {
+          "naziv": "Ekstenzija tricepsa šipkom/sajlom iznad glave (Triceps)",
+          "serije": "4 radne",
+          "ponavljanja": "10–12",
+          "napomena": "Laktovi blizu glave. Spuštaj duboko iza vrata za maksimalno istezanje duge glave tricepsa — sjedeći na klupi, leđa ispravljena."
+        }
+      ]
+    },
+    "9": { "_ref": "2" },
+    "12": { "_ref": "5" },
+    "14": { "_ref": "7" },
+    "16": { "_ref": "2" },
+    "19": { "_ref": "5" },
+    "21": { "_ref": "7" },
+    "23": { "_ref": "2" },
+    "26": { "_ref": "5" },
+    "28": { "_ref": "7" },
+    "30": { "_ref": "2" }
   }
 }

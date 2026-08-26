@@ -2,8 +2,9 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import plan from "@/data/plan.json";
 import type { Day } from "@/lib/types";
-import { treningZaDan } from "@/lib/trening";
+import { treningZaDan, opceNapomeneTreninga } from "@/lib/trening";
 import TreningChecklist from "@/components/TreningChecklist";
+import TreningNapomene from "@/components/TreningNapomene";
 
 const days = plan as Day[];
 
@@ -89,6 +90,8 @@ export default async function TreningPage({
             </div>
 
             <TreningChecklist dayN={d.n} plan={trening} />
+
+            <TreningNapomene napomene={opceNapomeneTreninga()} />
           </div>
         ) : (
           <EmptyTrening />

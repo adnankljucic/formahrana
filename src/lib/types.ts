@@ -32,6 +32,11 @@ export interface TreningPlan {
   vjezbe: Vjezba[];
 }
 
+export interface TreningData {
+  opce_napomene?: string[];
+  dani: Record<string, TreningPlan>; // ključ = broj dana plana ("2","5",...)
+}
+
 export interface FryerRow {
   kat: string;
   namirnica: string;
