@@ -22,6 +22,7 @@ import {
   type WeightSummary,
 } from "@/lib/progress";
 import { readJSON, writeJSON, K } from "@/lib/storage";
+import SyncCard from "@/components/SyncCard";
 
 const days = plan as Day[];
 
@@ -158,6 +159,8 @@ export default function Dashboard() {
             <PathFlame />
           </QuickAction>
         </div>
+
+        <SyncCard />
       </div>
     </main>
   );

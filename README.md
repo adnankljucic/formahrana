@@ -34,6 +34,18 @@ npm run build   # mora proći bez grešaka i TypeScript upozorenja
 npm run dev     # http://localhost:3000 — provjeri na telefonu preko lokalne mreže
 ```
 
+## Sinhronizacija (telefon ↔ web) + arhiva
+
+Podaci se primarno čuvaju u `localStorage` (radi offline), a opciono se
+sinhronizuju u oblak (Neon Postgres) preko `/api/state`:
+
+- Potrebna env varijabla **`DATABASE_URL`** (Neon connection string). Na Vercelu
+  je ubaci Neon integracija (Storage → Connect Database → Neon), pa **Redeploy**.
+- U aplikaciji: Pregled → **Sinhronizacija** → upiši isti **PIN** na svim
+  uređajima. PIN je ključ zapisa i jedina zaštita (bez prijave), pa neka nije
+  trivijalan. `DATABASE_URL` ostaje samo na serveru.
+- Bez `DATABASE_URL` aplikacija radi normalno, samo lokalno (bez sinhronizacije).
+
 ## Deploy na Vercel
 
 Nema env varijabli. Dvije opcije:

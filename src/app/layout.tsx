@@ -3,6 +3,7 @@ import { Space_Grotesk, Inter, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
 import TabBar from "@/components/TabBar";
 import TimerProvider from "@/components/TimerProvider";
+import SyncProvider, { SyncedContent } from "@/components/SyncProvider";
 
 const display = Space_Grotesk({
   subsets: ["latin", "latin-ext"],
@@ -59,16 +60,12 @@ export default function RootLayout({
       <body
         className={`${display.variable} ${text.variable} ${mono.variable}`}
       >
-        <TimerProvider>
-          <div
-            style={{
-              paddingBottom: "calc(56px + env(safe-area-inset-bottom) + 8px)",
-            }}
-          >
-            {children}
-          </div>
-          <TabBar />
-        </TimerProvider>
+        <SyncProvider>
+          <TimerProvider>
+            <SyncedContent>{children}</SyncedContent>
+            <TabBar />
+          </TimerProvider>
+        </SyncProvider>
       </body>
     </html>
   );
