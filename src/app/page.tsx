@@ -46,6 +46,7 @@ export default function Dashboard() {
   const [weightInput, setWeightInput] = useState("");
   const [notifs, setNotifs] = useState<Notifikacija[]>([]);
   const [alertDismissed, setAlertDismissed] = useState(false);
+  const [expandedMeals, setExpandedMeals] = useState<Set<number>>(new Set());
   const { locked, openUnlock } = useSync();
 
   function refreshMealsExercises(n: number, d: Day | undefined) {
@@ -150,9 +151,29 @@ export default function Dashboard() {
   const daysLeft = PLAN_DAYS - todayN;
   const realN = todayDayNumber();
 
+  function toggleMealExpand(i: number) {
+    const next = new Set(expandedMeals);
+    if (next.has(i)) {
+      next.delete(i);
+    } else {
+      next.add(i);
+    }
+    setExpandedMeals(next);
+  }
+
   return (
     <>
       <TopBar section="Pregled" />
+
+      {/* Greeting Header */}
+      <div
+        className="mx-auto w-full max-w-md px-4 py-6"
+        style={{ background: "#e8f0f7" }}
+      >
+        <h1 className="text-3xl font-bold" style={{ color: "#0066cc", letterSpacing: "-0.5px" }}>
+          POZDRAV ADNANE
+        </h1>
+      </div>
 
       {showAlert && liveAlert && (
         <div
@@ -195,7 +216,7 @@ export default function Dashboard() {
         </div>
       )}
 
-      <main className="mx-auto flex max-w-md flex-col" style={{ gap: 1, background: "var(--line)" }}>
+      <main className="mx-auto flex max-w-md flex-col" style={{ gap: 1, background: "#f5f5f5" }}>
         {/* Hero dan */}
         <div style={{ background: "var(--panel)", padding: 16 }}>
           <div className="text-xs" style={{ color: "var(--ink-2)", letterSpacing: "0.32px" }}>
@@ -340,7 +361,7 @@ export default function Dashboard() {
           <div style={{ background: "var(--panel)" }}>
             <div className="flex items-center justify-between px-4 pb-3 pt-4">
               <div>
-                <div className="text-base" style={{ color: "var(--ink)" }}>Trening</div>
+                <div className="text-base font-semibold" style={{ color: "var(--ink)", letterSpacing: "0.5px" }}>TRENING</div>
                 <div className="mt-0.5 text-xs" style={{ color: "var(--ink-3)" }}>
                   {trening.naslov}
                 </div>
@@ -398,7 +419,7 @@ export default function Dashboard() {
         {day && (
           <div style={{ background: "var(--panel)" }}>
             <div className="flex items-center justify-between px-4 pb-3 pt-4">
-              <div className="text-base" style={{ color: "var(--ink)" }}>Obroci</div>
+              <div className="text-base font-semibold" style={{ color: "var(--ink)", letterSpacing: "0.5px" }}>OBROCI</div>
               <span
                 className="tabnum text-xs"
                 style={{ fontFamily: "var(--font-mono)", color: "var(--ink-2)" }}
@@ -408,34 +429,49 @@ export default function Dashboard() {
             </div>
             {day.obroci.map((m, i) => {
               const on = ready && meals[i];
+              const isExpanded = expandedMeals.has(i);
               return (
-                <button
-                  key={i}
-                  type="button"
-                  onClick={() => toggleMeal(i)}
-                  className="flex w-full items-start gap-3 border-t px-4 py-3 text-left"
-                  style={{ borderColor: "var(--line)", minHeight: 48 }}
-                >
-                  <span className="mt-0.5"><RowCheckbox on={!!on} /></span>
-                  <div className="min-w-0 flex-1">
-                    <span
-                      className="text-sm"
-                      style={{
-                        letterSpacing: "0.16px",
-                        color: on ? "var(--ink-3)" : "var(--ink)",
-                        textDecoration: on ? "line-through" : "none",
-                      }}
+                <div key={i} style={{ borderTop: "1px solid var(--line)" }}>
+                  <div className="flex w-full items-start gap-3 px-4 py-3" style={{ minHeight: 48 }}>
+                    <button
+                      type="button"
+                      onClick={() => toggleMeal(i)}
+                      className="mt-0.5 shrink-0"
+                      aria-label={`${on ? "Odjavi" : "Prijavi"}: ${m.naslov}`}
                     >
-                      {m.naslov}
-                    </span>
-                    <div
-                      className="mt-0.5 text-sm"
-                      style={{ color: "var(--ink-2)", textWrap: "pretty" }}
-                    >
-                      {m.stavke.join(" · ")}
+                      <RowCheckbox on={!!on} />
+                    </button>
+                    <div className="min-w-0 flex-1">
+                      <span
+                        className="text-sm"
+                        style={{
+                          letterSpacing: "0.16px",
+                          color: on ? "var(--ink-3)" : "var(--ink)",
+                          textDecoration: on ? "line-through" : "none",
+                        }}
+                      >
+                        {m.naslov}
+                      </span>
+                      {isExpanded && (
+                        <div
+                          className="mt-0.5 text-sm"
+                          style={{ color: "var(--ink-2)", textWrap: "pretty" }}
+                        >
+                          {m.stavke.join(" · ")}
+                        </div>
+                      )}
                     </div>
+                    <button
+                      type="button"
+                      onClick={() => toggleMealExpand(i)}
+                      className="flex h-6 w-6 shrink-0 items-center justify-center rounded"
+                      style={{ background: "#e8f0f7", color: "#0066cc", fontWeight: "bold", fontSize: 18, marginTop: "2px" }}
+                      aria-label={isExpanded ? "Sakrij" : "Prikaži"}
+                    >
+                      {isExpanded ? "−" : "+"}
+                    </button>
                   </div>
-                </button>
+                </div>
               );
             })}
             <Link
@@ -459,8 +495,8 @@ export default function Dashboard() {
         {/* Sljedeće */}
         {(nextVaga || nextSlika) && (
           <div style={{ background: "var(--panel)" }}>
-            <div className="px-4 pb-2 pt-4 text-base font-semibold" style={{ color: "var(--ink)" }}>
-              Sljedeće
+            <div className="px-4 pb-2 pt-4 text-base font-semibold" style={{ color: "var(--ink)", letterSpacing: "0.5px" }}>
+              SLJEDEĆE
             </div>
             {[
               nextVaga && { t: nextVaga, title: "Vaganje", note: "javi kg treneru" },
