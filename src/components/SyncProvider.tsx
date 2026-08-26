@@ -200,7 +200,7 @@ function UnlockModal({
         style={{ background: "rgba(8,9,11,0.55)", backdropFilter: "blur(6px)" }}
       />
       <div
-        className="modal-sheet relative w-full max-w-md rounded-t-3xl p-6 sm:mb-0 sm:rounded-3xl"
+        className="modal-sheet relative w-full max-w-md rounded-t-2xl p-6 sm:mb-0 sm:rounded-2xl"
         style={{
           background: "var(--panel)",
           boxShadow: "0 -8px 40px rgba(0,0,0,0.28)",
@@ -213,7 +213,7 @@ function UnlockModal({
         />
 
         <div
-          className="mb-4 flex h-12 w-12 items-center justify-center rounded-2xl"
+          className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl"
           style={{ background: "var(--train-soft)", color: "var(--train)" }}
         >
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -246,7 +246,7 @@ function UnlockModal({
           autoCapitalize="none"
           autoCorrect="off"
           spellCheck={false}
-          className="mt-5 w-full rounded-2xl border px-4 py-3.5 text-base outline-none"
+          className="mt-5 w-full rounded-xl border px-4 py-3.5 text-base outline-none"
           style={{
             background: "var(--panel-2)",
             borderColor: "var(--line-2)",
@@ -258,7 +258,7 @@ function UnlockModal({
           type="button"
           disabled={!valid}
           onClick={() => onUnlock(code.trim())}
-          className="mt-3 w-full rounded-2xl py-3.5 text-base font-bold transition-opacity"
+          className="mt-3 w-full rounded-xl py-3.5 text-base font-bold transition-opacity"
           style={{
             background: "var(--train)",
             color: "#fff",
@@ -270,7 +270,7 @@ function UnlockModal({
         <button
           type="button"
           onClick={onClose}
-          className="mt-2 w-full rounded-2xl py-3 text-sm font-semibold"
+          className="mt-2 w-full rounded-xl py-3 text-sm font-semibold"
           style={{ color: "var(--ink-3)" }}
         >
           Nastavi samo za pregled
@@ -288,7 +288,7 @@ export function SyncedContent({ children }: { children: React.ReactNode }) {
     <div
       key={version}
       style={{
-        paddingBottom: "calc(56px + env(safe-area-inset-bottom) + 8px)",
+        paddingBottom: "calc(56px + env(safe-area-inset-bottom) + 24px)",
       }}
     >
       {children}

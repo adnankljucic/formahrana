@@ -49,7 +49,7 @@ export default function PravilaPage() {
 
       <Section title="Od oktobra">
         <div
-          className="rounded-xl border p-3 text-sm leading-relaxed"
+          className="el rounded-xl border p-3 text-sm leading-relaxed"
           style={{
             background: "var(--rest-soft)",
             borderColor: "var(--rest)",
@@ -87,7 +87,7 @@ function Section({
 function Bullet({ text }: { text: string }) {
   return (
     <li
-      className="flex gap-2.5 rounded-xl border p-3 text-[15px] leading-relaxed"
+      className="flex gap-2.5 el rounded-xl border p-3 text-[15px] leading-relaxed"
       style={{
         background: "var(--panel)",
         borderColor: "var(--line)",

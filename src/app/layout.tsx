@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Space_Grotesk, Inter, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
 import TabBar from "@/components/TabBar";
+import CycleStrip from "@/components/CycleStrip";
 import TimerProvider from "@/components/TimerProvider";
 import SyncProvider, { SyncedContent } from "@/components/SyncProvider";
 
@@ -63,6 +64,7 @@ export default function RootLayout({
         <SyncProvider>
           <TimerProvider>
             <SyncedContent>{children}</SyncedContent>
+            <CycleStrip />
             <TabBar />
           </TimerProvider>
         </SyncProvider>

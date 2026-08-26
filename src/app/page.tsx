@@ -10,7 +10,6 @@ import {
   isPlanNotStarted,
   todayDayNumber,
   todayKey,
-  PLAN_DAYS,
 } from "@/lib/dates";
 import {
   readWeights,
@@ -144,8 +143,6 @@ export default function Dashboard() {
           water={water}
         />
 
-        <CycleBar todayN={todayN} finished={finished} />
-
         <div className="grid grid-cols-2 gap-3">
           <TerminCard
             label="Sljedeće vaganje"
@@ -237,7 +234,7 @@ function TodayFlags({
 
   return (
     <section
-      className="overflow-hidden rounded-2xl"
+      className="overflow-hidden rounded-xl"
       style={{ background: "var(--train)" }}
     >
       <div className="flex flex-col gap-2 p-4">
@@ -338,7 +335,7 @@ function WeightCard({
 
   return (
     <section
-      className="el overflow-hidden rounded-2xl border"
+      className="el overflow-hidden rounded-xl border"
       style={{ background: "var(--panel)", borderColor: "var(--line)" }}
     >
       <div
@@ -554,7 +551,7 @@ function TodayCard({
   return (
     <Link
       href={`/dan/${todayN}`}
-      className="el block rounded-2xl border p-4"
+      className="el block rounded-xl border p-4"
       style={{ background: "var(--panel)", borderColor: "var(--line)" }}
     >
       <div className="flex items-center justify-between">
@@ -631,52 +628,6 @@ function Stat({ label, value }: { label: string; value: string }) {
   );
 }
 
-/* ---------- Cycle ---------- */
-
-function CycleBar({ todayN, finished }: { todayN: number; finished: boolean }) {
-  return (
-    <section
-      className="el rounded-2xl border p-4"
-      style={{ background: "var(--panel)", borderColor: "var(--line)" }}
-    >
-      <div className="mb-2 flex items-baseline justify-between">
-        <span
-          className="text-[11px] font-bold uppercase tracking-[0.14em]"
-          style={{ color: "var(--ink-3)" }}
-        >
-          Ciklus
-        </span>
-        <span
-          className="tabnum text-sm font-bold"
-          style={{ fontFamily: "var(--font-mono)", color: "var(--ink)" }}
-        >
-          Dan {todayN} / {PLAN_DAYS}
-        </span>
-      </div>
-      <div className="flex gap-[3px]">
-        {Array.from({ length: PLAN_DAYS }).map((_, i) => {
-          const n = i + 1;
-          const passed = finished || n < todayN;
-          const isToday = !finished && n === todayN;
-          return (
-            <span
-              key={n}
-              className="h-6 flex-1 rounded-[3px]"
-              style={{
-                background: isToday
-                  ? "var(--train)"
-                  : passed
-                    ? "var(--ink)"
-                    : "var(--panel-2)",
-              }}
-            />
-          );
-        })}
-      </div>
-    </section>
-  );
-}
-
 /* ---------- Termini ---------- */
 
 function TerminCard({
@@ -698,7 +649,7 @@ function TerminCard({
   return (
     <Link
       href={href}
-      className="el rounded-2xl border p-3.5"
+      className="el rounded-xl border p-3.5"
       style={{ background: "var(--panel)", borderColor: "var(--line)" }}
     >
       <div
@@ -725,7 +676,7 @@ function TerminCard({
 function MonthTwoNote() {
   return (
     <section
-      className="rounded-2xl border p-4"
+      className="rounded-xl border p-4"
       style={{ background: "var(--flag-soft)", borderColor: "var(--flag-soft)" }}
     >
       <div
@@ -756,7 +707,7 @@ function QuickAction({
   return (
     <Link
       href={href}
-      className="el flex flex-col items-center justify-center gap-1.5 rounded-2xl border py-3"
+      className="el flex flex-col items-center justify-center gap-1.5 rounded-xl border py-3"
       style={{ background: "var(--panel)", borderColor: "var(--line)" }}
     >
       <span style={{ color: "var(--ink)" }}>{children}</span>

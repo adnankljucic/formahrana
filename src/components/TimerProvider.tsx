@@ -221,7 +221,7 @@ function TimerBar({
     <div
       className="fixed inset-x-0 z-40 px-3"
       style={{
-        bottom: "calc(56px + env(safe-area-inset-bottom))",
+        bottom: "calc(56px + env(safe-area-inset-bottom) + 20px)",
       }}
     >
       <div className="mx-auto flex max-w-md flex-col gap-2">

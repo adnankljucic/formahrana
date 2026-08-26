@@ -64,7 +64,7 @@ export default function NapredakPage() {
           {VAGANJA.map((v) => (
             <div
               key={v.datum}
-              className="flex items-center justify-between gap-3 rounded-xl border p-3"
+              className="flex items-center justify-between gap-3 el rounded-xl border p-3"
               style={{ background: "var(--panel)", borderColor: "var(--line)" }}
             >
               <span
@@ -118,7 +118,7 @@ export default function NapredakPage() {
                 type="button"
                 onClick={() => togglePhoto(s.datum)}
                 aria-pressed={done}
-                className="flex items-center justify-between gap-3 rounded-xl border p-3 text-left"
+                className="flex items-center justify-between gap-3 el rounded-xl border p-3 text-left"
                 style={{
                   background: done ? "var(--train-soft)" : "var(--panel)",
                   borderColor: done ? "var(--train)" : "var(--line)",
@@ -156,7 +156,7 @@ export default function NapredakPage() {
 
       {/* Podsjetnik */}
       <div
-        className="rounded-xl border p-3 text-sm leading-relaxed"
+        className="el rounded-xl border p-3 text-sm leading-relaxed"
         style={{
           background: "var(--panel-2)",
           borderColor: "var(--line-2)",
@@ -226,7 +226,7 @@ function WeightChart({
 
   return (
     <div
-      className="mt-3 rounded-xl border p-3"
+      className="mt-3 el rounded-xl border p-3"
       style={{ background: "var(--panel)", borderColor: "var(--line)" }}
     >
       <div className="mb-2 flex items-baseline justify-between">

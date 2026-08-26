@@ -37,7 +37,7 @@ export default async function DanPage({
 
           {/* Gramaže su sirovo — vidljivo, ne fusnota. */}
           <div
-            className="flex items-center gap-2 rounded-xl border px-3 py-2 text-sm font-bold"
+            className="flex items-center gap-2 el rounded-xl border px-3 py-2 text-sm font-bold"
             style={{
               background: "var(--panel-2)",
               borderColor: "var(--line-2)",
@@ -51,7 +51,7 @@ export default async function DanPage({
           {/* Traka napomene — vaganje, slike forme. Ne smije se propustiti. */}
           {d.napomene.length > 0 && (
             <div
-              className="flex flex-col gap-2 rounded-xl border p-3"
+              className="flex flex-col gap-2 el rounded-xl border p-3"
               style={{
                 background: "var(--flag-soft)",
                 borderColor: "var(--flag)",
@@ -74,7 +74,7 @@ export default async function DanPage({
           {d.trening && (
             <Link
               href={`/dan/${d.n}/trening`}
-              className="flex items-center gap-3 rounded-2xl p-4"
+              className="el flex items-center gap-3 rounded-xl p-4"
               style={{ background: "var(--train)", color: "#fff" }}
             >
               <span

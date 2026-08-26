@@ -23,7 +23,7 @@ export default function FritezaPage() {
 
       {/* Sigurnosne temperature u sredini komada. */}
       <div
-        className="mb-4 rounded-xl border p-3"
+        className="mb-4 el rounded-xl border p-3"
         style={{ background: "var(--panel)", borderColor: "var(--heat)" }}
       >
         <h2
@@ -85,7 +85,7 @@ function FryerCard({ row }: { row: FryerRow }) {
   const nePece = row.temp === 0;
   return (
     <div
-      className="rounded-xl border p-3"
+      className="el rounded-xl border p-3"
       style={{ background: "var(--panel)", borderColor: "var(--line)" }}
     >
       <div className="flex items-start justify-between gap-3">

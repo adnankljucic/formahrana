@@ -59,7 +59,7 @@ export default function WaterTracker({ dayN }: { dayN: number }) {
 
   return (
     <div
-      className="el rounded-2xl border p-4"
+      className="el rounded-xl border p-4"
       style={{ background: "var(--panel)", borderColor: "var(--line)" }}
     >
       <div className="mb-2 flex items-baseline justify-between">

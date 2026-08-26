@@ -44,7 +44,7 @@ export default function TreningChecklist({
     <div className="flex flex-col gap-3">
       {/* Napredak treninga */}
       <div
-        className="rounded-2xl border p-4"
+        className="el rounded-xl border p-4"
         style={{ background: "var(--panel)", borderColor: "var(--line)" }}
       >
         <div className="mb-2 flex items-baseline justify-between">
@@ -82,7 +82,7 @@ export default function TreningChecklist({
               type="button"
               onClick={() => toggle(i)}
               aria-pressed={checked}
-              className="flex items-start gap-3 rounded-2xl border p-4 text-left"
+              className="flex items-start gap-3 el rounded-xl border p-4 text-left"
               style={{
                 background: checked ? "var(--train-soft)" : "var(--panel)",
                 borderColor: checked ? "var(--train)" : "var(--line)",

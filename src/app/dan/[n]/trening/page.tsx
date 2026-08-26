@@ -67,7 +67,7 @@ export default async function TreningPage({
         {trening ? (
           <div className="flex flex-col gap-3">
             <div
-              className="overflow-hidden rounded-2xl"
+              className="overflow-hidden rounded-xl"
               style={{ background: "var(--train)" }}
             >
               <div className="p-4" style={{ color: "#fff" }}>
@@ -101,7 +101,7 @@ export default async function TreningPage({
 function EmptyTrening() {
   return (
     <div
-      className="flex flex-col items-center gap-3 rounded-2xl border p-8 text-center"
+      className="flex flex-col items-center gap-3 el rounded-xl border p-8 text-center"
       style={{ background: "var(--panel)", borderColor: "var(--line)" }}
     >
       <span
