@@ -376,32 +376,52 @@ export default function Dashboard() {
             </div>
             {trening.vjezbe.map((v, i) => {
               const on = ready && exercises[i];
+              const youtubeUrl = (v as any).youtube;
               return (
-                <button
+                <div
                   key={i}
-                  type="button"
-                  onClick={() => toggleExercise(i)}
-                  className="flex w-full items-center gap-3 border-t px-4 py-3 text-left"
+                  className="flex w-full items-center gap-3 border-t px-4 py-3"
                   style={{ borderColor: "var(--line)", minHeight: 48 }}
                 >
-                  <RowCheckbox on={!!on} />
-                  <span
-                    className="min-w-0 flex-1 text-sm"
-                    style={{
-                      letterSpacing: "0.16px",
-                      color: on ? "var(--ink-3)" : "var(--ink)",
-                      textDecoration: on ? "line-through" : "none",
-                    }}
+                  <button
+                    type="button"
+                    onClick={() => toggleExercise(i)}
+                    className="flex flex-1 items-center gap-3 text-left"
                   >
-                    {v.naziv}
-                  </span>
+                    <RowCheckbox on={!!on} />
+                    <span
+                      className="min-w-0 flex-1 text-sm"
+                      style={{
+                        letterSpacing: "0.16px",
+                        color: on ? "var(--ink-3)" : "var(--ink)",
+                        textDecoration: on ? "line-through" : "none",
+                      }}
+                    >
+                      {v.naziv}
+                    </span>
+                  </button>
                   <span
                     className="tabnum shrink-0 text-sm"
                     style={{ fontFamily: "var(--font-mono)", color: "var(--ink-2)" }}
                   >
                     {v.serije ? `${v.serije}×${v.ponavljanja ?? ""}` : v.ponavljanja ?? ""}
                   </span>
-                </button>
+                  {youtubeUrl && (
+                    <a
+                      href={youtubeUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex h-6 w-6 shrink-0 items-center justify-center rounded"
+                      style={{ background: "#FF0000", color: "#ffffff" }}
+                      aria-label="Pogledaj na YouTube-u"
+                      onClick={(e) => e.stopPropagation()}
+                    >
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                      </svg>
+                    </a>
+                  )}
+                </div>
               );
             })}
             <div
