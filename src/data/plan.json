@@ -623,9 +623,7 @@
     "friteza": []
    }
   ],
-  "napomene": [
-   "VAGANJE — ujutru, natašte, poslije WC-a, prije vode i hrane. Javi kg treneru."
-  ]
+  "napomene": []
  },
  {
   "n": 9,
@@ -709,7 +707,9 @@
     "friteza": []
    }
   ],
-  "napomene": []
+  "napomene": [
+   "VAGANJE — ujutru, natašte, poslije WC-a, prije vode i hrane. Javi kg treneru."
+  ]
  },
  {
   "n": 10,
@@ -1170,7 +1170,6 @@
    }
   ],
   "napomene": [
-   "VAGANJE — ujutru, natašte, poslije WC-a, prije vode i hrane. Javi kg treneru.",
    "SLIKE FORME — ujutru natašte, isto svjetlo i isti ugao (sprijeda, bočno, straga). Pošalji treneru."
   ]
  },
@@ -1256,7 +1255,9 @@
     "friteza": []
    }
   ],
-  "napomene": []
+  "napomene": [
+   "VAGANJE — ujutru, natašte, poslije WC-a, prije vode i hrane. Javi kg treneru."
+  ]
  },
  {
   "n": 17,
@@ -1712,9 +1713,7 @@
     "friteza": []
    }
   ],
-  "napomene": [
-   "VAGANJE — ujutru, natašte, poslije WC-a, prije vode i hrane. Javi kg treneru."
-  ]
+  "napomene": []
  },
  {
   "n": 23,
@@ -1802,7 +1801,9 @@
     "friteza": []
    }
   ],
-  "napomene": []
+  "napomene": [
+   "VAGANJE — ujutru, natašte, poslije WC-a, prije vode i hrane. Javi kg treneru."
+  ]
  },
  {
   "n": 24,
@@ -2263,7 +2264,6 @@
    }
   ],
   "napomene": [
-   "VAGANJE — ujutru, natašte, poslije WC-a, prije vode i hrane. Javi kg treneru.",
    "SLIKE FORME — ujutru natašte, isto svjetlo i isti ugao (sprijeda, bočno, straga). Pošalji treneru."
   ]
  },
@@ -2349,6 +2349,8 @@
     "friteza": []
    }
   ],
-  "napomene": []
+  "napomene": [
+   "VAGANJE — ujutru, natašte, poslije WC-a, prije vode i hrane. Javi kg treneru."
+  ]
  }
 ]

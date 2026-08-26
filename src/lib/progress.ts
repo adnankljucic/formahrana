@@ -10,10 +10,10 @@ export interface Termin {
 
 export const VAGANJA: Termin[] = [
   { datum: "27.08.2026.", kratko: "27.08.", iso: "2026-08-27" },
-  { datum: "03.09.2026.", kratko: "03.09.", iso: "2026-09-03" },
-  { datum: "10.09.2026.", kratko: "10.09.", iso: "2026-09-10" },
-  { datum: "17.09.2026.", kratko: "17.09.", iso: "2026-09-17" },
-  { datum: "24.09.2026.", kratko: "24.09.", iso: "2026-09-24" },
+  { datum: "04.09.2026.", kratko: "04.09.", iso: "2026-09-04" },
+  { datum: "11.09.2026.", kratko: "11.09.", iso: "2026-09-11" },
+  { datum: "18.09.2026.", kratko: "18.09.", iso: "2026-09-18" },
+  { datum: "25.09.2026.", kratko: "25.09.", iso: "2026-09-25" },
 ];
 
 export const SLIKE: Termin[] = [

@@ -17,7 +17,8 @@ export default function FritezaPage() {
         Friteza — postavke
       </h1>
       <p className="mb-3 text-sm" style={{ color: "var(--ink-3)" }}>
-        nutribullet NBA081B · dvije košare po 4 L · vremena su polazna tačka.
+        Tesla AF900BSD · 2400 W · dvije nezavisne košare 4,5 L + 4,5 L · 40–200 °C
+        · Smart SYNC. Vremena su polazna tačka.
       </p>
 
       {/* Sigurnosne temperature u sredini komada. */}

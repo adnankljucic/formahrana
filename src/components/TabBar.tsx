@@ -2,8 +2,6 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
-import { dayNumberFor } from "@/lib/dates";
 
 type Item = {
   key: string;
@@ -15,11 +13,6 @@ type Item = {
 
 export default function TabBar() {
   const pathname = usePathname();
-  const [todayN, setTodayN] = useState(1);
-
-  useEffect(() => {
-    setTodayN(dayNumberFor());
-  }, []);
 
   const items: Item[] = [
     {
@@ -33,18 +26,6 @@ export default function TabBar() {
           <rect x="14" y="3" width="7" height="5" rx="1.5" />
           <rect x="14" y="12" width="7" height="9" rx="1.5" />
           <rect x="3" y="16" width="7" height="5" rx="1.5" />
-        </svg>
-      ),
-    },
-    {
-      key: "danas",
-      label: "Danas",
-      href: `/dan/${todayN}`,
-      match: (p) => p.startsWith("/dan/"),
-      icon: (a) => (
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke={a ? "var(--train)" : "var(--ink-3)"} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-          <path d="M3 10.5L12 3l9 7.5" />
-          <path d="M5 9.5V20h14V9.5" />
         </svg>
       ),
     },
