@@ -376,7 +376,7 @@ export default function Dashboard() {
             </div>
             {trening.vjezbe.map((v, i) => {
               const on = ready && exercises[i];
-              const youtubeUrl = (v as any).youtube;
+              const youtubeUrl = v.youtube;
               return (
                 <div
                   key={i}
