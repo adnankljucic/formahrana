@@ -15,7 +15,6 @@ import {
 import {
   readWeights,
   readTarget,
-  nextTermin,
   daysUntil,
   VAGANJA,
   SLIKE,
@@ -39,6 +38,7 @@ export default function Dashboard() {
   const [target, setTarget] = useState(80);
   const [mealsDone, setMealsDone] = useState(0);
   const [water, setWater] = useState(0);
+  const [photosDone, setPhotosDone] = useState<Record<string, boolean>>({});
   const [flags, setFlags] = useState({
     vaganje: false,
     slike: false,
@@ -73,6 +73,7 @@ export default function Dashboard() {
       setMealsDone(done);
     }
     setWater(readJSON<number>(K.water(n), 0));
+    setPhotosDone(readJSON<Record<string, boolean>>(K.photos(), {}));
     setReady(true);
   }, []);
 
@@ -89,8 +90,12 @@ export default function Dashboard() {
     writeJSON(K.target(), t);
   }
 
-  const nextVaga = nextTermin(VAGANJA);
-  const nextSlikaT = nextTermin(SLIKE);
+  // Sljedeći termin = prvi nadolazeći koji JOŠ NIJE unesen/odrađen.
+  const enteredVaga = new Set(weights.history.map((h) => h.termin.iso));
+  const nextVaga =
+    VAGANJA.find((t) => daysUntil(t.iso) >= 0 && !enteredVaga.has(t.iso)) ?? null;
+  const nextSlikaT =
+    SLIKE.find((t) => daysUntil(t.iso) >= 0 && !photosDone[t.datum]) ?? null;
 
   return (
     <main
