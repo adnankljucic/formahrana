@@ -218,8 +218,8 @@ export default function Dashboard() {
 
       <main className="mx-auto flex max-w-md flex-col" style={{ gap: 1, background: "#f5f5f5" }}>
         {/* Hero dan */}
-        <div style={{ background: "var(--panel)", padding: 16 }}>
-          <div className="text-xs" style={{ color: "var(--ink-2)", letterSpacing: "0.32px" }}>
+        <div style={{ background: "#0066cc", padding: 16, color: "#ffffff" }}>
+          <div className="text-xs" style={{ color: "#b3d9ff", letterSpacing: "0.32px" }}>
             Mjesec 1 · 27.08 – 25.09.2026.
           </div>
           <div className="mt-3 flex items-end justify-between gap-4">
@@ -231,14 +231,14 @@ export default function Dashboard() {
                   fontWeight: 300,
                   fontSize: 42,
                   letterSpacing: "-0.64px",
-                  color: "var(--ink)",
+                  color: "#ffffff",
                 }}
               >
                 {ready ? String(todayN).padStart(2, "0") : "—"}
               </span>
               <span
                 className="text-sm"
-                style={{ fontFamily: "var(--font-mono)", color: "var(--ink-3)" }}
+                style={{ fontFamily: "var(--font-mono)", color: "#b3d9ff" }}
               >
                 / {PLAN_DAYS} dana
               </span>
@@ -248,23 +248,24 @@ export default function Dashboard() {
                 className="inline-flex h-6 items-center px-3 text-xs"
                 style={{
                   letterSpacing: "0.32px",
-                  background: day.trening ? "var(--train-badge)" : "var(--rest-soft)",
-                  color: day.trening ? "var(--train-badge-ink)" : "var(--rest)",
+                  background: "#ffffff",
+                  color: "#0066cc",
+                  fontWeight: 600,
                 }}
               >
                 {day.trening ? "Trening" : "Odmor"}
               </span>
             )}
           </div>
-          <div className="mt-4 h-1" style={{ background: "var(--line)" }}>
+          <div className="mt-4 h-1" style={{ background: "#004080" }}>
             <div
               className="h-1"
-              style={{ background: "var(--train)", width: `${ready ? dayPct : 0}%` }}
+              style={{ background: "#ffffff", width: `${ready ? dayPct : 0}%` }}
             />
           </div>
           <div
             className="mt-2 flex justify-between text-xs"
-            style={{ color: "var(--ink-3)" }}
+            style={{ color: "#b3d9ff" }}
           >
             <span>{day ? `${day.dan}, ${day.datum.slice(0, 6)}` : ""}</span>
             <span>{finished ? "Plan završen" : `Ostalo ${daysLeft} dana`}</span>
@@ -273,17 +274,17 @@ export default function Dashboard() {
 
         {/* Težina — 3 kolone */}
         <div className="grid grid-cols-3" style={{ gap: 1 }}>
-          <StatCell label="Trenutno">
+          <StatCell label="Trenutno" blue>
             <span
               className="tabnum"
-              style={{ fontFamily: "var(--font-mono)", fontWeight: 300, fontSize: 24, color: "var(--ink)" }}
+              style={{ fontFamily: "var(--font-mono)", fontWeight: 300, fontSize: 24, color: "#0066cc" }}
             >
               {ready && weights.current != null
                 ? weights.current.toFixed(1).replace(".", ",")
                 : "—"}
             </span>
           </StatCell>
-          <StatCell label="Cilj">
+          <StatCell label="Cilj" blue>
             <input
               inputMode="decimal"
               readOnly={locked}
@@ -292,10 +293,10 @@ export default function Dashboard() {
               onFocus={() => locked && openUnlock()}
               aria-label="Ciljana težina"
               className="tabnum w-full border-0 bg-transparent p-0 outline-none"
-              style={{ fontFamily: "var(--font-mono)", fontWeight: 300, fontSize: 24, color: "var(--ink)" }}
+              style={{ fontFamily: "var(--font-mono)", fontWeight: 300, fontSize: 24, color: "#0066cc" }}
             />
           </StatCell>
-          <StatCell label="Razlika">
+          <StatCell label="Razlika" blue>
             <span
               className="tabnum"
               style={{
@@ -304,10 +305,10 @@ export default function Dashboard() {
                 fontSize: 24,
                 color:
                   weights.current == null
-                    ? "var(--ink)"
+                    ? "#0066cc"
                     : weights.current - target > 0
-                      ? "var(--flag)"
-                      : "var(--good)",
+                      ? "#d63031"
+                      : "#27ae60",
               }}
             >
               {ready && weights.current != null
@@ -556,10 +557,10 @@ export default function Dashboard() {
   );
 }
 
-function StatCell({ label, children }: { label: string; children: React.ReactNode }) {
+function StatCell({ label, children, blue }: { label: string; children: React.ReactNode; blue?: boolean }) {
   return (
-    <div style={{ background: "var(--panel)", padding: "16px 12px" }}>
-      <div className="text-xs" style={{ color: "var(--ink-2)", letterSpacing: "0.32px" }}>
+    <div style={{ background: blue ? "#e8f0f7" : "var(--panel)", padding: "16px 12px" }}>
+      <div className="text-xs" style={{ color: blue ? "#0066cc" : "var(--ink-2)", letterSpacing: "0.32px" }}>
         {label}
       </div>
       <div className="mt-1">{children}</div>
