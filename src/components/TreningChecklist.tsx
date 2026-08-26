@@ -15,11 +15,16 @@ export default function TreningChecklist({
   const [done, setDone] = useState<boolean[]>(() =>
     plan.vjezbe.map(() => false)
   );
+  const [weights, setWeights] = useState<string[]>(() =>
+    plan.vjezbe.map(() => "")
+  );
+  const [editingIndex, setEditingIndex] = useState<number | null>(null);
   const [ready, setReady] = useState(false);
   const { locked, openUnlock } = useSync();
 
   useEffect(() => {
     setDone(plan.vjezbe.map((_, i) => readJSON<boolean>(K.trening(dayN, i), false)));
+    setWeights(plan.vjezbe.map((_, i) => readJSON<string>(K.treningWeight(dayN, i), "")));
     setReady(true);
   }, [dayN, plan.vjezbe]);
 
@@ -34,6 +39,24 @@ export default function TreningChecklist({
       writeJSON(K.trening(dayN, i), next[i]);
       return next;
     });
+  }
+
+  function handleWeightChange(i: number, value: string) {
+    setWeights((prev) => {
+      const next = [...prev];
+      next[i] = value;
+      return next;
+    });
+    setEditingIndex(i);
+  }
+
+  function saveWeight(i: number) {
+    if (locked) {
+      openUnlock();
+      return;
+    }
+    writeJSON(K.treningWeight(dayN, i), weights[i]);
+    setEditingIndex(null);
   }
 
   const doneCount = ready ? done.filter(Boolean).length : 0;
@@ -122,6 +145,33 @@ export default function TreningChecklist({
                     {v.napomena}
                   </div>
                 )}
+                <div className="mt-2 flex items-center gap-2">
+                  <input
+                    type="number"
+                    inputMode="decimal"
+                    placeholder="kg"
+                    value={weights[i]}
+                    onChange={(e) => handleWeightChange(i, e.target.value)}
+                    onFocus={() => setEditingIndex(i)}
+                    readOnly={locked}
+                    className="h-8 w-20 rounded border px-2 text-sm outline-none"
+                    style={{
+                      borderColor: editingIndex === i ? "#0066cc" : "var(--line)",
+                      background: editingIndex === i ? "#e8f0f7" : "var(--panel-2)",
+                      color: editingIndex === i ? "#0066cc" : "var(--ink)",
+                    }}
+                  />
+                  {editingIndex === i && weights[i] && (
+                    <button
+                      type="button"
+                      onClick={() => saveWeight(i)}
+                      className="h-8 px-2.5 text-xs font-medium rounded"
+                      style={{ background: "#FF0000", color: "#fff" }}
+                    >
+                      Save
+                    </button>
+                  )}
+                </div>
               </div>
             </button>
 
