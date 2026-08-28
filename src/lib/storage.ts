@@ -43,6 +43,8 @@ export function writeString(key: string, value: string): void {
 export const K = {
   meal: (dayN: number, mealIdx: number) => `pi:meal:${dayN}:${mealIdx}`,
   trening: (dayN: number, exIdx: number) => `pi:trening:${dayN}:${exIdx}`,
+  treningWeight: (dayN: number, exIdx: number) => `pi:trening:weight:${dayN}:${exIdx}`,
+  treningWeightByName: (exerciseName: string) => `pi:trening:weight:ex:${exerciseName}`,
   water: (dayN: number) => `pi:water:${dayN}`,
   weight: () => `pi:weight`,
   target: () => `pi:target`,
