@@ -24,6 +24,7 @@ export interface Vjezba {
   serije?: string; // npr. "4"
   ponavljanja?: string; // npr. "8–12" ili "30 sek"
   napomena?: string;
+  youtube?: string; // YouTube URL za vježbu
 }
 
 export interface TreningPlan {
